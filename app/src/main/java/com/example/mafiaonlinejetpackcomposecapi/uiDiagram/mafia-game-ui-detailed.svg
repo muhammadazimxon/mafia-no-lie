@@ -1,0 +1,112 @@
+<svg viewBox="0 0 900 1200" xmlns="http://www.w3.org/2000/svg">
+
+  <rect x="50" y="50" width="350" height="250" fill="white" stroke="black" stroke-width="2" rx="5" ry="5" />
+  <text x="225" y="90" font-family="Arial" font-size="24" text-anchor="middle" font-weight="bold">РЕГИСТРАЦИЯ</text>
+  
+  <rect x="100" y="120" width="250" height="30" fill="white" stroke="black" stroke-width="1" rx="3" ry="3" />
+  <text x="110" y="115" font-family="Arial" font-size="14" text-anchor="start">Логин:</text>
+  
+  <rect x="100" y="170" width="250" height="30" fill="white" stroke="black" stroke-width="1" rx="3" ry="3" />
+  <text x="110" y="165" font-family="Arial" font-size="14" text-anchor="start">Пароль:</text>
+  
+  <rect x="100" y="220" width="100" height="40" fill="#e6e6e6" stroke="black" stroke-width="1" rx="5" ry="5" />
+  <text x="150" y="245" font-family="Arial" font-size="16" text-anchor="middle">Вход</text>
+  
+  <rect x="250" y="220" width="100" height="40" fill="#e6e6e6" stroke="black" stroke-width="1" rx="5" ry="5" />
+  <text x="300" y="245" font-family="Arial" font-size="16" text-anchor="middle">Регистрация</text>
+  
+  <rect x="500" y="50" width="350" height="250" fill="white" stroke="black" stroke-width="2" rx="5" ry="5" />
+  <text x="675" y="90" font-family="Arial" font-size="24" text-anchor="middle" font-weight="bold">ГЛАВНОЕ МЕНЮ</text>
+  
+  <rect x="550" y="120" width="250" height="40" fill="#e6e6e6" stroke="black" stroke-width="1" rx="5" ry="5" />
+  <text x="675" y="145" font-family="Arial" font-size="16" text-anchor="middle">Присоединиться к игре</text>
+  
+  <rect x="550" y="170" width="250" height="40" fill="#e6e6e6" stroke="black" stroke-width="1" rx="5" ry="5" />
+  <text x="675" y="195" font-family="Arial" font-size="16" text-anchor="middle">Создать игру</text>
+  
+  <rect x="550" y="220" width="250" height="40" fill="#e6e6e6" stroke="black" stroke-width="1" rx="5" ry="5" />
+  <text x="675" y="245" font-family="Arial" font-size="16" text-anchor="middle">Настройки</text>
+  
+  <rect x="550" y="270" width="250" height="40" fill="#e6e6e6" stroke="black" stroke-width="1" rx="5" ry="5" />
+  <text x="675" y="295" font-family="Arial" font-size="16" text-anchor="middle">Магазин</text>
+
+  <rect x="50" y="350" width="350" height="300" fill="white" stroke="black" stroke-width="2" rx="5" ry="5" />
+  <text x="225" y="390" font-family="Arial" font-size="24" text-anchor="middle" font-weight="bold">СОЗДАНИЕ ИГРЫ</text>
+  
+  <text x="70" y="430" font-family="Arial" font-size="16" text-anchor="start">Название комнаты:</text>
+  <rect x="70" y="440" width="310" height="30" fill="white" stroke="black" stroke-width="1" rx="3" ry="3" />
+  
+  <text x="70" y="490" font-family="Arial" font-size="16" text-anchor="start">Количество игроков:</text>
+  <rect x="70" y="500" width="150" height="30" fill="white" stroke="black" stroke-width="1" rx="3" ry="3" />
+  <text x="140" y="520" font-family="Arial" font-size="14" text-anchor="middle">4-15</text>
+  
+  <text x="70" y="550" font-family="Arial" font-size="16" text-anchor="start">Разрешенные роли:</text>
+  <rect x="70" y="560" width="310" height="30" fill="white" stroke="black" stroke-width="1" rx="3" ry="3" />
+  
+  <text x="70" y="610" font-family="Arial" font-size="16" text-anchor="start">Пароль:</text>
+  <rect x="70" y="620" width="200" height="30" fill="white" stroke="black" stroke-width="1" rx="3" ry="3" />
+  
+  <rect x="300" y="620" width="20" height="20" fill="white" stroke="black" stroke-width="1" />
+  <path d="M302 630 L308 636 L318 626" stroke="black" stroke-width="2" />
+  <text x="325" y="635" font-family="Arial" font-size="14" text-anchor="start">Приватная</text>
+  
+  <rect x="170" y="670" width="110" height="40" fill="#e6e6e6" stroke="black" stroke-width="1" rx="5" ry="5" />
+  <text x="225" y="695" font-family="Arial" font-size="16" text-anchor="middle">Создать</text>
+  
+  <rect x="500" y="350" width="350" height="300" fill="white" stroke="black" stroke-width="2" rx="5" ry="5" />
+  <text x="675" y="390" font-family="Arial" font-size="24" text-anchor="middle" font-weight="bold">ВЫБОР ИГРЫ</text>
+  
+  <rect x="520" y="420" width="310" height="40" fill="#f0f0f0" stroke="black" stroke-width="1" />
+  <text x="530" y="445" font-family="Arial" font-size="14" text-anchor="start">Комната 1 | 5/10 | Классика</text>
+  
+  <rect x="520" y="460" width="310" height="40" fill="white" stroke="black" stroke-width="1" />
+  <text x="530" y="485" font-family="Arial" font-size="14" text-anchor="start">Комната 2 | 8/12 | Все роли</text>
+  
+  <rect x="520" y="500" width="310" height="40" fill="#f0f0f0" stroke="black" stroke-width="1" />
+  <text x="530" y="525" font-family="Arial" font-size="14" text-anchor="start">Комната 3 | 3/8 | Без шерифа</text>
+  
+  <rect x="520" y="540" width="310" height="40" fill="white" stroke="black" stroke-width="1" />
+  <text x="530" y="565" font-family="Arial" font-size="14" text-anchor="start">Комната 4 | 6/10 | Классика</text>
+  
+  <rect x="530" y="600" width="130" height="40" fill="#e6e6e6" stroke="black" stroke-width="1" rx="5" ry="5" />
+  <text x="595" y="625" font-family="Arial" font-size="16" text-anchor="middle">Обновить</text>
+  
+  <rect x="680" y="600" width="130" height="40" fill="#e6e6e6" stroke="black" stroke-width="1" rx="5" ry="5" />
+  <text x="745" y="625" font-family="Arial" font-size="16" text-anchor="middle">Присоединиться</text>
+  
+  <rect x="520" y="650" width="310" height="40" fill="#e6e6e6" stroke="black" stroke-width="1" rx="5" ry="5" />
+  <text x="675" y="675" font-family="Arial" font-size="16" text-anchor="middle">Быстрое подключение</text>
+  
+  <rect x="50" y="700" width="800" height="450" fill="white" stroke="black" stroke-width="2" rx="5" ry="5" />
+  <text x="450" y="740" font-family="Arial" font-size="24" text-anchor="middle" font-weight="bold">ИГРОВОЙ ЧАТ</text>
+  
+  <rect x="70" y="770" width="500" height="300" fill="#f9f9f9" stroke="black" stroke-width="1" rx="3" ry="3" />
+  <text x="80" y="790" font-family="Arial" font-size="14" text-anchor="start" fill="#555555">Игрок 1: Всем привет!</text>
+  <text x="80" y="820" font-family="Arial" font-size="14" text-anchor="start" fill="#555555">Игрок 2: Кто мафия?</text>
+  <text x="80" y="850" font-family="Arial" font-size="14" text-anchor="start" fill="#555555">Игрок 3: Я мирный житель</text>
+  
+  <rect x="70" y="1080" width="400" height="40" fill="white" stroke="black" stroke-width="1" rx="3" ry="3" />
+  <rect x="480" y="1080" width="90" height="40" fill="#e6e6e6" stroke="black" stroke-width="1" rx="3" ry="3" />
+  <text x="525" y="1105" font-family="Arial" font-size="16" text-anchor="middle">Отправить</text>
+  
+  <rect x="600" y="770" width="220" height="300" fill="#f9f9f9" stroke="black" stroke-width="1" rx="3" ry="3" />
+  <text x="610" y="800" font-family="Arial" font-size="18" text-anchor="start" font-weight="bold">Игроки:</text>
+  
+  <rect x="610" y="820" width="200" height="30" fill="#e6e6e6" stroke="black" stroke-width="1" />
+  <text x="620" y="840" font-family="Arial" font-size="14" text-anchor="start">Игрок 1 (Ведущий)</text>
+  
+  <rect x="610" y="850" width="200" height="30" fill="white" stroke="black" stroke-width="1" />
+  <text x="620" y="870" font-family="Arial" font-size="14" text-anchor="start">Игрок 2</text>
+  
+  <rect x="610" y="880" width="200" height="30" fill="#e6e6e6" stroke="black" stroke-width="1" />
+  <text x="620" y="900" font-family="Arial" font-size="14" text-anchor="start">Игрок 3</text>
+  
+  <rect x="610" y="910" width="200" height="30" fill="white" stroke="black" stroke-width="1" />
+  <text x="620" y="930" font-family="Arial" font-size="14" text-anchor="start">Игрок 4</text>
+  
+  <rect x="610" y="940" width="200" height="30" fill="#e6e6e6" stroke="black" stroke-width="1" />
+  <text x="620" y="960" font-family="Arial" font-size="14" text-anchor="start">Игрок 5</text>
+  
+  <rect x="600" y="1080" width="220" height="40" fill="#e6e6e6" stroke="black" stroke-width="1" rx="5" ry="5" />
+  <text x="710" y="1105" font-family="Arial" font-size="16" text-anchor="middle">Покинуть игру</text>
+</svg>
