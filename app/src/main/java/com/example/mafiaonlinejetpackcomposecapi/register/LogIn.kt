@@ -291,13 +291,6 @@ fun LogIn(
     }
 }
 
-@Composable
-fun comoosn(){
-
-
-
-}
-
 @Preview
 @Composable
 fun LogInPreview() {
