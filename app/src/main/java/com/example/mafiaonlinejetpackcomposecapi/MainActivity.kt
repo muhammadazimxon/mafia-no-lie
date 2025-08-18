@@ -55,19 +55,19 @@ import com.example.mafiaonlinejetpackcomposecapi.waitingSection.signalRServiceHu
 import com.example.mafiaonlinejetpackcomposecapi.waitingSection.waitingRoomModels.WaitingRoomParam
 import com.example.mafiaonlinejetpackcomposecapi.waitingSection.waitingRoomViewModel.WaitingRoomViewModel
 
-//const val PORT_1 = "5020"
-//const val PORT_2 = "5000"
-//const val PORT_3 = "5100"
+const val PORT_1 = "5020"
+const val PORT_2 = "5000"
+const val PORT_3 = "5100"
 
 //const val LOCAL_HOST = "10.0.2.2"
-//const val HOST_1 = "192.168.1.10"
-//const val HOST_3 = "192.168.33.241"
-//const val HOST_4 = "192.168.46.241"
-//const val HOST_5 = "192.168.38.157"
-//const val HOST_6 = "192.168.1.11"
-//const val HOST_7 = "192.168.29.12"
-//const val HOST_8 = "192.168.223.241"
-//const val HOST_9 = "192.168.89.12"
+const val HOST_1 = "192.168.1.3"
+const val HOST_3 = "192.168.33.241"
+const val HOST_4 = "192.168.46.241"
+const val HOST_5 = "192.168.38.157"
+const val HOST_6 = "192.168.1.11"
+const val HOST_7 = "192.168.29.12"
+const val HOST_8 = "192.168.223.241"
+const val HOST_9 = "192.168.89.12"
 
 val tokenPreferences = TokenPreferences()
 val tokenManager = TokenManager(tokenPreferences)
