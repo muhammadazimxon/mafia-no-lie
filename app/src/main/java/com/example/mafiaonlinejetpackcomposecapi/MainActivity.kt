@@ -59,7 +59,7 @@ const val PORT_1 = "5020"
 const val PORT_2 = "5000"
 const val PORT_3 = "5100"
 
-const val LOCAL_HOST = "10.0.2.2"
+//const val LOCAL_HOST = "10.0.2.2"
 const val HOST_1 = "192.168.1.3"
 const val HOST_3 = "192.168.33.241"
 const val HOST_4 = "192.168.46.241"
