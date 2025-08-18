@@ -71,7 +71,7 @@ sealed class Role(
         image = R.drawable.mafia
     )
     companion object {
-        fun fromName(name: String): Role? = when (name.uppercase()) {
+        fun fromName(name: String): Role = when (name.uppercase()) {
             "SHERIF" -> Sherif
             "DETECTIVE" -> Detective
             "DOCTOR" -> Doctor
@@ -84,12 +84,7 @@ sealed class Role(
             "DON" -> Don
             "BOMBER" -> Bomber
             "MAFIA" -> Mafia
-            else -> null
+            else -> Civilian
         }
     }
 }
-
-data class RoleData(
-    val role: Role,
-    var isChosen: Boolean = false,
-)

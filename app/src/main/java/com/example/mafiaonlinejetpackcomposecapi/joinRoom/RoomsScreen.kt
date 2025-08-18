@@ -1,0 +1,249 @@
+package com.example.mafiaonlinejetpackcomposecapi.joinRoom
+
+import androidx.activity.compose.BackHandler
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.offset
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.itemsIndexed
+import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.HorizontalDivider
+import androidx.compose.material3.Icon
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.blur
+import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.mafiaonlinejetpackcomposecapi.R
+import com.example.mafiaonlinejetpackcomposecapi.joinRoom.components.ActionButton
+import com.example.mafiaonlinejetpackcomposecapi.joinRoom.components.EnhancedPasswordDialog
+import com.example.mafiaonlinejetpackcomposecapi.joinRoom.components.EnhancedRoomItem
+import com.example.mafiaonlinejetpackcomposecapi.joinRoom.models.RoomEvent
+import com.example.mafiaonlinejetpackcomposecapi.joinRoom.models.RoomsScreenViewModel
+
+@Composable
+fun RoomScreen(
+    onJoin: () -> Unit,
+    onBack: () -> Unit,
+    roomsScreenViewModel: RoomsScreenViewModel
+) {
+    val roomState by roomsScreenViewModel.state.collectAsState()
+
+    val darkBackground = Color(0xFF1E1E2E)
+    val cardBackground = Color(0xFF282838)
+    val accentColor = Color(0xFF7B68EE)
+
+    LaunchedEffect(Unit) {
+        roomsScreenViewModel.onEventHandler(RoomEvent.OnUpdate)
+    }
+
+    BackHandler {
+        roomsScreenViewModel.resetRooms()
+        onBack()
+    }
+
+    Scaffold(
+        containerColor = darkBackground
+    ) { paddingValues ->
+        Box(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(paddingValues)
+        ) {
+            Box(
+                modifier = Modifier.fillMaxSize()
+            ) {
+                Box(
+                    modifier = Modifier
+                        .size(250.dp)
+                        .align(Alignment.TopEnd)
+                        .offset(x = 80.dp, y = (-80).dp)
+                        .background(
+                            brush = Brush.radialGradient(
+                                colors = listOf(accentColor.copy(alpha = 0.3f), Color.Transparent),
+                                radius = 250f
+                            ),
+                            shape = CircleShape
+                        )
+                        .blur(40.dp)
+                )
+                Box(
+                    modifier = Modifier
+                        .size(300.dp)
+                        .align(Alignment.BottomStart)
+                        .offset(x = (-100).dp, y = 100.dp)
+                        .background(
+                            brush = Brush.radialGradient(
+                                colors = listOf(accentColor.copy(alpha = 0.2f), Color.Transparent),
+                                radius = 300f
+                            ),
+                            shape = CircleShape
+                        )
+                        .blur(50.dp)
+                )
+            }
+
+            Column(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(16.dp),
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
+                Column(
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                    modifier = Modifier.padding(bottom = 24.dp)
+                ) {
+                    Text("MAFIA ONLINE", color = Color.White, fontSize = 24.sp, fontWeight = FontWeight.Bold)
+                    Text("AVAILABLE ROOMS", color = accentColor, fontSize = 32.sp, fontWeight = FontWeight.Bold)
+                    HorizontalDivider(
+                        modifier = Modifier
+                            .padding(vertical = 16.dp)
+                            .width(100.dp),
+                        thickness = 2.dp,
+                        color = accentColor.copy(alpha = 0.5f)
+                    )
+                }
+
+                Card(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .weight(1f),
+                    shape = RoundedCornerShape(24.dp),
+                    colors = CardDefaults.cardColors(containerColor = cardBackground)
+                ) {
+                    Column(
+                        modifier = Modifier
+                            .fillMaxSize()
+                            .padding(16.dp)
+                    ) {
+                        Row(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(bottom = 16.dp),
+                            horizontalArrangement = Arrangement.SpaceBetween
+                        ) {
+                            Text("Room Name", color = Color.White, fontSize = 16.sp, fontWeight = FontWeight.Bold, modifier = Modifier.weight(1f))
+                            Text("Players", color = Color.White, fontSize = 16.sp, fontWeight = FontWeight.Bold, modifier = Modifier.weight(0.5f), textAlign = TextAlign.Center)
+                            Spacer(modifier = Modifier.width(80.dp))
+                        }
+                        HorizontalDivider(modifier = Modifier.padding(bottom = 8.dp), color = Color.White.copy(alpha = 0.2f))
+
+                        when {
+                            roomState.isLoading -> {
+                                Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+                                    CircularProgressIndicator(color = accentColor)
+                                }
+                            }
+                            roomState.roomsList.isEmpty() -> {
+                                Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+                                    Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                                        Icon(
+                                            painter = painterResource(id = R.drawable.detective),
+                                            contentDescription = "No rooms",
+                                            tint = Color.White.copy(alpha = 0.6f),
+                                            modifier = Modifier.size(80.dp)
+                                        )
+                                        Spacer(modifier = Modifier.height(16.dp))
+                                        Text("No rooms available", color = Color.White.copy(alpha = 0.6f), fontSize = 18.sp)
+                                        Text("Click Update to refresh", color = Color.White.copy(alpha = 0.4f), fontSize = 14.sp)
+                                    }
+                                }
+                            }
+                            else -> {
+                                LazyColumn(
+                                    modifier = Modifier.weight(1f),
+                                    verticalArrangement = Arrangement.spacedBy(12.dp)
+                                ) {
+                                    itemsIndexed(roomState.roomsList) { _, element ->
+                                        EnhancedRoomItem(
+                                            data = element,
+                                            onJoin = { roomsScreenViewModel.onEventHandler(RoomEvent.OnJoin(it, onJoin)) },
+                                            onPasswordDialogOpen = { roomsScreenViewModel.onEventHandler(RoomEvent.OnPasswordDialogOpen(element.password, element.roomId)) }
+                                        )
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                Card(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(top = 16.dp),
+                    shape = RoundedCornerShape(24.dp),
+                    colors = CardDefaults.cardColors(containerColor = cardBackground)
+                ) {
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(16.dp),
+                        horizontalArrangement = Arrangement.SpaceEvenly
+                    ) {
+                        ActionButton("Update", R.drawable.baseline_system_update_alt_24, accentColor) { roomsScreenViewModel.onEventHandler(RoomEvent.OnUpdate) }
+                        ActionButton("Random", R.drawable.baseline_transform_24, accentColor) { roomsScreenViewModel.onEventHandler(RoomEvent.OnRandom(onJoin)) }
+                    }
+                }
+
+                roomState.errorMessage?.let {
+                    Text(
+                        text = it,
+                        color = Color.Red,
+                        fontSize = 14.sp,
+                        modifier = Modifier.padding(top = 8.dp)
+                    )
+                }
+            }
+
+            if (roomState.isPasswordDialogOn) {
+                EnhancedPasswordDialog(
+                    value = roomState.password,
+                    onValueChange = {  roomsScreenViewModel.onEventHandler(RoomEvent.UpdatePassword(it)) },
+                    showPassword = roomState.showPassword,
+                    onShowPasswordToggle = { roomsScreenViewModel.onEventHandler(RoomEvent.TogglePasswordVisibility) },
+                    onDismiss = { roomsScreenViewModel.onEventHandler(RoomEvent.Dismiss) },
+                    onJoinWithPassword = { roomsScreenViewModel.onEventHandler(RoomEvent.JoinWithPassword(roomState.dialogsGuid, onJoin))},
+                    passwordError = roomState.passwordError,
+                    accentColor = accentColor
+                )
+            }
+        }
+    }
+}
+
+@Preview
+@Composable
+fun RoomScreenPreview() {
+    RoomScreen(
+        onJoin = {  },
+        {},
+        roomsScreenViewModel = viewModel()
+    )
+}

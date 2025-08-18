@@ -13,13 +13,13 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-
+data class RoomNameParam(
+    val value: String,
+    val onValueChange: (String) -> Unit,
+    val isError: Boolean,
+)
 @Composable
-fun RoomName(
-    value: String,
-    onValueChange: (String) -> Unit,
-    isError: Boolean,
-) {
+fun RoomName(roomNameParam: RoomNameParam) {
     Text(
         text = "Room name:",
         fontSize = 15.sp,
@@ -27,21 +27,27 @@ fun RoomName(
         color = Color.White
     )
     OutlinedTextField(
-        value = value,
+        value = roomNameParam.value,
         placeholder = { Text(text = "Enter name") },
-        onValueChange = onValueChange,
+        onValueChange = roomNameParam.onValueChange,
         modifier = Modifier
             .fillMaxWidth()
             .clip(RoundedCornerShape(8.dp)),
         colors = OutlinedTextFieldDefaults.colors(
             focusedBorderColor = Color(0xFF7B68EE),
+            cursorColor = Color.White,
             focusedTextColor = Color.White,
             focusedPlaceholderColor = Color.White,
             unfocusedPlaceholderColor = Color.White,
-            unfocusedBorderColor = Color(0xFF7B68EE)
-        ), // Colors
+            unfocusedBorderColor = Color(0xFF7B68EE),
+            unfocusedTextColor = Color.White,
+            errorBorderColor = Color.Red,
+            errorCursorColor = Color.White,
+            errorTextColor = Color.White,
+            errorPlaceholderColor = Color.White
+        ),
         shape = RoundedCornerShape(8.dp),
-        isError = isError,
+        isError = roomNameParam.isError,
         singleLine = true,
         maxLines = 1
     )
@@ -51,8 +57,10 @@ fun RoomName(
 @Preview(showBackground = true)
 fun RoomNamePreview() {
     RoomName(
-        value = "",
-        onValueChange = {  },
-        isError = false,
+        RoomNameParam(
+            value = "",
+            onValueChange = {  },
+            isError = false,
+        )
     )
 }

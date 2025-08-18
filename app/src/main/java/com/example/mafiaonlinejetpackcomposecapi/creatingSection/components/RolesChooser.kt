@@ -26,17 +26,11 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.mafiaonlinejetpackcomposecapi.R
+import com.example.mafiaonlinejetpackcomposecapi.creatingSection.models.RolesChooserParam
 import com.example.mafiaonlinejetpackcomposecapi.roles.Role
 
 @Composable
-fun RolesChooser(
-    value: Boolean,
-    imageId: Int,
-    role: Role,
-    position: Int,
-    onCheckedChange: (Boolean) -> Unit,
-    helpButtonClick: (Int) -> Unit
-) {
+fun RolesChooser(rolesChooserParam: RolesChooserParam) {
     Column(
         verticalArrangement = Arrangement.spacedBy(18.dp)
     ) {
@@ -51,10 +45,10 @@ fun RolesChooser(
             ) {
                 Image(
                     modifier = Modifier.size(30.dp),
-                    painter = painterResource(imageId),
+                    painter = painterResource(rolesChooserParam.imageId),
                     contentDescription = "role-image",
-                    colorFilter = when (imageId) {
-                        R.drawable.doctor, R.drawable.journalist, R.drawable.lover ->
+                    colorFilter = when (rolesChooserParam.imageId) {
+                        R.drawable.doctor, R.drawable.journalist, R.drawable.mimic, R.drawable.lover ->
                             ColorFilter.tint(Color.Cyan)
                         R.drawable.informator -> ColorFilter.tint(Color.Red)
                         R.drawable.don -> ColorFilter.tint(Color.Magenta)
@@ -62,7 +56,7 @@ fun RolesChooser(
                     }
                 )
                 IconButton(
-                    onClick = { helpButtonClick(position) },
+                    onClick = { rolesChooserParam.helpButtonClick(rolesChooserParam.position) },
                     modifier = Modifier.size(25.dp)
                 ) {
                     Icon(
@@ -72,23 +66,24 @@ fun RolesChooser(
                     )
                 }
                 Text(
-                    text = "Enable $role role",
+                    text = "Enable ${rolesChooserParam.role} role",
                     fontSize = 16.sp,
                     fontWeight = FontWeight.W500,
                     color = Color.White
                 )
             }
             Checkbox(
-                checked = value,
+                checked = rolesChooserParam.value,
                 modifier = Modifier.size(30.dp),
-                onCheckedChange = onCheckedChange,
+                enabled = rolesChooserParam.onClick(rolesChooserParam),
+                onCheckedChange = { rolesChooserParam.onCheckedChange(it) },
                 colors = CheckboxColors(
                     checkedCheckmarkColor = Color(155, 0, 0, 255),
                     uncheckedCheckmarkColor = Color.Gray,
                     checkedBoxColor = Color(232, 112, 112, 255),
                     uncheckedBoxColor = Color.LightGray,
                     disabledCheckedBoxColor = Color.Gray,
-                    disabledUncheckedBoxColor = Color.LightGray,
+                    disabledUncheckedBoxColor = Color.Gray,
                     disabledIndeterminateBoxColor = Color.Transparent,
                     checkedBorderColor = Color(182, 1, 52, 255),
                     uncheckedBorderColor = Color.DarkGray,
@@ -106,11 +101,14 @@ fun RolesChooser(
 fun RolesChooserPreview() {
     var state by remember { mutableStateOf(false) }
     RolesChooser(
-        value = state,
-        onCheckedChange = { state = it },
-        helpButtonClick = {},
-        position = 0,
-        role = Role.Informator,
-        imageId = R.drawable.don
+        RolesChooserParam(
+            value = state,
+            onCheckedChange = { state = it },
+            helpButtonClick = {},
+            position = 0,
+            role = Role.Informator,
+            imageId = R.drawable.don,
+            onClick = { false }
+        ),
     )
 }

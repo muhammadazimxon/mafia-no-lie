@@ -18,21 +18,21 @@ import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.mafiaonlinejetpackcomposecapi.R
-
+data class PasswordInputParam(
+    val value: String,
+    val showState: Boolean,
+    val onValueChange: (String) -> Unit,
+    val onShowStateChange: (Boolean) -> Unit
+)
 @Composable
-fun PasswordInput(
-    value: String,
-    onValueChange: (String) -> Unit,
-    showState: Boolean,
-    onShowStateChange: (Boolean) -> Unit
-) {
+fun PasswordInput(passwordInputParam: PasswordInputParam) {
     Row(
         verticalAlignment = Alignment.CenterVertically
     ) {
         TextField(
             modifier = Modifier.fillMaxWidth(),
-            value = value,
-            onValueChange = onValueChange,
+            value = passwordInputParam.value,
+            onValueChange = passwordInputParam.onValueChange,
             leadingIcon = {
                 Icon(
                     modifier = Modifier.size(30.dp),
@@ -46,12 +46,12 @@ fun PasswordInput(
                     text = "Password"
                 )
             },
-            visualTransformation = if(showState) VisualTransformation.None else PasswordVisualTransformation(),
+            visualTransformation = if(passwordInputParam.showState) VisualTransformation.None else PasswordVisualTransformation(),
             trailingIcon = {
-                IconButton(onClick = { onShowStateChange(!showState) }) {
+                IconButton(onClick = { passwordInputParam.onShowStateChange(!passwordInputParam.showState) }) {
                     Icon(
                         modifier = Modifier.size(30.dp),
-                        painter = painterResource(if (showState) R.drawable.visibile else R.drawable.visibility_off),
+                        painter = painterResource(if (passwordInputParam.showState) R.drawable.visibile else R.drawable.visibility_off),
                         contentDescription = "visibility",
                         tint = Color.White
                     )
@@ -76,9 +76,11 @@ fun PasswordInput(
 @Composable
 fun PasswordInputPreview() {
     PasswordInput(
-        value = "",
-        onValueChange = { },
-        onShowStateChange = {},
-        showState = false
+        PasswordInputParam(
+            value = "",
+            onValueChange = { },
+            onShowStateChange = {},
+            showState = false
+        )
     )
 }

@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
     kotlin("plugin.serialization") version "2.1.20"
+    id("com.google.devtools.ksp")
 }
 
 android {
@@ -44,6 +45,8 @@ dependencies {
     implementation(libs.jetbrains.kotlinx.coroutines.core) // :contentReference[oaicite:2]{index=2}
     implementation(libs.kotlinx.coroutines.android) // :contentReference[oaicite:3]{index=3}
     implementation(libs.accompanist.flowlayout)
+    implementation("io.reactivex.rxjava3:rxjava:3.1.11")
+    implementation("io.reactivex.rxjava3:rxandroid:3.0.2")
     implementation(libs.signalr)
     implementation(libs.retrofit)
     implementation(libs.converter.gson)
@@ -58,6 +61,13 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+    implementation(libs.firebase.perf.ktx)
+    implementation(libs.androidx.storage)
+    implementation(libs.ui)
+    implementation(libs.androidx.material)
+    implementation(libs.okhttp)
+    implementation(libs.logging.interceptor)
+    implementation(libs.androidx.media3.common.ktx)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

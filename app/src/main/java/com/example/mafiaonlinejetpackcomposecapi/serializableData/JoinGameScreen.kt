@@ -1,0 +1,6 @@
+package com.example.mafiaonlinejetpackcomposecapi.serializableData
+
+import kotlinx.serialization.Serializable
+
+@Serializable
+data object JoinGameScreen

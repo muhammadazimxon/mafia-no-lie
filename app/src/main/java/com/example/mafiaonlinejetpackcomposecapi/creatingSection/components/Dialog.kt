@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
@@ -25,12 +26,15 @@ fun MinimalDialog(
     description: String,
     onDismissRequest: () -> Unit
 ) {
+    val cardBackground = Color(0xFF282838)
+    val accentColor = Color(0xFF7B68EE)
+
     Dialog(onDismissRequest = { onDismissRequest() }) {
         Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .clip(RoundedCornerShape(8.dp))
-                .background(Color(241, 234, 234, 255)),
+                .clip(RoundedCornerShape(24.dp))
+                .background(cardBackground.copy(alpha = 0.95f)),
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
@@ -38,19 +42,27 @@ fun MinimalDialog(
                 text = description,
                 fontSize = 18.sp,
                 fontWeight = FontWeight.W400,
-                modifier = Modifier.padding(16.dp),
+                color = Color.White,
+                modifier = Modifier.padding(24.dp),
             )
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(end = 10.dp),
+                    .padding(end = 16.dp, bottom = 16.dp),
                 horizontalArrangement = Arrangement.End,
             ) {
                 TextButton(
                     onClick = { onDismissRequest() },
                     modifier = Modifier.padding(8.dp),
+                    colors = ButtonDefaults.textButtonColors(
+                        contentColor = accentColor
+                    )
                 ) {
-                    Text("OK")
+                    Text(
+                        text = "OK",
+                        fontSize = 16.sp,
+                        fontWeight = FontWeight.Bold
+                    )
                 }
             }
         }
@@ -61,6 +73,6 @@ fun MinimalDialog(
 @Preview(showBackground = true)
 fun MinimalDialogPreview() {
     MinimalDialog(
-        description = ""
+        description = "This is a sample dialog message"
     ) {  }
 }
