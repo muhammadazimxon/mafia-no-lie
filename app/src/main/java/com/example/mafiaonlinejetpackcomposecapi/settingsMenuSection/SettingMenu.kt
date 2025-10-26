@@ -225,7 +225,7 @@ fun SettingsMenu(onBackClick: () -> Unit) {
             Spacer(modifier = Modifier.height(24.dp))
 
             Text(
-                text = "Store will be available soon",
+                text = "Settings will be available soon",
                 fontSize = 18.sp,
                 color = Color.White.copy(alpha = 0.7f * fadeInAnimation),
                 textAlign = TextAlign.Center

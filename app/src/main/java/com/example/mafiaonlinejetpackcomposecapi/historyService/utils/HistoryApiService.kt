@@ -8,7 +8,6 @@ import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface HistoryApiService {
-
     @GET("/historyData/byPlayer")
     suspend fun getHistoryData(@Query("playerId") playerId: Int) : List<HistoryData>
 
@@ -17,5 +16,4 @@ interface HistoryApiService {
 
     @GET("/playerData")
     suspend fun getPlayerData(@Query("playerId") playerId : Int) : PlayerData
-
 }

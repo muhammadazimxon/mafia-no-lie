@@ -92,13 +92,15 @@ fun EnhancedRoomItem(
             Button(
                 onClick = {
                     scope.launch {
-                        if ( !MafiaApi.retrofitService.checkJoin(data.roomId) ) {
-                            if (data.password.isBlank())
-                                onJoin(data.roomId)
-                            else
-                                onPasswordDialogOpen(data.password)
-                        } else {
-
+                        try {
+                            if (!MafiaApi.retrofitService.checkJoin(data.roomId)) {
+                                if (data.password.isBlank())
+                                    onJoin(data.roomId)
+                                else
+                                    onPasswordDialogOpen(data.password)
+                            }
+                        } catch (e: Exception) {
+                            Log.e("JoinRoom", "EnhancedRoomItem: ${e.message}", )
                         }
                     }
                 },

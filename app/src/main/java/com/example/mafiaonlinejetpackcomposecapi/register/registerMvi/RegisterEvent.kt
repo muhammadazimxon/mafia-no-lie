@@ -16,4 +16,5 @@ sealed class RegisterEvent {
     data class OnConfirmCreateNewCharacter(val onConfirmCreateNewCharacter : () -> Unit) : RegisterEvent()
     data object SendCodeAgain : RegisterEvent()
     data class OnLogIn(val onLogIn : () -> Unit) : RegisterEvent()
+    data object OnSpamWarningDismiss : RegisterEvent()
 }

@@ -6,6 +6,8 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.graphics.Color
+import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.mafiaonlinejetpackcomposecapi.DOMAIN
 import com.example.mafiaonlinejetpackcomposecapi.HOST_1
 import com.example.mafiaonlinejetpackcomposecapi.PORT_2
 import com.example.mafiaonlinejetpackcomposecapi.gameRoom.gameRoomSignalRClient.GameRoomServiceHub
@@ -17,13 +19,16 @@ import com.example.mafiaonlinejetpackcomposecapi.waitingSection.waitingRoomModel
 import com.microsoft.signalr.HubConnection
 import com.microsoft.signalr.HubConnectionBuilder
 import com.microsoft.signalr.HubConnectionState
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.launch
 
 private const val HUB = "waitingRoomHub"
 
-private const val SERVER_URL = "http://$HOST_1:$PORT_2/$HUB"
+private const val SERVER_URL = "$DOMAIN$HUB"
 
 class SignalRServiceHub(private val gameRoomServiceHub: GameRoomServiceHub) {
     private val hubConnection: HubConnection = HubConnectionBuilder
@@ -93,7 +98,7 @@ class SignalRServiceHub(private val gameRoomServiceHub: GameRoomServiceHub) {
         hubConnection.on("ReceiveMessage", { chatModels: Array<ChatModel?> ->
             val updatedChatModels = chatModels.map { ChatMessageData(it?.playerId ?: 0, it?.playerName ?: "Loading...", it?.message ?: "") }
             _messages.value = updatedChatModels
-        }, Array<ChatModel?>::class.java)
+        }, Array<ChatModel>::class.java)
     }
 
     private fun clearMessages() {

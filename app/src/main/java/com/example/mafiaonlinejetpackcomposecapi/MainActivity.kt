@@ -5,15 +5,24 @@ import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.animation.ExperimentalAnimationApi
+import androidx.compose.animation.core.FastOutSlowInEasing
+import androidx.compose.animation.core.Spring
+import androidx.compose.animation.core.spring
+import androidx.compose.animation.core.tween
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
+import androidx.compose.animation.scaleIn
+import androidx.compose.animation.slideInHorizontally
+import androidx.compose.animation.slideInVertically
+import androidx.compose.animation.slideOutHorizontally
+import androidx.compose.animation.slideOutVertically
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.navigation.compose.NavHost
-import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import androidx.navigation.toRoute
 import com.example.mafiaonlinejetpackcomposecapi.achievementsSection.AchievementsScreen
 import com.example.mafiaonlinejetpackcomposecapi.achievementsSection.viewModel.AchievementsViewModel
 import com.example.mafiaonlinejetpackcomposecapi.creatingSection.CreateGame
@@ -27,7 +36,9 @@ import com.example.mafiaonlinejetpackcomposecapi.interseptor.HttpClientBuilder
 import com.example.mafiaonlinejetpackcomposecapi.interseptor.TokenManager
 import com.example.mafiaonlinejetpackcomposecapi.joinRoom.RoomScreen
 import com.example.mafiaonlinejetpackcomposecapi.joinRoom.models.RoomsScreenViewModel
+import com.example.mafiaonlinejetpackcomposecapi.loginAsGuest.LoginAsGuestScreen
 import com.example.mafiaonlinejetpackcomposecapi.mainMenu.MainMenu
+import com.example.mafiaonlinejetpackcomposecapi.profileScreen.ProfileScreen
 import com.example.mafiaonlinejetpackcomposecapi.register.ConfirmEmail
 import com.example.mafiaonlinejetpackcomposecapi.register.CreateCharacter
 import com.example.mafiaonlinejetpackcomposecapi.register.EnterEmail
@@ -38,29 +49,34 @@ import com.example.mafiaonlinejetpackcomposecapi.serializableData.ConfirmRegiste
 import com.example.mafiaonlinejetpackcomposecapi.serializableData.CreateCharacterScreen
 import com.example.mafiaonlinejetpackcomposecapi.serializableData.CreateGameScreen
 import com.example.mafiaonlinejetpackcomposecapi.serializableData.EnterEmailScreen
-import com.example.mafiaonlinejetpackcomposecapi.serializableData.FromScreen
+import com.example.mafiaonlinejetpackcomposecapi.serializableData.FromScreenData
 import com.example.mafiaonlinejetpackcomposecapi.serializableData.GameRoomScreen
 import com.example.mafiaonlinejetpackcomposecapi.serializableData.HistoryScreen
 import com.example.mafiaonlinejetpackcomposecapi.serializableData.JoinGameScreen
 import com.example.mafiaonlinejetpackcomposecapi.serializableData.LogInScreen
+import com.example.mafiaonlinejetpackcomposecapi.serializableData.LoginAsGuestScreen
 import com.example.mafiaonlinejetpackcomposecapi.serializableData.MainMenuScreen
+import com.example.mafiaonlinejetpackcomposecapi.serializableData.ProfileScreen
 import com.example.mafiaonlinejetpackcomposecapi.serializableData.SettingsScreen
 import com.example.mafiaonlinejetpackcomposecapi.serializableData.StoreScreen
 import com.example.mafiaonlinejetpackcomposecapi.serializableData.WaitingRoomScreen
+import com.example.mafiaonlinejetpackcomposecapi.serializableData.fromScreen.FromScreen
 import com.example.mafiaonlinejetpackcomposecapi.settingsMenuSection.SettingsMenu
 import com.example.mafiaonlinejetpackcomposecapi.sharedPreferences.TokenPreferences
 import com.example.mafiaonlinejetpackcomposecapi.storeSection.StoreMenu
+import com.example.mafiaonlinejetpackcomposecapi.transitionsOfNavigation.NavAnimations
 import com.example.mafiaonlinejetpackcomposecapi.waitingSection.WaitingRoom
 import com.example.mafiaonlinejetpackcomposecapi.waitingSection.signalRServiceHub.SignalRServiceHub
 import com.example.mafiaonlinejetpackcomposecapi.waitingSection.waitingRoomModels.WaitingRoomParam
 import com.example.mafiaonlinejetpackcomposecapi.waitingSection.waitingRoomViewModel.WaitingRoomViewModel
+import com.google.accompanist.navigation.animation.AnimatedNavHost
+import com.google.accompanist.navigation.animation.composable
 
 const val PORT_1 = "5020"
 const val PORT_2 = "5000"
 const val PORT_3 = "5100"
-
-//const val LOCAL_HOST = "10.0.2.2"
-const val HOST_1 = "192.168.1.3"
+const val DOMAIN = "http://192.168.1.11:5000/"
+const val HOST_1 = "26.244.155.168"
 const val HOST_3 = "192.168.33.241"
 const val HOST_4 = "192.168.46.241"
 const val HOST_5 = "192.168.38.157"
@@ -68,6 +84,7 @@ const val HOST_6 = "192.168.1.11"
 const val HOST_7 = "192.168.29.12"
 const val HOST_8 = "192.168.223.241"
 const val HOST_9 = "192.168.89.12"
+const val HOST_10 = "10.123.19.12"
 
 val tokenPreferences = TokenPreferences()
 val tokenManager = TokenManager(tokenPreferences)
@@ -114,6 +131,7 @@ class MainActivity : ComponentActivity() {
     }
 }
 
+@OptIn(ExperimentalAnimationApi::class)
 @Composable
 fun App(
     modifier: Modifier,
@@ -126,177 +144,253 @@ fun App(
 ) {
     val navController = rememberNavController()
 
-    NavHost(navController = navController, startDestination = LogInScreen) {
-        composable<MainMenuScreen> {
+    AnimatedNavHost(
+        navController = navController,
+        startDestination = LogInScreen.route,
+        enterTransition = { NavAnimations.slideInRightAnimation },
+        exitTransition = { NavAnimations.slideOutLeftAnimation },
+        popEnterTransition = { NavAnimations.slideInLeftAnimation },
+        popExitTransition = { NavAnimations.slideOutRightAnimation }
+    ) {
+        composable(
+            LogInScreen.route,
+            enterTransition = { NavAnimations.fadeInAnimation },
+            exitTransition = { NavAnimations.fadeOutAnimation }
+        ) {
+            LogIn(
+                registerViewModel = registerViewModel,
+                onLogIn = {
+                    navController.navigate(MainMenuScreen.route) {
+                        popUpTo(0) { inclusive = true }
+                        launchSingleTop = true
+                    }
+                },
+                onRegister = {
+                    navController.navigate(EnterEmailScreen.route) {
+                        launchSingleTop = true
+                    }
+                },
+                onLoginAsGuest = {
+                    navController.navigate(LoginAsGuestScreen.route) {
+                        launchSingleTop = true
+                    }
+                }
+            )
+        }
+
+        composable(
+            MainMenuScreen.route,
+            enterTransition = { NavAnimations.fadeInAnimation },
+            exitTransition = { NavAnimations.scaleOutAnimation },
+            popEnterTransition = { NavAnimations.scaleInAnimation }
+        ) {
             MainMenu(
                 modifier = modifier,
                 onCreateGameScreen = {
-                    navController.navigate(CreateGameScreen) {
-                        popUpTo(CreateGameScreen) {
-                            inclusive = true
-                        }
+                    navController.navigate(CreateGameScreen.route) {
                         launchSingleTop = true
                     }
                 },
                 onJoinGameScreen = {
-                    navController.navigate(JoinGameScreen) {
-                        popUpTo(JoinGameScreen) {
-                            inclusive = true
-                        }
+                    navController.navigate(JoinGameScreen.route) {
                         launchSingleTop = true
                     }
                 },
                 onSettingsScreen = {
-                    navController.navigate(SettingsScreen) {
-                        popUpTo(SettingsScreen) {
-                            inclusive = true
-                            saveState = true
-                        }
+                    navController.navigate(SettingsScreen.route) {
                         launchSingleTop = true
-                        restoreState = true
                     }
                 },
                 onStoreScreen = {
-                    navController. navigate(StoreScreen) {
-                        popUpTo(StoreScreen) {
-                            inclusive = true
-                            saveState = true
-                        }
+                    navController.navigate(StoreScreen.route) {
                         launchSingleTop = true
-                        restoreState = true
                     }
                 },
                 onHistoryScreen = {
-                    navController.navigate(HistoryScreen) {
-                        popUpTo(HistoryScreen) {
-                            inclusive = true
-                            saveState = true
-                        }
+                    navController.navigate(HistoryScreen.route) {
                         launchSingleTop = true
-                        restoreState = true
                     }
                 },
                 onAchievementsScreen = {
-                    navController.navigate(AchievementsScreen) {
-                        popUpTo(AchievementsScreen) {
-                            inclusive = true
-                            saveState = true
-                        }
+                    navController.navigate(AchievementsScreen.route) {
                         launchSingleTop = true
-                        restoreState = true
+                    }
+                },
+                registerForGuest = {
+                    navController.navigate(EnterEmailScreen.route) {
+                        launchSingleTop = true
+                    }
+                },
+                onProfileScreen = {
+                    navController.navigate(ProfileScreen.route) {
+                        launchSingleTop = true
+                    }
+                },
+                registerViewModel = registerViewModel
+            )
+        }
+
+        composable(
+            route = ProfileScreen.route,
+            enterTransition = { NavAnimations.scaleInAnimation },
+            exitTransition = { NavAnimations.slideOutLeftAnimation }
+        ) {
+            ProfileScreen(registerViewModel = registerViewModel)
+        }
+
+        composable(EnterEmailScreen.route) {
+            EnterEmail(
+                onBack = { navController.popBackStack() },
+                onCheckEmail = {
+                    navController.navigate(ConfirmRegisterScreen.route) {
+                        launchSingleTop = true
+                    }
+                },
+                registerViewModel = registerViewModel
+            )
+        }
+
+        composable(ConfirmRegisterScreen.route) {
+            ConfirmEmail(
+                onBack = { navController.popBackStack() },
+                onConfirm = {
+                    navController.navigate(CreateCharacterScreen.route) {
+                        launchSingleTop = true
+                    }
+                },
+                registerViewModel = registerViewModel
+            )
+        }
+
+        composable(
+            CreateCharacterScreen.route,
+            enterTransition = {
+                scaleIn(
+                    initialScale = 0.9f,
+                    animationSpec = spring(
+                        dampingRatio = Spring.DampingRatioMediumBouncy,
+                        stiffness = Spring.StiffnessMedium
+                    )
+                ) + fadeIn(animationSpec = tween(400))
+            }
+        ) {
+            CreateCharacter(
+                onBack = { navController.popBackStack() },
+                onConfirm = {
+                    navController.navigate(LogInScreen.route) {
+                        popUpTo(0) { inclusive = true }
+                        launchSingleTop = true
+                    }
+                },
+                registerViewModel = registerViewModel
+            )
+        }
+
+        composable(LoginAsGuestScreen.route) {
+            LoginAsGuestScreen(
+                onBack = { navController.popBackStack() },
+                registerViewModel = registerViewModel,
+                onContinue = {
+                    navController.navigate(MainMenuScreen.route) {
+                        popUpTo(0) { inclusive = true }
+                        launchSingleTop = true
                     }
                 }
             )
         }
 
-        composable<HistoryScreen> {
-            GameHistoryScreen(
-                modifier = modifier,
-                currentPlayerId = registerViewModel.currentPlayerId,
-                onBack = {
-                    navController.popBackStack()
-                }
-            )
-        }
-
-        composable<AchievementsScreen> {
-            AchievementsScreen(
-                modifier = modifier,
-                viewModel = achievementsViewModel,
-                onBack = { navController.popBackStack() }
-            )
-        }
-
-        composable<CreateGameScreen> {
+        composable(
+            CreateGameScreen.route,
+            enterTransition = { NavAnimations.slideInUpAnimation },
+            exitTransition = { NavAnimations.slideOutDownAnimation }
+        ) {
             CreateGame(
                 createGameParams = CreateGameParam(
                     modifier = modifier,
                     onCreate = {
-                        navController.navigate(WaitingRoomScreen(FromScreen.CreateGame)) {
-                            popUpTo(WaitingRoomScreen(FromScreen.CreateGame)) {
-                                inclusive = true
-                                saveState = true
-                            }
+                        WaitingRoomScreen.setFromScreen(FromScreenData(FromScreen.CreateGame))
+                        navController.navigate(WaitingRoomScreen.ROUTE) {
                             launchSingleTop = true
-                            restoreState = true
                         }
                     },
-                    onBack = {
-                        navController.popBackStack()
-                    }
+                    onBack = { navController.popBackStack() }
                 ),
                 createGameViewModel = createGameViewModel
             )
         }
 
-        composable<JoinGameScreen> {
+        composable(
+            JoinGameScreen.route,
+            enterTransition = { NavAnimations.slideInUpAnimation },
+            exitTransition = { NavAnimations.slideOutDownAnimation }
+        ) {
             RoomScreen(
                 roomsScreenViewModel = roomsScreenViewModel,
                 onJoin = {
-                    navController.navigate(WaitingRoomScreen(FromScreen.JoinRoom)) {
-                        popUpTo(WaitingRoomScreen(FromScreen.JoinRoom)) {
-                            inclusive = true
-                            saveState = true
-                        }
+                    WaitingRoomScreen.setFromScreen(FromScreenData(FromScreen.JoinRoom))
+                    navController.navigate(WaitingRoomScreen.ROUTE) {
                         launchSingleTop = true
-                        restoreState = true
                     }
                 },
-                onBack = {
-                    navController.popBackStack()
-                }
+                onBack = { navController.popBackStack() }
             )
         }
 
-        composable<WaitingRoomScreen> { from ->
+        composable(
+            WaitingRoomScreen.ROUTE,
+            enterTransition = { NavAnimations.slideInRightAnimation },
+            exitTransition = { NavAnimations.slideOutLeftAnimation }
+        ) {
             WaitingRoom(
                 waitingRoomParams = WaitingRoomParam(
                     modifier = modifier,
                     nextRoom = {
-                        navController.navigate(GameRoomScreen(from.toRoute<WaitingRoomScreen>().from)) {
-                            popUpTo(GameRoomScreen(from.toRoute<WaitingRoomScreen>().from)) {
-                                inclusive = true
-                                saveState = true
-                            }
+                        navController.navigate(GameRoomScreen.ROUTE) {
                             launchSingleTop = true
-                            restoreState = true
                         }
                     },
                     onBack = {
-                        val fromScreen = from.toRoute<WaitingRoomScreen>().from
-                        navController.navigate(
-                            when( fromScreen ) {
-                                FromScreen.CreateGame -> MainMenuScreen
-                                FromScreen.JoinRoom -> JoinGameScreen
-                            }
-                        ) {
-                            when( fromScreen ) {
-                                FromScreen.CreateGame -> navController.popBackStack(MainMenuScreen, true)
-                                FromScreen.JoinRoom -> navController.popBackStack(JoinGameScreen, true)
-                            }
+                        val destination = when(GameRoomScreen.getFromScreen().value) {
+                            FromScreen.CreateGame -> MainMenuScreen.route
+                            FromScreen.JoinRoom -> JoinGameScreen.route
                         }
-                    },
+                        navController.navigate(destination) {
+                            popUpTo(destination) { inclusive = true }
+                        }
+                    }
                 ),
-                waitingViewModel = waitingRoomViewModel,
+                waitingViewModel = waitingRoomViewModel
             )
         }
 
-        composable<GameRoomScreen> { from ->
+        composable(
+            GameRoomScreen.ROUTE,
+            enterTransition = {
+                slideInVertically(
+                    initialOffsetY = { it },
+                    animationSpec = spring(
+                        dampingRatio = Spring.DampingRatioLowBouncy,
+                        stiffness = Spring.StiffnessMediumLow
+                    )
+                ) + fadeIn(animationSpec = tween(400))
+            },
+            exitTransition = {
+                slideOutVertically(
+                    targetOffsetY = { it },
+                    animationSpec = tween(400, easing = FastOutSlowInEasing)
+                ) + fadeOut(animationSpec = tween(400))
+            }
+        ) {
             MafiaGameRoom(
                 modifier = modifier,
                 gameRoomViewModel = gameRoomViewModel,
                 onBack = {
-                    val fromScreen = from.toRoute<GameRoomScreen>().fromRoute
-                    navController.navigate(
-                        when( fromScreen ) {
-                            FromScreen.CreateGame -> MainMenuScreen
-                            FromScreen.JoinRoom -> JoinGameScreen
-                        }
-                    ) {
-                        when( fromScreen ) {
-                            FromScreen.CreateGame -> navController.popBackStack(MainMenuScreen, true)
-                            FromScreen.JoinRoom -> navController.popBackStack(JoinGameScreen, true)
-                        }
+                    val destination = when(GameRoomScreen.getFromScreen().value) {
+                        FromScreen.CreateGame -> MainMenuScreen.route
+                        FromScreen.JoinRoom -> JoinGameScreen.route
+                    }
+                    navController.navigate(destination) {
+                        popUpTo(destination) { inclusive = true }
                     }
                     gameRoomViewModel.requestLeaveGame()
                     gameRoomViewModel.resetPlayerLogicInfo()
@@ -304,99 +398,56 @@ fun App(
             )
         }
 
-        composable<SettingsScreen> {
-            SettingsMenu(
-                onBackClick = {
-                    navController.popBackStack()
-                }
+        composable(
+            SettingsScreen.route,
+            enterTransition = { NavAnimations.scaleInAnimation },
+            exitTransition = { NavAnimations.scaleOutAnimation }
+        ) {
+            SettingsMenu(onBackClick = { navController.popBackStack() })
+        }
+
+        composable(
+            StoreScreen.route,
+            enterTransition = { NavAnimations.scaleInAnimation },
+            exitTransition = { NavAnimations.scaleOutAnimation }
+        ) {
+            StoreMenu(onBackClick = { navController.popBackStack() })
+        }
+
+        composable(
+            HistoryScreen.route,
+            enterTransition = { NavAnimations.slideInRightAnimation },
+            exitTransition = { NavAnimations.slideOutLeftAnimation }
+        ) {
+            GameHistoryScreen(
+                modifier = modifier,
+                currentPlayerId = registerViewModel.currentPlayerId,
+                onBack = { navController.popBackStack() }
             )
         }
 
-        composable<StoreScreen> {
-            StoreMenu(
-                onBackClick = {
-                    navController.popBackStack()
-                }
-            )
-        }
-
-        composable<LogInScreen> {
-            LogIn(
-                registerViewModel = registerViewModel,
-                onLogIn = {
-                    navController.navigate(MainMenuScreen) {
-                        popUpTo(MainMenuScreen) {
-                            inclusive = true
-                            saveState = true
-                        }
-                        launchSingleTop = true
-                        restoreState = true
-                    }
-                },
-                onRegister = {
-                    navController.navigate(EnterEmailScreen) {
-                        popUpTo(EnterEmailScreen) {
-                            inclusive = true
-                            saveState = true
-                        }
-                        launchSingleTop = true
-                        restoreState = true
-                    }
-                }
-            )
-        }
-
-        composable<EnterEmailScreen> {
-            EnterEmail(
-                onBack = {
-                    navController.popBackStack()
-                },
-                onCheckEmail = {
-                    navController.navigate(ConfirmRegisterScreen) {
-                        popUpTo(ConfirmRegisterScreen) {
-                            inclusive = true
-                            saveState = true
-                        }
-                        launchSingleTop = true
-                        restoreState = true
-                    }
-                },
-                registerViewModel = registerViewModel
-            )
-        }
-
-        composable<ConfirmRegisterScreen> {
-            ConfirmEmail(
-                onBack = {
-                    navController.popBackStack()
-                },
-                onConfirm = {
-                    navController.navigate(CreateCharacterScreen) {
-                        popUpTo(CreateCharacterScreen) {
-                            saveState = true
-                        }
-                        launchSingleTop = true
-                        restoreState = true
-                    }
-                },
-                registerViewModel = registerViewModel
-            )
-        }
-
-        composable<CreateCharacterScreen> {
-            CreateCharacter(
-                onBack = {
-                    navController.popBackStack()
-                },
-                onConfirm = {
-                    navController.navigate(LogInScreen) {
-                        popUpTo(navController.graph.startDestinationId) {
-                            inclusive = true
-                        }
-                        launchSingleTop = true
-                    }
-                },
-                registerViewModel = registerViewModel,
+        composable(
+            AchievementsScreen.route,
+            enterTransition = {
+                slideInHorizontally(
+                    initialOffsetX = { it },
+                    animationSpec = spring(
+                        dampingRatio = Spring.DampingRatioMediumBouncy,
+                        stiffness = Spring.StiffnessMedium
+                    )
+                ) + fadeIn(animationSpec = tween(300))
+            },
+            exitTransition = {
+                slideOutHorizontally(
+                    targetOffsetX = { it },
+                    animationSpec = tween(300, easing = FastOutSlowInEasing)
+                ) + fadeOut(animationSpec = tween(300))
+            }
+        ) {
+            AchievementsScreen(
+                modifier = modifier,
+                viewModel = achievementsViewModel,
+                onBack = { navController.popBackStack() }
             )
         }
     }

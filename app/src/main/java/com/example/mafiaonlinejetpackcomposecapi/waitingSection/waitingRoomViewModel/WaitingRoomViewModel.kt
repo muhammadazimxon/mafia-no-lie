@@ -97,7 +97,7 @@ class WaitingRoomViewModel(private val signalRServiceHub: SignalRServiceHub, pri
             joined = true
             _uiState.update { it.copy(backHandlerEnabled = true) }
             gameRoomViewModel.changePlayerName(currentPlayer)
-            if(_playerId.value != 0) {
+            if(_playerId.value != -1) {
                 gameRoomViewModel.changePlayerId(_playerId.value)
             }
         }

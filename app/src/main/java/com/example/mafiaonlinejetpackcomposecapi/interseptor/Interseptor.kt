@@ -1,6 +1,10 @@
 package com.example.mafiaonlinejetpackcomposecapi.interseptor
 
 import android.util.Log
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
+import com.example.mafiaonlinejetpackcomposecapi.register.registerViewModel.RegisterViewModel
 import com.example.mafiaonlinejetpackcomposecapi.retrofitService.retrofitModel.MafiaApi
 import com.example.mafiaonlinejetpackcomposecapi.retrofitService.retrofitModel.RefreshTokenRequest
 import com.example.mafiaonlinejetpackcomposecapi.sharedPreferences.TokenPreferences
@@ -23,6 +27,7 @@ interface TokenProvider {
     suspend fun refreshAccessToken(): String?
     fun clearTokens()
     fun saveTokens(accessToken: String, refreshToken: String)
+    fun saveIfGuest(isGuest: Boolean)
 }
 class JwtBearerInterceptor(
     private val tokenProvider: TokenProvider,
@@ -83,7 +88,7 @@ class JwtBearerInterceptor(
 }
 
 class TokenManager(
-    private val tokenPreferences: TokenPreferences
+    private val tokenPreferences: TokenPreferences,
 ) : TokenProvider {
     private val refreshMutex = Mutex()
 
@@ -99,14 +104,20 @@ class TokenManager(
         tokenPreferences.saveTokens(accessToken, refreshToken)
     }
 
+    override fun saveIfGuest(isGuest: Boolean) {
+        tokenPreferences.saveIfGuest(isGuest)
+    }
+
+
     override suspend fun refreshAccessToken(): String? = refreshMutex.withLock {
         val refreshToken = getRefreshToken() ?: return null
+        val isGuestStored = tokenPreferences.getIfGuest()
 
         try {
             Log.d("TokenManager", "Attempting to refresh token")
 
             val response = withContext(Dispatchers.IO) {
-                MafiaApi.retrofitService.refreshTokens(RefreshTokenRequest(refreshToken))
+                MafiaApi.retrofitService.refreshTokens(RefreshTokenRequest(refreshToken, isGuestStored))
             }
 
             Log.d("TokenManager", "Token refreshed successfully")

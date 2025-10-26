@@ -4,4 +4,4 @@ import com.example.mafiaonlinejetpackcomposecapi.serializableData.route_interfac
 import kotlinx.serialization.Serializable
 
 @Serializable
-data object CreateCharacterScreen : Route { override val route = "CreateCharacterScreen" }
+object LoginAsGuestScreen : Route { override val route = "LoginAsGuestScreen" }

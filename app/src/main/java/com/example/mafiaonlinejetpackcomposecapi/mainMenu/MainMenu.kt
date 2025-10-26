@@ -2,11 +2,19 @@ package com.example.mafiaonlinejetpackcomposecapi.mainMenu
 
 import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.background
+import androidx.compose.foundation.gestures.Orientation
+import androidx.compose.foundation.gestures.rememberScrollableState
+import androidx.compose.foundation.gestures.scrollable
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.AccountCircle
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.blur
@@ -20,7 +28,13 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.mafiaonlinejetpackcomposecapi.R
+import com.example.mafiaonlinejetpackcomposecapi.creatingSection.components.MinimalDialog
+import com.example.mafiaonlinejetpackcomposecapi.register.registerMvi.RegisterEvent
+import com.example.mafiaonlinejetpackcomposecapi.register.registerViewModel.RegisterViewModel
+import com.example.mafiaonlinejetpackcomposecapi.tokenManager
+import com.example.mafiaonlinejetpackcomposecapi.tokenPreferences
 
 @Composable
 fun MainMenu(
@@ -30,6 +44,9 @@ fun MainMenu(
     onStoreScreen: () -> Unit,
     onHistoryScreen: () -> Unit,
     onAchievementsScreen: () -> Unit,
+    registerForGuest: () -> Unit,
+    onProfileScreen: () -> Unit,
+    registerViewModel: RegisterViewModel,
     modifier : Modifier
 ) {
     val darkBackground = Color(0xFF1E1E2E)
@@ -80,8 +97,32 @@ fun MainMenu(
             )
         }
 
+        if(registerViewModel.isGuest || tokenPreferences.getIfGuest()) {
+            IconButton(
+                onClick = {  registerForGuest() },
+                modifier = Modifier
+                    .align(Alignment.TopStart)
+                    .padding(16.dp)
+                    .size(48.dp)
+                    .background(
+                        brush = Brush.radialGradient(
+                            colors = listOf(accentColor.copy(alpha = 0.3f), Color.Transparent),
+                            radius = 200f
+                        ),
+                        shape = CircleShape
+                    )
+                    .clip(CircleShape)
+            ) {
+                Icon(
+                    imageVector = Icons.Default.AccountCircle,
+                    contentDescription = "register_for_guest",
+                    tint = Color.White
+                )
+            }
+        }
+
         IconButton(
-            onClick = onAchievementsScreen,
+            onClick = { if(registerViewModel.isGuest.not()) onAchievementsScreen() else registerViewModel.callForGuestDialog() },
             modifier = Modifier
                 .align(Alignment.TopEnd)
                 .padding(16.dp)
@@ -145,7 +186,9 @@ fun MainMenu(
                     color = Color.White,
                     textAlign = TextAlign.Center
                 )
+
                 Spacer(modifier = Modifier.height(10.dp))
+
                 Text(
                     text = "Be part of the strategy",
                     fontSize = 16.sp,
@@ -163,7 +206,10 @@ fun MainMenu(
                 elevation = CardDefaults.cardElevation(defaultElevation = 8.dp)
             ) {
                 Column(
-                    modifier = Modifier.padding(vertical = 24.dp, horizontal = 16.dp),
+                    modifier = Modifier
+                        .padding(vertical = 24.dp, horizontal = 16.dp)
+                        .clip(RoundedCornerShape((16).dp))
+                        .verticalScroll(state = rememberScrollState()),
                     verticalArrangement = Arrangement.spacedBy(16.dp),
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
@@ -183,14 +229,27 @@ fun MainMenu(
 
                     EnhancedMenuButton(
                         text = "History",
-                        onClick = onHistoryScreen,
+                        onClick = if(registerViewModel.isGuest.not()) onHistoryScreen else { { registerViewModel.callForGuestDialog() } },
+                        accentColor = accentColor,
+                        isPrimary = true
+                    )
+
+                    EnhancedMenuButton(
+                        text = "Profile",
+                        onClick = {
+                            if (registerViewModel.isGuest.not()) {
+                                onProfileScreen()
+                            } else {
+                                registerViewModel.callForGuestDialog()
+                            }
+                        },
                         accentColor = accentColor,
                         isPrimary = true
                     )
 
                     HorizontalDivider(
                         modifier = Modifier
-                            .padding(vertical = 8.dp)
+                            .padding(vertical = 4.dp)
                             .fillMaxWidth(0.8f),
                         color = Color.White.copy(alpha = 0.2f)
                     )
@@ -218,6 +277,10 @@ fun MainMenu(
                 fontSize = 14.sp,
                 color = Color.White.copy(alpha = 0.5f)
             )
+
+            if( registerViewModel.registerState.collectAsState().value.isTextMessageOn ) {
+                MinimalDialog(registerViewModel.registerState.collectAsState().value.textMessage) { registerViewModel.registerEventHandler(RegisterEvent.OnDismiss) }
+            }
         }
     }
 }
@@ -271,6 +334,9 @@ fun MainMenuPreview() {
         onStoreScreen = {},
         onHistoryScreen = {},
         onAchievementsScreen = {},
+        registerForGuest = {},
+        onProfileScreen = {},
+        registerViewModel = viewModel(),
         modifier = Modifier.padding(vertical = 30.dp)
     )
 }

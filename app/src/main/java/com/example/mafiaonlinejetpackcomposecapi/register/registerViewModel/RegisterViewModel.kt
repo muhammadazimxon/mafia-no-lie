@@ -3,6 +3,7 @@ package com.example.mafiaonlinejetpackcomposecapi.register.registerViewModel
 import android.util.Log
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
@@ -26,7 +27,6 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 
-
 class RegisterViewModel(
     private val waitingRoomViewModel: WaitingRoomViewModel,
     private val achievementsViewModel: AchievementsViewModel,
@@ -40,8 +40,11 @@ class RegisterViewModel(
     val raToken: StateFlow<RAToken> = _raToken.asStateFlow()
 
     var currentPlayerId by mutableIntStateOf(-1)
+    var isGuest by mutableStateOf(false)
 
     fun authValidation(userId: Int, email: String, name: String) {
+        tokenManager.saveIfGuest(false)
+        isGuest = false
         _registerState.value = _registerState.value.copy(
             email = email,
             repeatEmail = email,
@@ -51,6 +54,29 @@ class RegisterViewModel(
         waitingRoomViewModel.currentPlayer = _registerState.value.playerName
         currentPlayerId = userId
         waitingRoomViewModel.changePlayerID(userId)
+    }
+
+    fun authValidationAsGuest(userId: Int, name: String, accessToken: String, refreshToken: String) {
+        tokenManager.saveIfGuest(true)
+        isGuest = true
+        _registerState.value = _registerState.value.copy(
+            playerName = name,
+            repeatPlayerName = name
+        )
+        waitingRoomViewModel.currentPlayer = name
+        currentPlayerId = userId
+        waitingRoomViewModel.changePlayerID(userId)
+        achievementsViewModel.changePlayerId(userId)
+
+        _raToken.value = _raToken.value.copy(
+            accessToken = accessToken,
+            refreshToken = refreshToken
+        )
+
+        tokenManager.saveTokens(
+            accessToken = accessToken,
+            refreshToken = refreshToken
+        )
     }
 
     fun changeAchievementId(userId: Int) {
@@ -97,8 +123,7 @@ class RegisterViewModel(
                         isTextMessageOn = true
                     )
                     return
-                }
-                else if(_registerState.value.password.length < 6){
+                } else if(_registerState.value.password.length < 6){
                     _registerState.value = _registerState.value.copy(
                         textMessage = "Password must contain at least 6 any symbols or digits\nPlease check it carefully and try again",
                         isTextMessageOn = true
@@ -141,6 +166,7 @@ class RegisterViewModel(
 
                             waitingRoomViewModel.currentPlayer = _registerState.value.playerName
                             achievementsViewModel.changePlayerId(currentPlayerId)
+                            waitingRoomViewModel.changePlayerID(currentPlayerId)
                             event.onLogIn()
                         }
                     } catch (e: Exception) {
@@ -192,7 +218,7 @@ class RegisterViewModel(
 
             is RegisterEvent.OnEmailCheck -> {
                 val emailRegex = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$".toRegex()
-                if (_registerState.value.email != _registerState.value.repeatEmail || emailRegex.matches(_registerState.value.email).not()) {
+                if (/*_registerState.value.email != _registerState.value.repeatEmail || */emailRegex.matches(_registerState.value.email).not()) {
                     _registerState.value = _registerState.value.copy(
                         textMessage = "Email written incorrectly",
                         isTextMessageOn = true
@@ -200,17 +226,16 @@ class RegisterViewModel(
                 } else {
                     viewModelScope.launch {
                         try {
-                            _registerState.value =
-                                _registerState.value.copy(isEmailConfirmButtonEnabled = false)
+                            _registerState.value = _registerState.value.copy(isSpamWarning = true)
                             currentPlayerId = MafiaApi.retrofitService.register(
-                                PlayerRegisterDataRequest(_registerState.value.email)
+                                request = PlayerRegisterDataRequest(email = _registerState.value.email)
                             )
                             event.onCheck()
 
                         } catch (e: Exception) {
                             Log.d("EmailCheck", "registerEventHandler: ${e.message}")
                             _registerState.value = _registerState.value.copy(
-                                textMessage = "Something went wrong",
+                                textMessage = "Something went wrong! Error: ${e.message}",
                                 isTextMessageOn = true
                             )
                         }
@@ -228,19 +253,19 @@ class RegisterViewModel(
                     return
                 }
 
-                var isEmailVerified: LinkerToCreateCharacter? = null
+                var emailVerification: LinkerToCreateCharacter? = null
 
                 viewModelScope.launch {
                     try {
-                        isEmailVerified = MafiaApi.retrofitService.verifyEmail(
+                        emailVerification = MafiaApi.retrofitService.verifyEmail(
                             EmailVerify(
                                 email = _registerState.value.email,
                                 code = _registerState.value.confirmCode
                             )
                         )
-                        if (isEmailVerified!!.key.isNotEmpty() && isEmailVerified!!.userId != 0) {
+                        if (emailVerification!!.key.isNotEmpty() && emailVerification!!.userId != 0) {
                             _registerState.value = _registerState.value.copy(
-                                keyToCreateCharacter = isEmailVerified!!.key
+                                keyToCreateCharacter = emailVerification!!.key
                             )
                             event.onConfirm()
                         }
@@ -270,8 +295,12 @@ class RegisterViewModel(
                         textMessage = "Password must contain at least 6 symbols or digits or letters, please check carefully and try again",
                         isTextMessageOn = true
                     )
-                }
-                else if( _registerState.value.playerName == _registerState.value.repeatPlayerName && _registerState.value.password == _registerState.value.repeatPassword ) {
+                } else if ( _registerState.value.playerName.length < 2 || _registerState.value.password != _registerState.value.repeatPassword ) {
+                    _registerState.value = _registerState.value.copy(
+                        textMessage = "Nickname does not contain at least 3 characters or password does not match with repeat password\nPlease check carefully",
+                        isTextMessageOn = true
+                    )
+                } else if(/*_registerState.value.playerName == _registerState.value.repeatPlayerName &&*/ _registerState.value.password == _registerState.value.repeatPassword ) {
                     waitingRoomViewModel.currentPlayer = _registerState.value.playerName
                     viewModelScope.launch {
                         MafiaApi.retrofitService.createCharacter(
@@ -282,14 +311,13 @@ class RegisterViewModel(
                         )
                     }
                     event.onConfirmCreateNewCharacter()
-                }
-                else if ( _registerState.value.playerName != _registerState.value.repeatPlayerName || _registerState.value.password != _registerState.value.repeatPassword ) {
                     _registerState.value = _registerState.value.copy(
-                        textMessage = "Nickname does not match the repeat nickname or password does not match with repeat password\nPlease check carefully",
-                        isTextMessageOn = true
+                        email = "",
+                        repeatEmail = "",
+                        password = "",
+                        repeatPassword = ""
                     )
-                }
-                else {
+                } else {
                     _registerState.value = _registerState.value.copy(
                         textMessage = "Something might went wrong",
                         isTextMessageOn = true
@@ -317,8 +345,8 @@ class RegisterViewModel(
                         delay(1000)
                         _registerState.value = _registerState.value.copy (sendCodeCount = _registerState.value.sendCodeCount - 1)
                         _registerState.value = _registerState.value.copy (sendCodeMessage = _registerState.value.sendCodeCount.toString())
-
                     }
+
                     _registerState.value = _registerState.value.copy(
                         isReadyToSendCode = true,
                         sendCodeCount = 10,
@@ -326,6 +354,15 @@ class RegisterViewModel(
                     )
                 }
             }
+            is RegisterEvent.OnSpamWarningDismiss -> {
+                _registerState.value = _registerState.value.copy(isSpamWarning = false)
+            }
         }
+    }
+    fun callForGuestDialog() {
+        _registerState.value = _registerState.value.copy(
+            textMessage = "Guests cannot view history and achievements.\nIf you would like to see them register please!",
+            isTextMessageOn = true
+        )
     }
 }

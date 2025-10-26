@@ -405,6 +405,7 @@ fun MafiaGameRoom(
                     fontWeight = FontWeight.W500,
                     modifier = Modifier.padding(bottom = 16.dp)
                 )
+
                 LazyColumn(
                     modifier = Modifier.fillMaxWidth(),
                     verticalArrangement = Arrangement.spacedBy(12.dp)

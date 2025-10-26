@@ -54,7 +54,6 @@ fun CreateCharacter(
     registerViewModel : RegisterViewModel
 ) {
 
-
     val uiState by registerViewModel.registerState.collectAsState()
 
     val darkBackground = Color(0xFF1E1E2E)
@@ -169,7 +168,7 @@ fun CreateCharacter(
                     )
                 )
 
-                OutlinedTextField(
+                /*OutlinedTextField(
                     value = uiState.repeatPlayerName,
                     onValueChange = { newName ->
                         registerViewModel.registerEventHandler(
@@ -195,7 +194,7 @@ fun CreateCharacter(
                         focusedTextColor = Color.White,
                         cursorColor = accentColor
                     )
-                )
+                )*/
 
                 OutlinedTextField(
                     value = uiState.password,

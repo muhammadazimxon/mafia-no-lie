@@ -22,6 +22,17 @@ class TokenPreferences {
         }
     }
 
+    fun saveIfGuest(isGuest: Boolean) {
+        sharedPreferences?.edit {
+            putBoolean("isGuest", isGuest)
+            apply()
+        }
+    }
+
+    fun getIfGuest(): Boolean {
+        return sharedPreferences?.getBoolean("isGuest", false) ?: false
+    }
+
     fun clearTokens() {
         sharedPreferences?.edit {
             remove("access_token")
