@@ -6,14 +6,34 @@ import androidx.compose.animation.core.animateIntAsState
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.offset
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.Star
-import androidx.compose.material3.*
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.Icon
+import androidx.compose.material3.OutlinedButton
+import androidx.compose.material3.Surface
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -32,28 +52,43 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.compose.ui.window.Dialog
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.mafiaonlinejetpackcomposecapi.creatingSection.components.MinimalDialog
+import com.example.mafiaonlinejetpackcomposecapi.profileScreen.components.EditProfileDialog
 import com.example.mafiaonlinejetpackcomposecapi.register.registerViewModel.RegisterViewModel
 import com.example.mafiaonlinejetpackcomposecapi.retrofitService.retrofitModel.MafiaApi
 import com.example.mafiaonlinejetpackcomposecapi.retrofitService.retrofitModel.ProfileData
+import com.example.mafiaonlinejetpackcomposecapi.tokenPreferences
+import com.example.mafiaonlinejetpackcomposecapi.waitingSection.components.ConnectingToServerScreen
 import kotlin.math.max
 
 @Composable
 fun ProfileScreen(
-    registerViewModel: RegisterViewModel
+    registerViewModel: RegisterViewModel,
+    onBackClick: () -> Unit
 ) {
     val darkBackground = Color(0xFF1E1E2E)
     val cardBackground = Color(0xFF282838)
     val accentColor = Color(0xFF7B68EE)
     val accentGold = Color(0xFFFFD700)
     val accentGreen = Color(0xFF4CAF50)
-    var playerInfo by remember { mutableStateOf(ProfileData()) }
+    var playerInfo by remember { mutableStateOf<ProfileData>(ProfileData()) }
+    var isDialogOn by remember { mutableStateOf(false) }
+    var isEditDialogOn by remember { mutableStateOf(false) }
+    val avatarEmoji by remember { mutableStateOf<String>(tokenPreferences.getAvatarEmoji()) }
+    var loader by remember { mutableStateOf(true) }
+
+    if(loader) {
+        ConnectingToServerScreen(text = "Loading...")
+    }
 
     LaunchedEffect(true) {
         try {
             val response = MafiaApi.retrofitService.profileInfo(registerViewModel.currentPlayerId)
             if (response.isSuccessful && response?.body() != null) {
                 playerInfo = response!!.body()!!
+                loader = false
             }
         } catch (e: Exception) {
             Log.e("ProfileScreen", "ProfileScreen: ${e.message}", )
@@ -106,35 +141,65 @@ fun ProfileScreen(
             Spacer(modifier = Modifier.height(16.dp))
 
             Box(
-                contentAlignment = Alignment.Center
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(120.dp)
             ) {
+                Surface(
+                    modifier = Modifier
+                        .padding(start = 12.dp, top = 8.dp)
+                        .size(48.dp)
+                        .align(Alignment.TopStart),
+                    shape = CircleShape,
+                    tonalElevation = 6.dp,
+                    shadowElevation = 4.dp,
+                    color = Color.White.copy(alpha = 0.06f),
+                    onClick = { onBackClick() }
+                ) {
+                    Box(contentAlignment = Alignment.Center) {
+                        Icon(
+                            imageVector = Icons.Default.ArrowBack,
+                            contentDescription = "Back",
+                            tint = Color.White,
+                            modifier = Modifier.size(20.dp)
+                        )
+                    }
+                }
+
                 Box(
                     modifier = Modifier
-                        .size(140.dp)
-                        .background(
-                            brush = Brush.linearGradient(
-                                colors = listOf(
-                                    accentColor.copy(alpha = 0.3f),
-                                    accentGold.copy(alpha = 0.2f)
-                                )
-                            ),
-                            shape = CircleShape
-                        )
-                        .padding(6.dp),
+                        .align(Alignment.Center)
+                        .wrapContentSize(),
                     contentAlignment = Alignment.Center
                 ) {
                     Box(
                         modifier = Modifier
-                            .fillMaxSize()
-                            .clip(CircleShape)
+                            .size(140.dp)
                             .background(
                                 brush = Brush.linearGradient(
-                                    colors = listOf(accentColor, accentColor.copy(alpha = 0.3f))
-                                )
-                            ),
+                                    colors = listOf(
+                                        accentColor.copy(alpha = 0.3f),
+                                        accentGold.copy(alpha = 0.2f)
+                                    )
+                                ),
+                                shape = CircleShape
+                            )
+                            .padding(6.dp),
                         contentAlignment = Alignment.Center
                     ) {
-                        StaticAvatar()
+                        Box(
+                            modifier = Modifier
+                                .fillMaxSize()
+                                .clip(CircleShape)
+                                .background(
+                                    brush = Brush.linearGradient(
+                                        colors = listOf(accentColor, accentColor.copy(alpha = 0.3f))
+                                    )
+                                ),
+                            contentAlignment = Alignment.Center
+                        ) {
+                            StaticAvatar(emoji = avatarEmoji)
+                        }
                     }
                 }
             }
@@ -261,14 +326,14 @@ fun ProfileScreen(
 
                     RoleStatBar(
                         role = "😇 Civilian roles",
-                        wins = playerInfo.wonGames,
+                        wins = playerInfo.playedQuantityAsCivilian,
                         playerTotalGames = playerInfo.allPlayedGames,
                         accentColor = accentGreen
                     )
 
                     RoleStatBar(
                         role = "🔪 Mafia roles",
-                        wins = playerInfo.wonGames,
+                        wins = playerInfo.playedQuantityAsMafia,
                         playerTotalGames = playerInfo.allPlayedGames,
                         accentColor = Color(0xFFE91E63)
                     )
@@ -280,7 +345,9 @@ fun ProfileScreen(
                 horizontalArrangement = Arrangement.spacedBy(12.dp)
             ) {
                 OutlinedButton(
-                    onClick = { /* Edit Profile */ },
+                    onClick = {
+                        isEditDialogOn = true
+                    },
                     modifier = Modifier
                         .weight(1f)
                         .height(56.dp),
@@ -303,7 +370,7 @@ fun ProfileScreen(
                 }
 
                 Button(
-                    onClick = { /* Share */ },
+                    onClick = { isDialogOn = true },
                     modifier = Modifier
                         .weight(1f)
                         .height(56.dp),
@@ -321,6 +388,38 @@ fun ProfileScreen(
                         fontSize = 16.sp,
                         fontWeight = FontWeight.Bold
                     )
+                }
+
+                if(isEditDialogOn) {
+                    Dialog(onDismissRequest = { isEditDialogOn = false }) {
+                        EditProfileDialog(
+                            initialData = playerInfo,
+                            modifier = Modifier,
+                            onDismiss = { isEditDialogOn = false },
+                            onSave = { profileData, avatarEmoji ->
+                                tokenPreferences.saveAvatarEmoji(avatarEmoji)
+                                try {
+                                    val response = MafiaApi.retrofitService.editProfile(
+                                        registerViewModel.currentPlayerId,
+                                        profileData.name.trim()
+                                    )
+                                    if (response.isSuccessful.not())
+                                        return@EditProfileDialog false
+                                } catch (e: Exception) {
+                                    Log.e("EditProfile", "ProfileScreen: ${e.message}")
+                                }
+                                return@EditProfileDialog true
+                            }
+                        )
+                    }
+                }
+
+                if(isDialogOn) {
+                    MinimalDialog(
+                        description = "Share is coming soon!"
+                    ) {
+                        isDialogOn = false
+                    }
                 }
             }
 
@@ -404,7 +503,10 @@ fun StaticAvatar(
                 .border(
                     width = 1.dp,
                     brush = Brush.linearGradient(
-                        colors = listOf(Color.White.copy(alpha = 0.06f), Color.Black.copy(alpha = 0.3f))
+                        colors = listOf(
+                            Color.White.copy(alpha = 0.06f),
+                            Color.Black.copy(alpha = 0.3f)
+                        )
                     ),
                     shape = CircleShape
                 ),
@@ -567,5 +669,5 @@ fun RoleStatBar(
 @Preview(showBackground = true, device = "spec:width=392.7dp,height=850.9dp,dpi=440")
 @Composable
 fun ProfileScreenPreview() {
-    ProfileScreen(viewModel())
+    ProfileScreen(viewModel(), {})
 }

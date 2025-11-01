@@ -91,17 +91,17 @@ class CreateGameViewModel(private val waitingRoomViewModel: WaitingRoomViewModel
                                 )
                             )
                             waitingRoomViewModel.guid = MafiaApi.retrofitService.getGuid()
-                            delay(500)
+                            delay(300)
                             waitingRoomViewModel.startConnection()
                             createGameState = createGameState.copy(isLoading = true)
-                            delay(800)
+                            delay(300)
                             if (waitingRoomViewModel.getHubConnection().connectionState == HubConnectionState.CONNECTED) {
                                 event.onCreate()
                                 createGameState = createGameState.copy(isNotCreated = true)
                                 createGameState = createGameState.copy(isLoading = false)
                             }
                             gameRoomViewModel.changePhase(isDay = createGameState.isDayPhase)
-                            delay(100)
+                            delay(300)
                             gameRoomViewModel.sendPhase()
                             temp = false
                         }

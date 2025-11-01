@@ -10,4 +10,5 @@ data class RoomState(
     val isLoading: Boolean = false,
     val dialogsGuid: String = "",
     val correctPassword: String = "",
+    val joinViaPasswordIndex: Int = 0
 )

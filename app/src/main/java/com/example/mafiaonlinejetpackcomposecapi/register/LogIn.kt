@@ -57,6 +57,7 @@ import com.example.mafiaonlinejetpackcomposecapi.register.registerViewModel.Regi
 import com.example.mafiaonlinejetpackcomposecapi.retrofitService.retrofitModel.MafiaApi
 import com.example.mafiaonlinejetpackcomposecapi.sharedPreferences.TokenPreferences
 import com.example.mafiaonlinejetpackcomposecapi.tokenManager
+import com.example.mafiaonlinejetpackcomposecapi.tokenPreferences
 
 @Composable
 fun LogIn(
@@ -69,12 +70,12 @@ fun LogIn(
 
     LaunchedEffect(true) {
         try {
-            val authResponse = MafiaApi.retrofitService.validateToken()
+            val authResponse = MafiaApi.retrofitService.validateToken(tokenPreferences.getIfGuest())
             Log.d("Auth", "${authResponse.message} : ${authResponse.userName} : ${authResponse.userId} : ${authResponse.email} : ${authResponse.isAuthenticated}")
 
             if( authResponse.isAuthenticated ) {
                 registerViewModel.isGuest = authResponse.isGuest
-                registerViewModel.authValidation(authResponse.userId.toInt(), authResponse.email, authResponse.userName)
+                registerViewModel.authValidation(isGuest = authResponse.isGuest, authResponse.userId.toInt(), authResponse.email, authResponse.userName)
                 registerViewModel.changeAchievementId(authResponse.userId.toInt())
                 onLogIn()
             } else {

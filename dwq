@@ -1,0 +1,279 @@
+[1mdiff --git a/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/register/LogIn.kt b/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/register/LogIn.kt[m
+[1mindex 148bdda..4ff967f 100644[m
+[1m--- a/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/register/LogIn.kt[m
+[1m+++ b/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/register/LogIn.kt[m
+[36m@@ -1,274 +1,3 @@[m
+[31m-//package com.example.mafiaonlinejetpackcomposecapi.register[m
+[31m-//[m
+[31m-//import android.util.Log[m
+[31m-//import androidx.compose.foundation.background[m
+[31m-//import androidx.compose.foundation.clickable[m
+[31m-//import androidx.compose.foundation.layout.Arrangement[m
+[31m-//import androidx.compose.foundation.layout.Box[m
+[31m-//import androidx.compose.foundation.layout.Column[m
+[31m-//import androidx.compose.foundation.layout.Spacer[m
+[31m-//import androidx.compose.foundation.layout.fillMaxSize[m
+[31m-//import androidx.compose.foundation.layout.fillMaxWidth[m
+[31m-//import androidx.compose.foundation.layout.height[m
+[31m-//import androidx.compose.foundation.layout.offset[m
+[31m-//import androidx.compose.foundation.layout.padding[m
+[31m-//import androidx.compose.foundation.layout.size[m
+[31m-//import androidx.compose.foundation.layout.width[m
+[31m-//import androidx.compose.foundation.layout.wrapContentHeight[m
+[31m-//import androidx.compose.foundation.shape.CircleShape[m
+[31m-//import androidx.compose.foundation.shape.RoundedCornerShape[m
+[31m-//import androidx.compose.material3.Button[m
+[31m-//import androidx.compose.material3.ButtonDefaults[m
+[31m-//import androidx.compose.material3.Card[m
+[31m-//import androidx.compose.material3.CardDefaults[m
+[31m-//import androidx.compose.material3.Icon[m
+[31m-//import androidx.compose.material3.IconButton[m
+[31m-//import androidx.compose.material3.OutlinedTextField[m
+[31m-//import androidx.compose.material3.OutlinedTextFieldDefaults[m
+[31m-//import androidx.compose.material3.Text[m
+[31m-//import androidx.compose.runtime.Composable[m
+[31m-//import androidx.compose.runtime.LaunchedEffect[m
+[31m-//import androidx.compose.runtime.collectAsState[m
+[31m-//import androidx.compose.runtime.getValue[m
+[31m-//import androidx.compose.runtime.mutableStateOf[m
+[31m-//import androidx.compose.runtime.remember[m
+[31m-//import androidx.compose.runtime.setValue[m
+[31m-//import androidx.compose.ui.Alignment[m
+[31m-//import androidx.compose.ui.Modifier[m
+[31m-//import androidx.compose.ui.draw.blur[m
+[31m-//import androidx.compose.ui.graphics.Brush[m
+[31m-//import androidx.compose.ui.graphics.Color[m
+[31m-//import androidx.compose.ui.res.painterResource[m
+[31m-//import androidx.compose.ui.text.font.FontStyle[m
+[31m-//import androidx.compose.ui.text.font.FontWeight[m
+[31m-//import androidx.compose.ui.text.style.TextAlign[m
+[31m-//import androidx.compose.ui.text.style.TextDecoration[m
+[31m-//import androidx.compose.ui.tooling.preview.Preview[m
+[31m-//import androidx.compose.ui.unit.dp[m
+[31m-//import androidx.compose.ui.unit.sp[m
+[31m-//import androidx.lifecycle.viewmodel.compose.viewModel[m
+[31m-//import com.example.mafiaonlinejetpackcomposecapi.R[m
+[31m-//import com.example.mafiaonlinejetpackcomposecapi.creatingSection.components.MinimalDialog[m
+[31m-//import com.example.mafiaonlinejetpackcomposecapi.register.registerMvi.RegisterEvent[m
+[31m-//import com.example.mafiaonlinejetpackcomposecapi.register.registerViewModel.RegisterViewModel[m
+[31m-//import com.example.mafiaonlinejetpackcomposecapi.retrofitService.retrofitModel.MafiaApi[m
+[31m-//import com.example.mafiaonlinejetpackcomposecapi.sharedPreferences.TokenPreferences[m
+[31m-//[m
+[31m-//@Composable[m
+[31m-//fun LogIn([m
+[31m-//    onLogIn: () -> Unit,[m
+[31m-//    onRegister: () -> Unit,[m
+[31m-//    registerViewModel: RegisterViewModel,[m
+[31m-//) {[m
+[31m-//[m
+[31m-//    LaunchedEffect(true) {[m
+[31m-//        try {[m
+[31m-//            val authResponse = MafiaApi.retrofitService.validateToken()[m
+[31m-//            Log.d("Auth", "${authResponse.message} : ${authResponse.userName} : ${authResponse.userId} : ${authResponse.email} : ${authResponse.isAuthenticated}")[m
+[31m-//            if( authResponse.isAuthenticated ) {[m
+[31m-//                registerViewModel.authValidation(authResponse.userId.toInt(), authResponse.email, authResponse.userName)[m
+[31m-//                registerViewModel.changeAchievementId(authResponse.userId.toInt())[m
+[31m-//                onLogIn()[m
+[31m-//            }[m
+[31m-//        } catch (e: Exception) {[m
+[31m-//            Log.d("Auth", "LogIn: ${e.message}")[m
+[31m-//        }[m
+[31m-//    }[m
+[31m-//[m
+[31m-//    val uiState by registerViewModel.registerState.collectAsState()[m
+[31m-//[m
+[31m-//    val darkBackground = Color(0xFF1E1E2E)[m
+[31m-//    val cardBackground = Color(0xFF282838)[m
+[31m-//    val accentColor = Color(0xFF7B68EE)[m
+[31m-//    val textFieldColor = Color(0xFF3D3D5B)[m
+[31m-//[m
+[31m-//    Box([m
+[31m-//        modifier = Modifier[m
+[31m-//            .fillMaxSize()[m
+[31m-//            .background(darkBackground),[m
+[31m-//        contentAlignment = Alignment.Center[m
+[31m-//    ) {[m
+[31m-//        Box([m
+[31m-//            modifier = Modifier[m
+[31m-//                .fillMaxSize()[m
+[31m-//                .padding(16.dp)[m
+[31m-//        ) {[m
+[31m-//            Box([m
+[31m-//                modifier = Modifier[m
+[31m-//                    .size(200.dp)[m
+[31m-//                    .align(Alignment.TopEnd)[m
+[31m-//                    .offset(x = 50.dp, y = (-50).dp)[m
+[31m-//                    .background([m
+[31m-//                        brush = Brush.radialGradient([m
+[31m-//                            colors = listOf([m
+[31m-//                                accentColor.copy(alpha = 0.3f),[m
+[31m-//                                Color.Transparent[m
+[31m-//                            ),[m
+[31m-//                            radius = 200f[m
+[31m-//                        ),[m
+[31m-//                        shape = CircleShape[m
+[31m-//                    )[m
+[31m-//                    .blur(30.dp)[m
+[31m-//            )[m
+[31m-//[m
+[31m-//            Box([m
+[31m-//                modifier = Modifier[m
+[31m-//                    .size(250.dp)[m
+[31m-//                    .align(Alignment.BottomStart)[m
+[31m-//                    .offset(x = (-70).dp, y = 70.dp)[m
+[31m-//                    .background([m
+[31m-//                        brush = Brush.radialGradient([m
+[31m-//                            colors = listOf(accentColor.copy(alpha = 0.2f), Color.Transparent),[m
+[31m-//                            radius = 250f[m
+[31m-//                        ),[m
+[31m-//                        shape = CircleShape[m
+[31m-//                    )[m
+[31m-//                    .blur(40.dp)[m
+[31m-//            )[m
+[31m-//        }[m
+[31m-//[m
+[31m-//        Card([m
+[31m-//            modifier = Modifier[m
+[31m-//                .width(450.dp)[m
+[31m-//                .wrapContentHeight()[m
+[31m-//                .padding(16.dp),[m
+[31m-//            shape = RoundedCornerShape(24.dp),[m
+[31m-//            colors = CardDefaults.cardColors(containerColor = cardBackground),[m
+[31m-//            elevation = CardDefaults.cardElevation(defaultElevation = 8.dp)[m
+[31m-//        ) {[m
+[31m-//            Column([m
+[31m-//                modifier = Modifier.padding(30.dp),[m
+[31m-//                verticalArrangement = Arrangement.spacedBy(20.dp),[m
+[31m-//                horizontalAlignment = Alignment.CenterHorizontally[m
+[31m-//            ) {[m
+[31m-//                Icon([m
+[31m-//                    painter = painterResource(R.drawable.informator),[m
+[31m-//                    contentDescription = "",[m
+[31m-//                    modifier = Modifier[m
+[31m-//                        .size(140.dp)[m
+[31m-//                        .background(accentColor.copy(alpha = 0.2f), CircleShape)[m
+[31m-//                )[m
+[31m-//[m
+[31m-//                Text([m
+[31m-//                    text = "MAFIA ONLINE",[m
+[31m-//                    fontSize = 38.sp,[m
+[31m-//                    fontStyle = FontStyle.Italic,[m
+[31m-//                    fontWeight = FontWeight.Bold,[m
+[31m-//                    color = Color.White,[m
+[31m-//                    textAlign = TextAlign.Center[m
+[31m-//                )[m
+[31m-//[m
+[31m-//                Spacer(modifier = Modifier.height(10.dp))[m
+[31m-//[m
+[31m-//                OutlinedTextField([m
+[31m-//                    value = uiState.email,[m
+[31m-//                    onValueChange = { newEmail -> registerViewModel.registerEventHandler(RegisterEvent.UpdateEmail(newEmail)) },[m
+[31m-//                    modifier = Modifier[m
+[31m-//                        .fillMaxWidth()[m
+[31m-//                        .height(60.dp),[m
+[31m-//                    shape = RoundedCornerShape(16.dp),[m
+[31m-//                    singleLine = true,[m
+[31m-//                    placeholder = {[m
+[31m-//                        Text([m
+[31m-//                            text = "Enter your email",[m
+[31m-//                            color = Color.White.copy(alpha = 0.6f)[m
+[31m-//                        )[m
+[31m-//                    },[m
+[31m-//                    colors = OutlinedTextFieldDefaults.colors([m
+[31m-//                        focusedBorderColor = accentColor,[m
+[31m-//                        unfocusedBorderColor = accentColor.copy(alpha = 0.5f),[m
+[31m-//                        focusedContainerColor = textFieldColor,[m
+[31m-//                        unfocusedTextColor = Color.White,[m
+[31m-//                        focusedTextColor = Color.White,[m
+[31m-//                        cursorColor = accentColor[m
+[31m-//                    )[m
+[31m-//                )[m
+[31m-//[m
+[31m-//                OutlinedTextField([m
+[31m-//                    value = uiState.password,[m
+[31m-//                    onValueChange = { newPassword -> registerViewModel.registerEventHandler(RegisterEvent.UpdatePassword(newPassword)) },[m
+[31m-//                    modifier = Modifier[m
+[31m-//                        .fillMaxWidth()[m
+[31m-//                        .height(60.dp),[m
+[31m-//                    shape = RoundedCornerShape(16.dp),[m
+[31m-//                    singleLine = true,[m
+[31m-//                    placeholder = {[m
+[31m-//                        Text([m
+[31m-//                            text = "Enter password",[m
+[31m-//                            color = Color.White.copy(alpha = 0.6f)[m
+[31m-//                        )[m
+[31m-//                    },[m
+[31m-//                    trailingIcon = {[m
+[31m-//                        IconButton(onClick = { registerViewModel.registerEventHandler(RegisterEvent.TogglePasswordVisibility) }) {[m
+[31m-//                            Icon([m
+[31m-//                                painter = painterResource(uiState.passwordIcon),[m
+[31m-//                                contentDescription = null,[m
+[31m-//                                tint = Color.White[m
+[31m-//                            )[m
+[31m-//                        }[m
+[31m-//                    },[m
+[31m-//                    visualTransformation = uiState.passwordVisualization,[m
+[31m-//                    colors = OutlinedTextFieldDefaults.colors([m
+[31m-//                        focusedBorderColor = accentColor,[m
+[31m-//                        unfocusedBorderColor = accentColor.copy(alpha = 0.5f),[m
+[31m-//                        focusedContainerColor = textFieldColor,[m
+[31m-//                        unfocusedTextColor = Color.White,[m
+[31m-//                        focusedTextColor = Color.White,[m
+[31m-//                        cursorColor = accentColor[m
+[31m-//                    )[m
+[31m-//                )[m
+[31m-//[m
+[31m-//                Spacer(modifier = Modifier.height(20.dp))[m
+[31m-//[m
+[31m-//                if( uiState.isTextMessageOn ) {[m
+[31m-//                    MinimalDialog(uiState.textMessage) { registerViewModel.registerEventHandler(RegisterEvent.OnDismiss) }[m
+[31m-//                }[m
+[31m-//[m
+[31m-//                Button([m
+[31m-//                    onClick = {[m
+[31m-//                        registerViewModel.registerEventHandler(RegisterEvent.OnLogIn(onLogIn))[m
+[31m-//                    },[m
+[31m-//                    modifier = Modifier[m
+[31m-//                        .fillMaxWidth()[m
+[31m-//                        .height(55.dp),[m
+[31m-//                    shape = RoundedCornerShape(16.dp),[m
+[31m-//                    colors = ButtonDefaults.buttonColors([m
+[31m-//                        containerColor = accentColor,[m
+[31m-//                        contentColor = Color.White[m
+[31m-//                    ),[m
+[31m-//                    elevation = ButtonDefaults.buttonElevation([m
+[31m-//                        defaultElevation = 4.dp,[m
+[31m-//                        pressedElevation = 8.dp[m
+[31m-//                    )[m
+[31m-//                ) {[m
+[31m-//                    Text([m
+[31m-//                        text = "Log In",[m
+[31m-//                        fontSize = 18.sp,[m
+[31m-//                        fontWeight = FontWeight.Bold[m
+[31m-//                    )[m
+[31m-//                }[m
+[31m-//[m
+[31m-//                Text([m
+[31m-//                    text = "Register",[m
+[31m-//                    modifier = Modifier.clickable { onRegister() },[m
+[31m-//                    color = accentColor,[m
+[31m-//                    fontSize = 18.sp,[m
+[31m-//                    fontWeight = FontWeight.Bold,[m
+[31m-//                    textDecoration = TextDecoration.Underline[m
+[31m-//                )[m
+[31m-//[m
+[31m-//                Spacer(modifier = Modifier.height(10.dp))[m
+[31m-//            }[m
+[31m-//        }[m
+[31m-//    }[m
+[31m-//}[m
+[31m-//[m
+[31m-//@Preview[m
+[31m-//@Composable[m
+[31m-//fun LogInPreview() {[m
+[31m-//    LogIn({},{}, viewModel())[m
+[31m-//}[m
+[31m-[m
+ package com.example.mafiaonlinejetpackcomposecapi.register[m
+ [m
+ import android.util.Log[m

@@ -35,6 +35,7 @@ fun LoginAsGuestScreen(
     var guestName by remember { mutableStateOf("") }
     var errorMessage by remember { mutableStateOf<String?>("Please enter name") }
     var isCorrectToCreate by remember { mutableStateOf(false) }
+    var isAlreadyCreated by remember { mutableStateOf(false) }
 
     Box(
         modifier = Modifier
@@ -130,20 +131,33 @@ fun LoginAsGuestScreen(
 
                     Button(
                         onClick = {
-                            if(isCorrectToCreate) {
-                                CoroutineScope(Dispatchers.Main).launch {
-                                    val response = MafiaApi.retrofitService.requestToLoginAsGuest(guestName)
-                                    delay(100)
-                                    registerViewModel.authValidationAsGuest(
-                                        userId = response.body()!!.userId,
-                                        name = guestName,
-                                        accessToken = response.body()!!.accessToken,
-                                        refreshToken = response.body()!!.refreshToken
-                                    )
-                                    registerViewModel.changeAchievementId(response.body()!!.userId)
-                                    registerViewModel.isGuest = true
-                                    tokenManager.saveIfGuest(true)
-                                    onContinue()
+                            if(isCorrectToCreate && isAlreadyCreated.not()) {
+                                try {
+                                    isAlreadyCreated = true
+                                    CoroutineScope(Dispatchers.Main).launch {
+                                        val response =
+                                            MafiaApi.retrofitService.requestToLoginAsGuest(guestName)
+                                        if(response.isSuccessful) {
+                                            delay(100)
+                                            registerViewModel.authValidationAsGuest(
+                                                userId = response.body()!!.userId,
+                                                name = guestName,
+                                                accessToken = response.body()!!.accessToken,
+                                                refreshToken = response.body()!!.refreshToken
+                                            )
+                                            registerViewModel.changeAchievementId(response.body()!!.userId)
+                                            registerViewModel.isGuest = true
+                                            tokenManager.saveIfGuest(true)
+                                            onContinue()
+                                        } else {
+                                            errorMessage = "Login failed"
+                                            isAlreadyCreated = false
+                                        }
+                                    }
+                                } catch (e: Exception) {
+                                    errorMessage = "Something went wrong"
+                                    isCorrectToCreate = false
+                                    isAlreadyCreated = false
                                 }
                             }
                         },

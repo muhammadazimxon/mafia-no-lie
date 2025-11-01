@@ -6,17 +6,8 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.animation.ExperimentalAnimationApi
-import androidx.compose.animation.core.FastOutSlowInEasing
-import androidx.compose.animation.core.Spring
-import androidx.compose.animation.core.spring
-import androidx.compose.animation.core.tween
-import androidx.compose.animation.fadeIn
-import androidx.compose.animation.fadeOut
-import androidx.compose.animation.scaleIn
-import androidx.compose.animation.slideInHorizontally
-import androidx.compose.animation.slideInVertically
-import androidx.compose.animation.slideOutHorizontally
-import androidx.compose.animation.slideOutVertically
+import androidx.compose.animation.EnterTransition
+import androidx.compose.animation.ExitTransition
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
@@ -64,7 +55,6 @@ import com.example.mafiaonlinejetpackcomposecapi.serializableData.fromScreen.Fro
 import com.example.mafiaonlinejetpackcomposecapi.settingsMenuSection.SettingsMenu
 import com.example.mafiaonlinejetpackcomposecapi.sharedPreferences.TokenPreferences
 import com.example.mafiaonlinejetpackcomposecapi.storeSection.StoreMenu
-import com.example.mafiaonlinejetpackcomposecapi.transitionsOfNavigation.NavAnimations
 import com.example.mafiaonlinejetpackcomposecapi.waitingSection.WaitingRoom
 import com.example.mafiaonlinejetpackcomposecapi.waitingSection.signalRServiceHub.SignalRServiceHub
 import com.example.mafiaonlinejetpackcomposecapi.waitingSection.waitingRoomModels.WaitingRoomParam
@@ -75,7 +65,7 @@ import com.google.accompanist.navigation.animation.composable
 const val PORT_1 = "5020"
 const val PORT_2 = "5000"
 const val PORT_3 = "5100"
-const val DOMAIN = "http://192.168.1.11:5000/"
+const val DOMAIN = "http://10.167.72.241:5000/"
 const val HOST_1 = "26.244.155.168"
 const val HOST_3 = "192.168.33.241"
 const val HOST_4 = "192.168.46.241"
@@ -147,16 +137,12 @@ fun App(
     AnimatedNavHost(
         navController = navController,
         startDestination = LogInScreen.route,
-        enterTransition = { NavAnimations.slideInRightAnimation },
-        exitTransition = { NavAnimations.slideOutLeftAnimation },
-        popEnterTransition = { NavAnimations.slideInLeftAnimation },
-        popExitTransition = { NavAnimations.slideOutRightAnimation }
+        enterTransition = { EnterTransition.None },
+        exitTransition = { ExitTransition.None },
+        popEnterTransition = { EnterTransition.None },
+        popExitTransition = { ExitTransition.None }
     ) {
-        composable(
-            LogInScreen.route,
-            enterTransition = { NavAnimations.fadeInAnimation },
-            exitTransition = { NavAnimations.fadeOutAnimation }
-        ) {
+        composable(LogInScreen.route) {
             LogIn(
                 registerViewModel = registerViewModel,
                 onLogIn = {
@@ -178,12 +164,7 @@ fun App(
             )
         }
 
-        composable(
-            MainMenuScreen.route,
-            enterTransition = { NavAnimations.fadeInAnimation },
-            exitTransition = { NavAnimations.scaleOutAnimation },
-            popEnterTransition = { NavAnimations.scaleInAnimation }
-        ) {
+        composable(MainMenuScreen.route) {
             MainMenu(
                 modifier = modifier,
                 onCreateGameScreen = {
@@ -230,12 +211,8 @@ fun App(
             )
         }
 
-        composable(
-            route = ProfileScreen.route,
-            enterTransition = { NavAnimations.scaleInAnimation },
-            exitTransition = { NavAnimations.slideOutLeftAnimation }
-        ) {
-            ProfileScreen(registerViewModel = registerViewModel)
+        composable(ProfileScreen.route) {
+            ProfileScreen(registerViewModel = registerViewModel, onBackClick = { navController.popBackStack() })
         }
 
         composable(EnterEmailScreen.route) {
@@ -262,18 +239,7 @@ fun App(
             )
         }
 
-        composable(
-            CreateCharacterScreen.route,
-            enterTransition = {
-                scaleIn(
-                    initialScale = 0.9f,
-                    animationSpec = spring(
-                        dampingRatio = Spring.DampingRatioMediumBouncy,
-                        stiffness = Spring.StiffnessMedium
-                    )
-                ) + fadeIn(animationSpec = tween(400))
-            }
-        ) {
+        composable(CreateCharacterScreen.route) {
             CreateCharacter(
                 onBack = { navController.popBackStack() },
                 onConfirm = {
@@ -299,11 +265,7 @@ fun App(
             )
         }
 
-        composable(
-            CreateGameScreen.route,
-            enterTransition = { NavAnimations.slideInUpAnimation },
-            exitTransition = { NavAnimations.slideOutDownAnimation }
-        ) {
+        composable(CreateGameScreen.route) {
             CreateGame(
                 createGameParams = CreateGameParam(
                     modifier = modifier,
@@ -319,11 +281,7 @@ fun App(
             )
         }
 
-        composable(
-            JoinGameScreen.route,
-            enterTransition = { NavAnimations.slideInUpAnimation },
-            exitTransition = { NavAnimations.slideOutDownAnimation }
-        ) {
+        composable(JoinGameScreen.route) {
             RoomScreen(
                 roomsScreenViewModel = roomsScreenViewModel,
                 onJoin = {
@@ -336,11 +294,7 @@ fun App(
             )
         }
 
-        composable(
-            WaitingRoomScreen.ROUTE,
-            enterTransition = { NavAnimations.slideInRightAnimation },
-            exitTransition = { NavAnimations.slideOutLeftAnimation }
-        ) {
+        composable(WaitingRoomScreen.ROUTE) {
             WaitingRoom(
                 waitingRoomParams = WaitingRoomParam(
                     modifier = modifier,
@@ -363,24 +317,7 @@ fun App(
             )
         }
 
-        composable(
-            GameRoomScreen.ROUTE,
-            enterTransition = {
-                slideInVertically(
-                    initialOffsetY = { it },
-                    animationSpec = spring(
-                        dampingRatio = Spring.DampingRatioLowBouncy,
-                        stiffness = Spring.StiffnessMediumLow
-                    )
-                ) + fadeIn(animationSpec = tween(400))
-            },
-            exitTransition = {
-                slideOutVertically(
-                    targetOffsetY = { it },
-                    animationSpec = tween(400, easing = FastOutSlowInEasing)
-                ) + fadeOut(animationSpec = tween(400))
-            }
-        ) {
+        composable(GameRoomScreen.ROUTE) {
             MafiaGameRoom(
                 modifier = modifier,
                 gameRoomViewModel = gameRoomViewModel,
@@ -398,27 +335,15 @@ fun App(
             )
         }
 
-        composable(
-            SettingsScreen.route,
-            enterTransition = { NavAnimations.scaleInAnimation },
-            exitTransition = { NavAnimations.scaleOutAnimation }
-        ) {
+        composable(SettingsScreen.route) {
             SettingsMenu(onBackClick = { navController.popBackStack() })
         }
 
-        composable(
-            StoreScreen.route,
-            enterTransition = { NavAnimations.scaleInAnimation },
-            exitTransition = { NavAnimations.scaleOutAnimation }
-        ) {
+        composable(StoreScreen.route) {
             StoreMenu(onBackClick = { navController.popBackStack() })
         }
 
-        composable(
-            HistoryScreen.route,
-            enterTransition = { NavAnimations.slideInRightAnimation },
-            exitTransition = { NavAnimations.slideOutLeftAnimation }
-        ) {
+        composable(HistoryScreen.route) {
             GameHistoryScreen(
                 modifier = modifier,
                 currentPlayerId = registerViewModel.currentPlayerId,
@@ -426,24 +351,7 @@ fun App(
             )
         }
 
-        composable(
-            AchievementsScreen.route,
-            enterTransition = {
-                slideInHorizontally(
-                    initialOffsetX = { it },
-                    animationSpec = spring(
-                        dampingRatio = Spring.DampingRatioMediumBouncy,
-                        stiffness = Spring.StiffnessMedium
-                    )
-                ) + fadeIn(animationSpec = tween(300))
-            },
-            exitTransition = {
-                slideOutHorizontally(
-                    targetOffsetX = { it },
-                    animationSpec = tween(300, easing = FastOutSlowInEasing)
-                ) + fadeOut(animationSpec = tween(300))
-            }
-        ) {
+        composable(AchievementsScreen.route) {
             AchievementsScreen(
                 modifier = modifier,
                 viewModel = achievementsViewModel,

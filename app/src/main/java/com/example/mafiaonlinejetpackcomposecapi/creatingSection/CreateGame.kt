@@ -24,6 +24,8 @@ import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
@@ -47,6 +49,10 @@ import com.example.mafiaonlinejetpackcomposecapi.creatingSection.models.CreateGa
 import com.example.mafiaonlinejetpackcomposecapi.creatingSection.models.RolesChooserParam
 import com.example.mafiaonlinejetpackcomposecapi.gameRoom.components.dialogs.CustomDialog
 import com.example.mafiaonlinejetpackcomposecapi.waitingSection.components.ConnectingToServerScreen
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 @Composable
 fun CreateGame(
@@ -54,6 +60,7 @@ fun CreateGame(
     createGameViewModel: CreateGameViewModel
 ) {
     val verticalScrollState = rememberScrollState()
+    val isClicked = remember { mutableStateOf(false) }
 
     val primaryColor = Color(0xFF7B68EE)
     val backgroundColor = Color(0xFF1E1E2E)
@@ -453,7 +460,18 @@ fun CreateGame(
                 ) {
                     AnimatedCreateButton(
                         onCreate = {
-                            createGameViewModel.createGameEventHandler(CreateGameEvent.CreateGameAction(createGameParams.onCreate))
+                            if (isClicked.value) return@AnimatedCreateButton
+                            isClicked.value = true
+
+                            CoroutineScope(Dispatchers.IO).launch {
+                                createGameViewModel.createGameEventHandler(
+                                    CreateGameEvent.CreateGameAction(
+                                        createGameParams.onCreate
+                                    )
+                                )
+                                delay(1700)
+                                isClicked.value = false
+                            }
                         }
                     )
                 }

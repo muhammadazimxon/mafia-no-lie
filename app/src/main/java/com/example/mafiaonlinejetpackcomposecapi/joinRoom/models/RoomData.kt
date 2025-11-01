@@ -6,5 +6,6 @@ data class RoomData(
     val password: String,
     val minPlayers: Int,
     val maxPlayers: Int,
-    val playerQuantity: Int
+    val playerQuantity: Int,
+    val isClickedAlready: Boolean = false
 )

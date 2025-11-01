@@ -66,7 +66,7 @@ fun EnhancedRoomItem(
                 )
 
                 Text(
-                    text = "Host: Player",
+                    text = "Host:",
                     color = Color.White.copy(alpha = 0.7f),
                     fontSize = 14.sp
                 )
@@ -86,6 +86,7 @@ fun EnhancedRoomItem(
                     fontWeight = FontWeight.Bold
                 )
             }
+//            Spacer(modifier = Modifier.width(12.
 
             Spacer(modifier = Modifier.width(12.dp))
 

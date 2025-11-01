@@ -15,15 +15,18 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.itemsIndexed
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -116,19 +119,57 @@ fun RoomScreen(
                     .padding(16.dp),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                Column(
-                    horizontalAlignment = Alignment.CenterHorizontally,
-                    modifier = Modifier.padding(bottom = 24.dp)
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(120.dp)
+                        .padding(bottom = 8.dp)
                 ) {
-                    Text("MAFIA ONLINE", color = Color.White, fontSize = 24.sp, fontWeight = FontWeight.Bold)
-                    Text("AVAILABLE ROOMS", color = accentColor, fontSize = 32.sp, fontWeight = FontWeight.Bold)
-                    HorizontalDivider(
+                    Surface(
                         modifier = Modifier
-                            .padding(vertical = 16.dp)
-                            .width(100.dp),
-                        thickness = 2.dp,
-                        color = accentColor.copy(alpha = 0.5f)
-                    )
+                            .padding(start = 12.dp, top = 8.dp)
+                            .size(48.dp)
+                            .align(Alignment.TopStart),
+                        shape = CircleShape,
+                        tonalElevation = 6.dp,
+                        shadowElevation = 4.dp,
+                        color = Color.White.copy(alpha = 0.06f),
+                        onClick = { onBack() }
+                    ) {
+                        Box(contentAlignment = Alignment.Center) {
+                            Icon(
+                                imageVector = Icons.Default.ArrowBack,
+                                contentDescription = "Back",
+                                tint = Color.White,
+                                modifier = Modifier.size(20.dp)
+                            )
+                        }
+                    }
+
+                    Column(
+                        modifier = Modifier.align(Alignment.Center),
+                        horizontalAlignment = Alignment.CenterHorizontally
+                    ) {
+                        Text(
+                            "MAFIA ONLINE",
+                            color = Color.White,
+                            fontSize = 20.sp,
+                            fontWeight = FontWeight.Bold
+                        )
+                        Text(
+                            "AVAILABLE ROOMS",
+                            color = accentColor,
+                            fontSize = 28.sp,
+                            fontWeight = FontWeight.Bold
+                        )
+                        HorizontalDivider(
+                            modifier = Modifier
+                                .padding(top = 8.dp)
+                                .width(100.dp),
+                            thickness = 2.dp,
+                            color = accentColor.copy(alpha = 0.5f)
+                        )
+                    }
                 }
 
                 Card(
@@ -153,6 +194,7 @@ fun RoomScreen(
                             Text("Players", color = Color.White, fontSize = 16.sp, fontWeight = FontWeight.Bold, modifier = Modifier.weight(0.5f), textAlign = TextAlign.Center)
                             Spacer(modifier = Modifier.width(80.dp))
                         }
+
                         HorizontalDivider(modifier = Modifier.padding(bottom = 8.dp), color = Color.White.copy(alpha = 0.2f))
 
                         when {
@@ -177,16 +219,54 @@ fun RoomScreen(
                                 }
                             }
                             else -> {
-                                LazyColumn(
-                                    modifier = Modifier.weight(1f),
-                                    verticalArrangement = Arrangement.spacedBy(12.dp)
-                                ) {
-                                    itemsIndexed(roomState.roomsList) { _, element ->
-                                        EnhancedRoomItem(
-                                            data = element,
-                                            onJoin = { roomsScreenViewModel.onEventHandler(RoomEvent.OnJoin(it, onJoin)) },
-                                            onPasswordDialogOpen = { roomsScreenViewModel.onEventHandler(RoomEvent.OnPasswordDialogOpen(element.password, element.roomId)) }
-                                        )
+                                val roomsWithIndices = roomState.roomsList
+                                    .mapIndexed { index, room -> IndexedValue(index, room) }
+                                    .filter { it.value.playerQuantity > 0 }
+
+                                if (roomsWithIndices.isEmpty()) {
+                                    Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+                                        Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                                            Icon(
+                                                painter = painterResource(id = R.drawable.detective),
+                                                contentDescription = "No rooms",
+                                                tint = Color.White.copy(alpha = 0.6f),
+                                                modifier = Modifier.size(80.dp)
+                                            )
+                                            Spacer(modifier = Modifier.height(16.dp))
+                                            Text("No active rooms", color = Color.White.copy(alpha = 0.6f), fontSize = 18.sp)
+                                        }
+                                    }
+                                } else {
+                                    LazyColumn(
+                                        modifier = Modifier.weight(1f),
+                                        verticalArrangement = Arrangement.spacedBy(12.dp)
+                                    ) {
+                                        items(roomsWithIndices, key = { it.value.roomId }) { indexedRoom ->
+                                            val originalIndex = indexedRoom.index
+                                            val room = indexedRoom.value
+
+                                            EnhancedRoomItem(
+                                                data = room,
+                                                onJoin = {
+                                                    if (!room.isClickedAlready) {
+                                                        roomsScreenViewModel.onEventHandler(
+                                                            RoomEvent.OnJoin(it, onJoin, originalIndex)
+                                                        )
+                                                    }
+                                                },
+                                                onPasswordDialogOpen = {
+                                                    if (!room.isClickedAlready) {
+                                                        roomsScreenViewModel.onEventHandler(
+                                                            RoomEvent.OnPasswordDialogOpen(
+                                                                room.password,
+                                                                room.roomId,
+                                                                originalIndex
+                                                            )
+                                                        )
+                                                    }
+                                                }
+                                            )
+                                        }
                                     }
                                 }
                             }
@@ -207,8 +287,12 @@ fun RoomScreen(
                             .padding(16.dp),
                         horizontalArrangement = Arrangement.SpaceEvenly
                     ) {
-                        ActionButton("Update", R.drawable.baseline_system_update_alt_24, accentColor) { roomsScreenViewModel.onEventHandler(RoomEvent.OnUpdate) }
-                        ActionButton("Random", R.drawable.baseline_transform_24, accentColor) { roomsScreenViewModel.onEventHandler(RoomEvent.OnRandom(onJoin)) }
+                        ActionButton("Update", R.drawable.baseline_system_update_alt_24, accentColor) {
+                            roomsScreenViewModel.onEventHandler(RoomEvent.OnUpdate)
+                        }
+                        ActionButton("Random", R.drawable.baseline_transform_24, accentColor) {
+                            roomsScreenViewModel.onEventHandler(RoomEvent.OnRandom(onJoin))
+                        }
                     }
                 }
 
@@ -225,11 +309,19 @@ fun RoomScreen(
             if (roomState.isPasswordDialogOn) {
                 EnhancedPasswordDialog(
                     value = roomState.password,
-                    onValueChange = {  roomsScreenViewModel.onEventHandler(RoomEvent.UpdatePassword(it)) },
+                    onValueChange = { roomsScreenViewModel.onEventHandler(RoomEvent.UpdatePassword(it)) },
                     showPassword = roomState.showPassword,
                     onShowPasswordToggle = { roomsScreenViewModel.onEventHandler(RoomEvent.TogglePasswordVisibility) },
                     onDismiss = { roomsScreenViewModel.onEventHandler(RoomEvent.Dismiss) },
-                    onJoinWithPassword = { roomsScreenViewModel.onEventHandler(RoomEvent.JoinWithPassword(roomState.dialogsGuid, onJoin))},
+                    onJoinWithPassword = {
+                        roomsScreenViewModel.onEventHandler(
+                            RoomEvent.JoinWithPassword(
+                                roomState.dialogsGuid,
+                                onJoin,
+                                roomState.joinViaPasswordIndex
+                            )
+                        )
+                    },
                     passwordError = roomState.passwordError,
                     accentColor = accentColor
                 )
@@ -242,8 +334,8 @@ fun RoomScreen(
 @Composable
 fun RoomScreenPreview() {
     RoomScreen(
-        onJoin = {  },
-        {},
+        onJoin = { },
+        onBack = {},
         roomsScreenViewModel = viewModel()
     )
 }

@@ -42,9 +42,8 @@ class RegisterViewModel(
     var currentPlayerId by mutableIntStateOf(-1)
     var isGuest by mutableStateOf(false)
 
-    fun authValidation(userId: Int, email: String, name: String) {
-        tokenManager.saveIfGuest(false)
-        isGuest = false
+    fun authValidation(isGuest: Boolean, userId: Int, email: String, name: String) {
+        tokenManager.saveIfGuest(isGuest)
         _registerState.value = _registerState.value.copy(
             email = email,
             repeatEmail = email,

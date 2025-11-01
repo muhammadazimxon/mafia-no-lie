@@ -36,7 +36,7 @@ interface MafiaApiService {
     suspend fun getGuid(): String
 
     @GET("auth-check")
-    suspend fun validateToken(): AuthCheckResponse
+    suspend fun validateToken(@Query("isGuest") isGuest: Boolean): AuthCheckResponse
 
     @POST("re-send-register-code")
     @Headers("Requires-Auth: false")
@@ -92,4 +92,8 @@ interface MafiaApiService {
     @GET("profile-info")
     @Headers("Requires-Auth: true")
     suspend fun profileInfo(@Query("playerId") playerId: Int): Response<ProfileData>
+
+    @PATCH("edit-profile")
+    @Headers("Requires-Auth: true")
+    suspend fun editProfile(@Query("playerId") playerId: Int, @Query("newPlayerName") newPlayerName: String): Response<Boolean>
 }

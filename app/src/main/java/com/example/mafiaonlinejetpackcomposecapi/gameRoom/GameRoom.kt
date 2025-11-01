@@ -85,6 +85,7 @@ import com.example.mafiaonlinejetpackcomposecapi.gameRoom.mvi.OnSherifAbilityUse
 import com.example.mafiaonlinejetpackcomposecapi.gameRoom.mvi.OnTextFieldChange
 import com.example.mafiaonlinejetpackcomposecapi.gameRoom.mvi.PlayerCardInteractionViaBarman
 import com.example.mafiaonlinejetpackcomposecapi.gameRoom.mvi.SherifDialog
+import com.microsoft.signalr.HubConnectionState
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
@@ -113,10 +114,6 @@ fun MafiaGameRoom(
         gameRoomViewModel.startConnection()
     }
 
-    LaunchedEffect(gameRoomViewModel.getHubConnection().connectionState) {
-        gameRoomViewModel.getGameInitialRequest()
-    }
-
     val uiState by gameRoomViewModel.uiState.collectAsState()
     val listState = rememberLazyListState()
 
@@ -133,6 +130,36 @@ fun MafiaGameRoom(
     val bomberDataState by gameRoomViewModel.bomberState.collectAsState()
     val donDataState by gameRoomViewModel.donState.collectAsState()
 
+    LaunchedEffect(Unit) {
+        var attempts = 0
+        val maxAttempts = 50
+
+        while (attempts < maxAttempts) {
+            val state = gameRoomViewModel.getHubConnection().connectionState
+            Log.d("MafiaGameRoom", "Connection state: $state (attempt $attempts)")
+
+            if (state == HubConnectionState.CONNECTED) {
+                Log.d("MafiaGameRoom", "✅ Connected! Waiting 500ms before requests...")
+                delay(500)
+
+                Log.d("MafiaGameRoom", "Sending initial requests")
+                gameRoomViewModel.getGameInitialRequest()
+                break
+            }
+
+            delay(100)
+            attempts++
+        }
+
+        if (attempts >= maxAttempts) {
+            Log.e("MafiaGameRoom", "❌ Failed to connect after ${maxAttempts * 100}ms")
+        }
+    }
+
+    LaunchedEffect(uiState.phase) {
+        gameRoomViewModel.onPhaseChanges()
+    }
+
     var isBackRequestDialogOn by remember {
         mutableStateOf(false).also {
             Log.d("MafiaGameRoom", "Back dialog state initialized: ${it.value}")
@@ -142,14 +169,6 @@ fun MafiaGameRoom(
         mutableStateOf(true)
     }
 
-    if( voteDataState.isConfirmVoteDialog ) {
-        ConfirmVoteDialog(
-            playerName = voteDataState.votePlayer,
-            unitEventHandler = gameRoomViewModel::unitEventHandler,
-            chosenId = voteDataState.votedPlayerId
-        )
-    }
-
     val currentPlayer = uiState.oldPlayers.find { player ->
         Log.d("MAFIA_GAME_ROOM_PLAYERS", "MafiaGameRoom: player: ${player.playerId}, ${player.playerName}")
         player.playerId == currentPlayerDataState.playerId && player.playerName == currentPlayerDataState.playerName
@@ -157,9 +176,36 @@ fun MafiaGameRoom(
 
     val messagesToShow = gameRoomViewModel.allMessages(currentPlayer = currentPlayer)
 
+    LaunchedEffect(messagesToShow.size) {
+        if (messagesToShow.isNotEmpty()) {
+            listState.animateScrollToItem(messagesToShow.lastIndex)
+        }
+    }
+
+    if ( isBackRequestDialogOn ) {
+        BackRequestDialog(
+            onDismissRequest = {
+                isBackRequestDialogOn = false
+            },
+            onBack = onBack
+        )
+    }
+
+    BackHandler {
+        isBackRequestDialogOn = true
+    }
+
     if(initialNotificationHelper) {
         gameRoomViewModel.resetInitialNotification()
         initialNotificationHelper = false
+    }
+
+    if( voteDataState.isConfirmVoteDialog ) {
+        ConfirmVoteDialog(
+            playerName = voteDataState.votePlayer,
+            unitEventHandler = gameRoomViewModel::unitEventHandler,
+            chosenId = voteDataState.votedPlayerId
+        )
     }
 
     if (gameRoomViewModel.currentDialogState == GameRoomViewModel.DialogState.INITIAL_NOTIFICATION) {
@@ -359,29 +405,6 @@ fun MafiaGameRoom(
             isOnlyAbilityUse = true,
             selectedPlayerName = detectiveDataState.detectiveChosenName
         )
-    }
-
-    LaunchedEffect(uiState.phase) {
-        gameRoomViewModel.onPhaseChanges()
-    }
-
-    LaunchedEffect(messagesToShow.size) {
-        if (messagesToShow.isNotEmpty()) {
-            listState.animateScrollToItem(messagesToShow.lastIndex)
-        }
-    }
-
-    if ( isBackRequestDialogOn ) {
-        BackRequestDialog(
-            onDismissRequest = {
-                isBackRequestDialogOn = false
-            },
-            onBack = onBack
-        )
-    }
-
-    BackHandler {
-        isBackRequestDialogOn = true
     }
 
     Row(

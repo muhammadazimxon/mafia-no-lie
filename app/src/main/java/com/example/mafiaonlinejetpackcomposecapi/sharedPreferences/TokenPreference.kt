@@ -29,6 +29,14 @@ class TokenPreferences {
         }
     }
 
+    fun saveAvatarEmoji(emoji: String) {
+        sharedPreferences?.edit {
+            putString("avatarEmoji", emoji)
+            apply()
+        }
+    }
+
+    fun getAvatarEmoji(): String = sharedPreferences?.getString("avatarEmoji", "🎭") ?: "🎭"
     fun getIfGuest(): Boolean {
         return sharedPreferences?.getBoolean("isGuest", false) ?: false
     }

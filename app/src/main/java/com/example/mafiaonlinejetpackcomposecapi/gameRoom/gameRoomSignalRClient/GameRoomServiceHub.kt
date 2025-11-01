@@ -12,6 +12,7 @@ import com.example.mafiaonlinejetpackcomposecapi.waitingSection.waitingRoomModel
 import com.example.mafiaonlinejetpackcomposecapi.waitingSection.waitingRoomModels.ChatModel
 import com.microsoft.signalr.HubConnection
 import com.microsoft.signalr.HubConnectionBuilder
+import com.microsoft.signalr.TransportEnum
 import io.reactivex.rxjava3.disposables.Disposable
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -110,7 +111,7 @@ data class GameRoomState(
 class GameRoomServiceHub {
     private val hubConnection: HubConnection = HubConnectionBuilder
         .create(SERVER_URL)
-        .withHandshakeResponseTimeout(30000)
+        .withServerTimeout(30000)
         .build()
 
     private var _gameRoomState = MutableStateFlow(GameRoomState())
