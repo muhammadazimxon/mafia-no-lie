@@ -130,7 +130,7 @@ fun MafiaGameRoom(
     val bomberDataState by gameRoomViewModel.bomberState.collectAsState()
     val donDataState by gameRoomViewModel.donState.collectAsState()
 
-    LaunchedEffect(Unit) {
+    LaunchedEffect(gameRoomViewModel.getHubConnection().connectionState) {
         var attempts = 0
         val maxAttempts = 50
 

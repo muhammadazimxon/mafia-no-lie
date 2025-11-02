@@ -155,6 +155,10 @@ class WaitingRoomViewModel(private val signalRServiceHub: SignalRServiceHub, pri
         Log.e("ChangePlayerId", "changePlayerID: $playerId", )
     }
 
+    fun leaveWaitingRoom() {
+        signalRServiceHub.sendLeaveRoom(guid, signalRServiceHub.playerId.value)
+    }
+
     private fun requestJoinGame(guid: String, playerName: String) = signalRServiceHub.requestJoinGame(guid, playerName, gameRoomViewModel.currentPlayerDataState.value.playerId)
     private fun sendLeaveRoom(guid: String, playerId: Int) = signalRServiceHub.sendLeaveRoom(guid, playerId)
     private fun sendPlayerMessage(guid: String, playerName: String, message: String) = signalRServiceHub.sendPlayerMessage(guid, gameRoomViewModel.currentPlayerDataState.value.playerId, playerName, message)

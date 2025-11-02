@@ -70,8 +70,8 @@ fun AchievementsScreen(
 }
 
 
-@Preview
-@Composable
-fun AchievementsScreenPreview() {
-    AchievementsScreen(Modifier, viewModel = AchievementsViewModel(), {})
-}
+//@Preview
+//@Composable
+//fun AchievementsScreenPreview() {
+//    AchievementsScreen(Modifier, viewModel = AchievementsViewModel(), {})
+//}

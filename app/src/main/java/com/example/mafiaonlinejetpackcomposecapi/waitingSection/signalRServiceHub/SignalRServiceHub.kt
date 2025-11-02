@@ -225,7 +225,7 @@ class SignalRServiceHub(private val gameRoomServiceHub: GameRoomServiceHub) {
         _playerId.value = playerId
     }
     fun stopConnection() {
-        hubConnection.stop()
+        hubConnection.stop().subscribe()
     }
 
     fun reset() {

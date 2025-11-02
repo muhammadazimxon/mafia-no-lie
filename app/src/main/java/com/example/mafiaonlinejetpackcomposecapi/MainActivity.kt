@@ -65,7 +65,8 @@ import com.google.accompanist.navigation.animation.composable
 const val PORT_1 = "5020"
 const val PORT_2 = "5000"
 const val PORT_3 = "5100"
-const val DOMAIN = "http://10.167.72.241:5000/"
+//const val DOMAIN = "http://192.168.1.3:5000/"
+const val DOMAIN = "https://mafia-publish-production.up.railway.app/"
 const val HOST_1 = "26.244.155.168"
 const val HOST_3 = "192.168.33.241"
 const val HOST_4 = "192.168.46.241"
@@ -115,9 +116,10 @@ class MainActivity : ComponentActivity() {
     }
 
     override fun onDestroy() {
-        super.onDestroy()
         gameRoomViewModel.stopConnection()
         waitingRoomViewModel.stopConnection()
+        waitingRoomViewModel.leaveWaitingRoom()
+        super.onDestroy()
     }
 }
 

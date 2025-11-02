@@ -75,8 +75,7 @@ class CreateGameViewModel(private val waitingRoomViewModel: WaitingRoomViewModel
             is CreateGameEvent.CreateGameAction -> {
                 viewModelScope.launch {
                     try {
-                        var temp by mutableStateOf(true)
-                        if(createGameState.isNotCreated && temp) {
+                        if(createGameState.isNotCreated) {
                             createGameState = createGameState.copy(isNotCreated = false)
                             MafiaApi.retrofitService.createRoom(
                                 CreateRoomRequest(
@@ -94,7 +93,7 @@ class CreateGameViewModel(private val waitingRoomViewModel: WaitingRoomViewModel
                             delay(300)
                             waitingRoomViewModel.startConnection()
                             createGameState = createGameState.copy(isLoading = true)
-                            delay(300)
+                            delay(1500)
                             if (waitingRoomViewModel.getHubConnection().connectionState == HubConnectionState.CONNECTED) {
                                 event.onCreate()
                                 createGameState = createGameState.copy(isNotCreated = true)
@@ -103,7 +102,6 @@ class CreateGameViewModel(private val waitingRoomViewModel: WaitingRoomViewModel
                             gameRoomViewModel.changePhase(isDay = createGameState.isDayPhase)
                             delay(300)
                             gameRoomViewModel.sendPhase()
-                            temp = false
                         }
                     } catch(e: Exception) {
                         Log.d("CREATE_VIEW_MODEL", "createGameEventHandler: ${e.message}")

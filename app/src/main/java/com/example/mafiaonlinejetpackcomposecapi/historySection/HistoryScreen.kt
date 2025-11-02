@@ -51,7 +51,7 @@ fun GameHistoryScreen(
 
     LaunchedEffect(true) {
         try {
-            gameHistory = HistoryApi.retrofitService.getHistoryData(playerId = currentPlayerId)
+            gameHistory = HistoryApi.retrofitService.getHistoryData(playerId = currentPlayerId).reversed()
             playerData = HistoryApi.retrofitService.getPlayerData(playerId = currentPlayerId)
             ratingPlayers = HistoryApi.retrofitService.getRating()
                 .map { RatingPlayerData(it.winRate, it.name) }
