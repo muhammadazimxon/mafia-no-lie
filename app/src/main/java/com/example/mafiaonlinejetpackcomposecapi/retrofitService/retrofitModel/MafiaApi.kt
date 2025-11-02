@@ -1,5 +1,6 @@
 package com.example.mafiaonlinejetpackcomposecapi.retrofitService.retrofitModel
 
+import com.example.mafiaonlinejetpackcomposecapi.DOMAIN
 import com.example.mafiaonlinejetpackcomposecapi.HOST_1
 import com.example.mafiaonlinejetpackcomposecapi.PORT_2
 import com.example.mafiaonlinejetpackcomposecapi.okHttpClient
@@ -7,11 +8,11 @@ import com.example.mafiaonlinejetpackcomposecapi.retrofitService.utils.MafiaApiS
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-private const val BASE_URL = "http://$HOST_1:$PORT_2/"
+private const val BASE_URL = DOMAIN
 
 val retrofit = Retrofit.Builder()
     .addConverterFactory(GsonConverterFactory.create())
-    .baseUrl(BASE_URL)
+    .baseUrl(DOMAIN)
     .client(okHttpClient)
     .build()
 

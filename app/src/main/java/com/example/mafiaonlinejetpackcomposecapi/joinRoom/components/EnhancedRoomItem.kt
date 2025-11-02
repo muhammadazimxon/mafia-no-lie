@@ -66,7 +66,7 @@ fun EnhancedRoomItem(
                 )
 
                 Text(
-                    text = "Host: Player",
+                    text = "Host:",
                     color = Color.White.copy(alpha = 0.7f),
                     fontSize = 14.sp
                 )
@@ -86,19 +86,22 @@ fun EnhancedRoomItem(
                     fontWeight = FontWeight.Bold
                 )
             }
+//            Spacer(modifier = Modifier.width(12.
 
             Spacer(modifier = Modifier.width(12.dp))
 
             Button(
                 onClick = {
                     scope.launch {
-                        if ( !MafiaApi.retrofitService.checkJoin(data.roomId) ) {
-                            if (data.password.isBlank())
-                                onJoin(data.roomId)
-                            else
-                                onPasswordDialogOpen(data.password)
-                        } else {
-
+                        try {
+                            if (!MafiaApi.retrofitService.checkJoin(data.roomId)) {
+                                if (data.password.isBlank())
+                                    onJoin(data.roomId)
+                                else
+                                    onPasswordDialogOpen(data.password)
+                            }
+                        } catch (e: Exception) {
+                            Log.e("JoinRoom", "EnhancedRoomItem: ${e.message}", )
                         }
                     }
                 },

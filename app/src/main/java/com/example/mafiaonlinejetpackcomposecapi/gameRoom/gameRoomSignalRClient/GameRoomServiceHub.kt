@@ -2,6 +2,7 @@ package com.example.mafiaonlinejetpackcomposecapi.gameRoom.gameRoomSignalRClient
 
 import android.util.Log
 import androidx.compose.ui.graphics.Color
+import com.example.mafiaonlinejetpackcomposecapi.DOMAIN
 import com.example.mafiaonlinejetpackcomposecapi.HOST_1
 import com.example.mafiaonlinejetpackcomposecapi.PORT_2
 import com.example.mafiaonlinejetpackcomposecapi.gameRoom.models.VotePlayers
@@ -11,6 +12,7 @@ import com.example.mafiaonlinejetpackcomposecapi.waitingSection.waitingRoomModel
 import com.example.mafiaonlinejetpackcomposecapi.waitingSection.waitingRoomModels.ChatModel
 import com.microsoft.signalr.HubConnection
 import com.microsoft.signalr.HubConnectionBuilder
+import com.microsoft.signalr.TransportEnum
 import io.reactivex.rxjava3.disposables.Disposable
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -22,7 +24,7 @@ import kotlinx.coroutines.launch
 
 private const val HUB = "mafiaHub"
 
-private const val SERVER_URL = "http://${HOST_1}:${PORT_2}/$HUB"
+private const val SERVER_URL = "$DOMAIN$HUB"
 
 data class Player(
     val playerId: Int = 0,
@@ -109,7 +111,7 @@ data class GameRoomState(
 class GameRoomServiceHub {
     private val hubConnection: HubConnection = HubConnectionBuilder
         .create(SERVER_URL)
-        .withHandshakeResponseTimeout(30000)
+        .withServerTimeout(30000)
         .build()
 
     private var _gameRoomState = MutableStateFlow(GameRoomState())

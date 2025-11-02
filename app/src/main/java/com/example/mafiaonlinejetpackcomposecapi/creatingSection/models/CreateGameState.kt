@@ -12,8 +12,8 @@ data class CreateGameState(
     val isShowPasswordState: Boolean = false,
     val helpButtonState: RoleData? = null,
     val isErrorRoomName: Boolean = false,
-    val isDayPhase: Boolean = true,
-    val isNightPhase: Boolean = false,
+    val isDayPhase: Boolean = false,
+    val isNightPhase: Boolean = true,
 
     val civilianRoles: List<RoleData> = listOf(
         RoleData(Role.Sherif),

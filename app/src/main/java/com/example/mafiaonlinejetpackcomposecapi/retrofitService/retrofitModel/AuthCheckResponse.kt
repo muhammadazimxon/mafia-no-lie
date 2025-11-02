@@ -5,5 +5,6 @@ data class AuthCheckResponse(
     val userId: String,
     val email: String,
     val userName: String,
-    val isAuthenticated: Boolean
+    val isAuthenticated: Boolean,
+    val isGuest: Boolean
 )

@@ -17,6 +17,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
@@ -42,6 +43,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
@@ -54,22 +56,26 @@ import com.example.mafiaonlinejetpackcomposecapi.register.registerMvi.RegisterEv
 import com.example.mafiaonlinejetpackcomposecapi.register.registerViewModel.RegisterViewModel
 import com.example.mafiaonlinejetpackcomposecapi.retrofitService.retrofitModel.MafiaApi
 import com.example.mafiaonlinejetpackcomposecapi.sharedPreferences.TokenPreferences
+import com.example.mafiaonlinejetpackcomposecapi.tokenManager
+import com.example.mafiaonlinejetpackcomposecapi.tokenPreferences
 
 @Composable
 fun LogIn(
     onLogIn: () -> Unit,
     onRegister: () -> Unit,
-    registerViewModel: RegisterViewModel,
+    onLoginAsGuest: () -> Unit,
+    registerViewModel: RegisterViewModel
 ) {
     var isInitialLoading by remember { mutableStateOf(true) }
 
     LaunchedEffect(true) {
         try {
-            val authResponse = MafiaApi.retrofitService.validateToken()
+            val authResponse = MafiaApi.retrofitService.validateToken(tokenPreferences.getIfGuest())
             Log.d("Auth", "${authResponse.message} : ${authResponse.userName} : ${authResponse.userId} : ${authResponse.email} : ${authResponse.isAuthenticated}")
 
             if( authResponse.isAuthenticated ) {
-                registerViewModel.authValidation(authResponse.userId.toInt(), authResponse.email, authResponse.userName)
+                registerViewModel.isGuest = authResponse.isGuest
+                registerViewModel.authValidation(isGuest = authResponse.isGuest, authResponse.userId.toInt(), authResponse.email, authResponse.userName)
                 registerViewModel.changeAchievementId(authResponse.userId.toInt())
                 onLogIn()
             } else {
@@ -207,6 +213,9 @@ fun LogIn(
                             unfocusedTextColor = Color.White,
                             focusedTextColor = Color.White,
                             cursorColor = accentColor
+                        ),
+                        keyboardOptions = KeyboardOptions(
+                            keyboardType = KeyboardType.Email
                         )
                     )
 
@@ -284,6 +293,17 @@ fun LogIn(
                         textDecoration = TextDecoration.Underline
                     )
 
+                    Spacer(modifier = Modifier.height(5.dp))
+
+                    Text(
+                        text = "Login as a Guest",
+                        modifier = Modifier.clickable { onLoginAsGuest() },
+                        color = accentColor,
+                        fontSize = 18.sp,
+                        fontWeight = FontWeight.Bold,
+                        textDecoration = TextDecoration.Underline
+                    )
+
                     Spacer(modifier = Modifier.height(10.dp))
                 }
             }
@@ -294,5 +314,5 @@ fun LogIn(
 @Preview
 @Composable
 fun LogInPreview() {
-    LogIn({},{}, viewModel())
+    LogIn({},{}, {}, viewModel())
 }

@@ -22,6 +22,25 @@ class TokenPreferences {
         }
     }
 
+    fun saveIfGuest(isGuest: Boolean) {
+        sharedPreferences?.edit {
+            putBoolean("isGuest", isGuest)
+            apply()
+        }
+    }
+
+    fun saveAvatarEmoji(emoji: String) {
+        sharedPreferences?.edit {
+            putString("avatarEmoji", emoji)
+            apply()
+        }
+    }
+
+    fun getAvatarEmoji(): String = sharedPreferences?.getString("avatarEmoji", "🎭") ?: "🎭"
+    fun getIfGuest(): Boolean {
+        return sharedPreferences?.getBoolean("isGuest", false) ?: false
+    }
+
     fun clearTokens() {
         sharedPreferences?.edit {
             remove("access_token")

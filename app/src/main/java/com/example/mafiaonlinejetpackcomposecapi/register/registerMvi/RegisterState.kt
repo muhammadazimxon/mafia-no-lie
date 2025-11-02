@@ -25,5 +25,6 @@ data class RegisterState(
     var sendCodeMessage: String = "Send code again",
     var sendCodeCount: Int = 10,
     var keyToCreateCharacter: String = "",
-    val isEmailConfirmButtonEnabled: Boolean = true
+    val isEmailConfirmButtonEnabled: Boolean = true,
+    val isSpamWarning: Boolean = false
 )

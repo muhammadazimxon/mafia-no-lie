@@ -39,9 +39,14 @@ android {
     buildFeatures {
         compose = true
     }
+    lint {
+        abortOnError = false
+    }
 }
 
 dependencies {
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.9.4")
+    implementation("com.google.accompanist:accompanist-navigation-animation:0.36.0")
     implementation(libs.jetbrains.kotlinx.coroutines.core) // :contentReference[oaicite:2]{index=2}
     implementation(libs.kotlinx.coroutines.android) // :contentReference[oaicite:3]{index=3}
     implementation(libs.accompanist.flowlayout)

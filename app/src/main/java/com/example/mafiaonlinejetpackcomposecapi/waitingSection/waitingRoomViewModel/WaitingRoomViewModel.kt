@@ -97,7 +97,7 @@ class WaitingRoomViewModel(private val signalRServiceHub: SignalRServiceHub, pri
             joined = true
             _uiState.update { it.copy(backHandlerEnabled = true) }
             gameRoomViewModel.changePlayerName(currentPlayer)
-            if(_playerId.value != 0) {
+            if(_playerId.value != -1) {
                 gameRoomViewModel.changePlayerId(_playerId.value)
             }
         }
@@ -153,6 +153,10 @@ class WaitingRoomViewModel(private val signalRServiceHub: SignalRServiceHub, pri
         signalRServiceHub.changePlayerID(playerId)
         gameRoomViewModel.changePlayerId(playerId)
         Log.e("ChangePlayerId", "changePlayerID: $playerId", )
+    }
+
+    fun leaveWaitingRoom() {
+        signalRServiceHub.sendLeaveRoom(guid, signalRServiceHub.playerId.value)
     }
 
     private fun requestJoinGame(guid: String, playerName: String) = signalRServiceHub.requestJoinGame(guid, playerName, gameRoomViewModel.currentPlayerDataState.value.playerId)

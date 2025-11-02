@@ -16,6 +16,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
@@ -35,6 +36,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
@@ -163,10 +165,13 @@ fun EnterEmail(
                         unfocusedTextColor = Color.White,
                         focusedTextColor = Color.White,
                         cursorColor = accentColor
+                    ),
+                    keyboardOptions = KeyboardOptions(
+                        keyboardType = KeyboardType.Email
                     )
                 )
 
-                OutlinedTextField(
+                /*OutlinedTextField(
                     value = uiState.repeatEmail,
                     onValueChange = { newEmail ->
                         registerViewModel.registerEventHandler(
@@ -192,7 +197,7 @@ fun EnterEmail(
                         focusedTextColor = Color.White,
                         cursorColor = accentColor
                     )
-                )
+                )*/
 
                 Spacer(modifier = Modifier.height(20.dp))
 

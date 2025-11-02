@@ -23,7 +23,6 @@ import com.example.mafiaonlinejetpackcomposecapi.register.registerViewModel.Regi
 import com.example.mafiaonlinejetpackcomposecapi.waitingSection.signalRServiceHub.SignalRServiceHub
 import com.example.mafiaonlinejetpackcomposecapi.waitingSection.waitingRoomViewModel.WaitingRoomViewModel
 
-
 @Composable
 fun AchievementsScreen(
     modifier: Modifier,
@@ -33,9 +32,8 @@ fun AchievementsScreen(
     LaunchedEffect(true) {
         viewModel.refreshPlayerData()
         viewModel.refreshCurrentPlayerHistoryData()
+        viewModel.refreshAchievementsData()
     }
-
-    viewModel.refreshAchievementsData()
 
     val achievementsData = viewModel.achievementsData.collectAsState().value
 
@@ -72,8 +70,8 @@ fun AchievementsScreen(
 }
 
 
-@Preview
-@Composable
-fun AchievementsScreenPreview() {
-    AchievementsScreen(Modifier, viewModel = AchievementsViewModel(), {})
-}
+//@Preview
+//@Composable
+//fun AchievementsScreenPreview() {
+//    AchievementsScreen(Modifier, viewModel = AchievementsViewModel(), {})
+//}

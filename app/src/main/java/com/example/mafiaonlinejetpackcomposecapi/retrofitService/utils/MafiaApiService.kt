@@ -8,7 +8,9 @@ import com.example.mafiaonlinejetpackcomposecapi.retrofitService.retrofitModel.L
 import com.example.mafiaonlinejetpackcomposecapi.retrofitService.retrofitModel.RefreshTokenRequest
 import com.example.mafiaonlinejetpackcomposecapi.retrofitService.retrofitModel.Tokens
 import com.example.mafiaonlinejetpackcomposecapi.retrofitService.retrofitModel.CreateRoomRequest
+import com.example.mafiaonlinejetpackcomposecapi.retrofitService.retrofitModel.LoginAsGuestResponse
 import com.example.mafiaonlinejetpackcomposecapi.retrofitService.retrofitModel.PlayerRegisterDataRequest
+import com.example.mafiaonlinejetpackcomposecapi.retrofitService.retrofitModel.ProfileData
 import com.example.mafiaonlinejetpackcomposecapi.retrofitService.retrofitModel.RequestLogInData
 import retrofit2.Response
 import retrofit2.http.Body
@@ -16,6 +18,7 @@ import retrofit2.http.GET
 import retrofit2.http.Headers
 import retrofit2.http.PATCH
 import retrofit2.http.POST
+import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface MafiaApiService {
@@ -33,7 +36,7 @@ interface MafiaApiService {
     suspend fun getGuid(): String
 
     @GET("auth-check")
-    suspend fun validateToken(): AuthCheckResponse
+    suspend fun validateToken(@Query("isGuest") isGuest: Boolean): AuthCheckResponse
 
     @POST("re-send-register-code")
     @Headers("Requires-Auth: false")
@@ -78,4 +81,19 @@ interface MafiaApiService {
     @Headers("Requires-Auth: false")
     suspend fun refreshTokens(@Body refreshToken : RefreshTokenRequest) : Tokens
 
+    @POST("login-as-guest")
+    @Headers("Requires-Auth: false")
+    suspend fun requestToLoginAsGuest(@Query("playerName") name : String) : Response<LoginAsGuestResponse>
+
+    @GET("check-guest-name")
+    @Headers("Requires-Auth: false")
+    suspend fun checkForGuestName(@Query("name") name: String): Response<Boolean>
+
+    @GET("profile-info")
+    @Headers("Requires-Auth: true")
+    suspend fun profileInfo(@Query("playerId") playerId: Int): Response<ProfileData>
+
+    @PATCH("edit-profile")
+    @Headers("Requires-Auth: true")
+    suspend fun editProfile(@Query("playerId") playerId: Int, @Query("newPlayerName") newPlayerName: String): Response<Boolean>
 }
