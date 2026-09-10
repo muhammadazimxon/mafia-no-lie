@@ -1,0 +1,783 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AndroidLayouts">
+    <shared>
+      <config />
+    </shared>
+    <layouts>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/drawable/informator.xml">
+        <config>
+          <theme>@style/Theme.MafiaOnlineJetpackComposeCAPI</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/drawable/journalist.xml">
+        <config>
+          <theme>@style/Theme.MafiaOnlineJetpackComposeCAPI</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml">
+        <config>
+          <theme>@style/Theme.MafiaOnlineJetpackComposeCAPI</theme>
+        </config>
+      </layout>
+    </layouts>
+  </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="652a5138-ee44-43e0-8719-51213d551682" name="Changes" comment="Update">
+      <change afterPath="$PROJECT_DIR$/app/src/main/ic_launcher-playstore.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/leafcellteam/mafia/MainActivity.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/leafcellteam/mafia/achievementsSection/AchievementsScreen.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/leafcellteam/mafia/appLanguage/DataStore.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/leafcellteam/mafia/appLanguage/Local.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/leafcellteam/mafia/appUpdateManager/UpdateDialog.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/leafcellteam/mafia/appUpdateManager/UpdateManager.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/leafcellteam/mafia/contentModerationService/ContentModerationService.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/leafcellteam/mafia/creatingSection/countrySelection/CountrySelection.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/leafcellteam/mafia/gameRoom/components/ChatMessageItem.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/leafcellteam/mafia/gameRoom/gameRoomSignalRClient/GameRoomServiceHub.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/leafcellteam/mafia/historySection/models/PaginatedResult.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/leafcellteam/mafia/historyService/historyModel/HistoryApi.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/leafcellteam/mafia/interseptor/HttpClientBuilder.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/leafcellteam/mafia/interseptor/Interseptor.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/leafcellteam/mafia/mainMenu/MainMenu.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/leafcellteam/mafia/mainMenu/RoleDescriptions.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/leafcellteam/mafia/network/NetworkMonitor.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/leafcellteam/mafia/network/NetworkStatusDialog.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/leafcellteam/mafia/profileScreen/ProfileScreen.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/leafcellteam/mafia/register/ResetPassword.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/leafcellteam/mafia/tokenManager/TokenManager.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_launcher_foreground.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/ic_launcher_foreground.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/ic_launcher_foreground.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/ic_launcher_foreground.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xxxhdpi/ic_launcher_foreground.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/values-ru/strings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/values-uz/strings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/values/ic_launcher_background.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10.2/checksums/checksums.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10.2/checksums/md5-checksums.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10.2/checksums/sha1-checksums.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10.2/dependencies-accessors/669b662267e3af0654c9b88efc86a0fa8e2026f2/classes/org/gradle/accessors/dm/LibrariesForLibs$AccompanistLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10.2/dependencies-accessors/669b662267e3af0654c9b88efc86a0fa8e2026f2/classes/org/gradle/accessors/dm/LibrariesForLibs$AndroidPluginAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10.2/dependencies-accessors/669b662267e3af0654c9b88efc86a0fa8e2026f2/classes/org/gradle/accessors/dm/LibrariesForLibs$AndroidxActivityLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10.2/dependencies-accessors/669b662267e3af0654c9b88efc86a0fa8e2026f2/classes/org/gradle/accessors/dm/LibrariesForLibs$AndroidxComposeLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10.2/dependencies-accessors/669b662267e3af0654c9b88efc86a0fa8e2026f2/classes/org/gradle/accessors/dm/LibrariesForLibs$AndroidxCoreLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10.2/dependencies-accessors/669b662267e3af0654c9b88efc86a0fa8e2026f2/classes/org/gradle/accessors/dm/LibrariesForLibs$AndroidxEspressoLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10.2/dependencies-accessors/669b662267e3af0654c9b88efc86a0fa8e2026f2/classes/org/gradle/accessors/dm/LibrariesForLibs$AndroidxLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10.2/dependencies-accessors/669b662267e3af0654c9b88efc86a0fa8e2026f2/classes/org/gradle/accessors/dm/LibrariesForLibs$AndroidxLifecycleLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10.2/dependencies-accessors/669b662267e3af0654c9b88efc86a0fa8e2026f2/classes/org/gradle/accessors/dm/LibrariesForLibs$AndroidxLifecycleRuntimeLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10.2/dependencies-accessors/669b662267e3af0654c9b88efc86a0fa8e2026f2/classes/org/gradle/accessors/dm/LibrariesForLibs$AndroidxLifecycleViewmodelLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10.2/dependencies-accessors/669b662267e3af0654c9b88efc86a0fa8e2026f2/classes/org/gradle/accessors/dm/LibrariesForLibs$AndroidxMedia3CommonLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10.2/dependencies-accessors/669b662267e3af0654c9b88efc86a0fa8e2026f2/classes/org/gradle/accessors/dm/LibrariesForLibs$AndroidxMedia3LibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10.2/dependencies-accessors/669b662267e3af0654c9b88efc86a0fa8e2026f2/classes/org/gradle/accessors/dm/LibrariesForLibs$AndroidxNavigationLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10.2/dependencies-accessors/669b662267e3af0654c9b88efc86a0fa8e2026f2/classes/org/gradle/accessors/dm/LibrariesForLibs$AndroidxRoomLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10.2/dependencies-accessors/669b662267e3af0654c9b88efc86a0fa8e2026f2/classes/org/gradle/accessors/dm/LibrariesForLibs$AndroidxUiLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10.2/dependencies-accessors/669b662267e3af0654c9b88efc86a0fa8e2026f2/classes/org/gradle/accessors/dm/LibrariesForLibs$AndroidxUiTestLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10.2/dependencies-accessors/669b662267e3af0654c9b88efc86a0fa8e2026f2/classes/org/gradle/accessors/dm/LibrariesForLibs$AndroidxUiToolingLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10.2/dependencies-accessors/669b662267e3af0654c9b88efc86a0fa8e2026f2/classes/org/gradle/accessors/dm/LibrariesForLibs$BundleAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10.2/dependencies-accessors/669b662267e3af0654c9b88efc86a0fa8e2026f2/classes/org/gradle/accessors/dm/LibrariesForLibs$ConverterLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10.2/dependencies-accessors/669b662267e3af0654c9b88efc86a0fa8e2026f2/classes/org/gradle/accessors/dm/LibrariesForLibs$FirebaseLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10.2/dependencies-accessors/669b662267e3af0654c9b88efc86a0fa8e2026f2/classes/org/gradle/accessors/dm/LibrariesForLibs$FirebasePerfLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10.2/dependencies-accessors/669b662267e3af0654c9b88efc86a0fa8e2026f2/classes/org/gradle/accessors/dm/LibrariesForLibs$JetbrainsKotlinxCoroutinesLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10.2/dependencies-accessors/669b662267e3af0654c9b88efc86a0fa8e2026f2/classes/org/gradle/accessors/dm/LibrariesForLibs$JetbrainsKotlinxLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10.2/dependencies-accessors/669b662267e3af0654c9b88efc86a0fa8e2026f2/classes/org/gradle/accessors/dm/LibrariesForLibs$JetbrainsLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10.2/dependencies-accessors/669b662267e3af0654c9b88efc86a0fa8e2026f2/classes/org/gradle/accessors/dm/LibrariesForLibs$KotlinPluginAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10.2/dependencies-accessors/669b662267e3af0654c9b88efc86a0fa8e2026f2/classes/org/gradle/accessors/dm/LibrariesForLibs$KotlinxCoroutinesLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10.2/dependencies-accessors/669b662267e3af0654c9b88efc86a0fa8e2026f2/classes/org/gradle/accessors/dm/LibrariesForLibs$KotlinxLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10.2/dependencies-accessors/669b662267e3af0654c9b88efc86a0fa8e2026f2/classes/org/gradle/accessors/dm/LibrariesForLibs$KotlinxSerializationLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10.2/dependencies-accessors/669b662267e3af0654c9b88efc86a0fa8e2026f2/classes/org/gradle/accessors/dm/LibrariesForLibs$LoggingLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10.2/dependencies-accessors/669b662267e3af0654c9b88efc86a0fa8e2026f2/classes/org/gradle/accessors/dm/LibrariesForLibs$PluginAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10.2/dependencies-accessors/669b662267e3af0654c9b88efc86a0fa8e2026f2/classes/org/gradle/accessors/dm/LibrariesForLibs$RoomLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10.2/dependencies-accessors/669b662267e3af0654c9b88efc86a0fa8e2026f2/classes/org/gradle/accessors/dm/LibrariesForLibs$VersionAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10.2/dependencies-accessors/669b662267e3af0654c9b88efc86a0fa8e2026f2/classes/org/gradle/accessors/dm/LibrariesForLibs.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10.2/dependencies-accessors/669b662267e3af0654c9b88efc86a0fa8e2026f2/classes/org/gradle/accessors/dm/LibrariesForLibsInPluginsBlock$AccompanistLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10.2/dependencies-accessors/669b662267e3af0654c9b88efc86a0fa8e2026f2/classes/org/gradle/accessors/dm/LibrariesForLibsInPluginsBlock$AndroidPluginAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10.2/dependencies-accessors/669b662267e3af0654c9b88efc86a0fa8e2026f2/classes/org/gradle/accessors/dm/LibrariesForLibsInPluginsBlock$AndroidxActivityLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10.2/dependencies-accessors/669b662267e3af0654c9b88efc86a0fa8e2026f2/classes/org/gradle/accessors/dm/LibrariesForLibsInPluginsBlock$AndroidxComposeLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10.2/dependencies-accessors/669b662267e3af0654c9b88efc86a0fa8e2026f2/classes/org/gradle/accessors/dm/LibrariesForLibsInPluginsBlock$AndroidxCoreLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10.2/dependencies-accessors/669b662267e3af0654c9b88efc86a0fa8e2026f2/classes/org/gradle/accessors/dm/LibrariesForLibsInPluginsBlock$AndroidxEspressoLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10.2/dependencies-accessors/669b662267e3af0654c9b88efc86a0fa8e2026f2/classes/org/gradle/accessors/dm/LibrariesForLibsInPluginsBlock$AndroidxLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10.2/dependencies-accessors/669b662267e3af0654c9b88efc86a0fa8e2026f2/classes/org/gradle/accessors/dm/LibrariesForLibsInPluginsBlock$AndroidxLifecycleLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10.2/dependencies-accessors/669b662267e3af0654c9b88efc86a0fa8e2026f2/classes/org/gradle/accessors/dm/LibrariesForLibsInPluginsBlock$AndroidxLifecycleRuntimeLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10.2/dependencies-accessors/669b662267e3af0654c9b88efc86a0fa8e2026f2/classes/org/gradle/accessors/dm/LibrariesForLibsInPluginsBlock$AndroidxLifecycleViewmodelLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10.2/dependencies-accessors/669b662267e3af0654c9b88efc86a0fa8e2026f2/classes/org/gradle/accessors/dm/LibrariesForLibsInPluginsBlock$AndroidxMedia3CommonLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10.2/dependencies-accessors/669b662267e3af0654c9b88efc86a0fa8e2026f2/classes/org/gradle/accessors/dm/LibrariesForLibsInPluginsBlock$AndroidxMedia3LibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10.2/dependencies-accessors/669b662267e3af0654c9b88efc86a0fa8e2026f2/classes/org/gradle/accessors/dm/LibrariesForLibsInPluginsBlock$AndroidxNavigationLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10.2/dependencies-accessors/669b662267e3af0654c9b88efc86a0fa8e2026f2/classes/org/gradle/accessors/dm/LibrariesForLibsInPluginsBlock$AndroidxRoomLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10.2/dependencies-accessors/669b662267e3af0654c9b88efc86a0fa8e2026f2/classes/org/gradle/accessors/dm/LibrariesForLibsInPluginsBlock$AndroidxUiLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10.2/dependencies-accessors/669b662267e3af0654c9b88efc86a0fa8e2026f2/classes/org/gradle/accessors/dm/LibrariesForLibsInPluginsBlock$AndroidxUiTestLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10.2/dependencies-accessors/669b662267e3af0654c9b88efc86a0fa8e2026f2/classes/org/gradle/accessors/dm/LibrariesForLibsInPluginsBlock$AndroidxUiToolingLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10.2/dependencies-accessors/669b662267e3af0654c9b88efc86a0fa8e2026f2/classes/org/gradle/accessors/dm/LibrariesForLibsInPluginsBlock$BundleAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10.2/dependencies-accessors/669b662267e3af0654c9b88efc86a0fa8e2026f2/classes/org/gradle/accessors/dm/LibrariesForLibsInPluginsBlock$ConverterLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10.2/dependencies-accessors/669b662267e3af0654c9b88efc86a0fa8e2026f2/classes/org/gradle/accessors/dm/LibrariesForLibsInPluginsBlock$FirebaseLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10.2/dependencies-accessors/669b662267e3af0654c9b88efc86a0fa8e2026f2/classes/org/gradle/accessors/dm/LibrariesForLibsInPluginsBlock$FirebasePerfLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10.2/dependencies-accessors/669b662267e3af0654c9b88efc86a0fa8e2026f2/classes/org/gradle/accessors/dm/LibrariesForLibsInPluginsBlock$JetbrainsKotlinxCoroutinesLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10.2/dependencies-accessors/669b662267e3af0654c9b88efc86a0fa8e2026f2/classes/org/gradle/accessors/dm/LibrariesForLibsInPluginsBlock$JetbrainsKotlinxLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10.2/dependencies-accessors/669b662267e3af0654c9b88efc86a0fa8e2026f2/classes/org/gradle/accessors/dm/LibrariesForLibsInPluginsBlock$JetbrainsLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10.2/dependencies-accessors/669b662267e3af0654c9b88efc86a0fa8e2026f2/classes/org/gradle/accessors/dm/LibrariesForLibsInPluginsBlock$KotlinPluginAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10.2/dependencies-accessors/669b662267e3af0654c9b88efc86a0fa8e2026f2/classes/org/gradle/accessors/dm/LibrariesForLibsInPluginsBlock$KotlinxCoroutinesLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10.2/dependencies-accessors/669b662267e3af0654c9b88efc86a0fa8e2026f2/classes/org/gradle/accessors/dm/LibrariesForLibsInPluginsBlock$KotlinxLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10.2/dependencies-accessors/669b662267e3af0654c9b88efc86a0fa8e2026f2/classes/org/gradle/accessors/dm/LibrariesForLibsInPluginsBlock$KotlinxSerializationLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10.2/dependencies-accessors/669b662267e3af0654c9b88efc86a0fa8e2026f2/classes/org/gradle/accessors/dm/LibrariesForLibsInPluginsBlock$LoggingLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10.2/dependencies-accessors/669b662267e3af0654c9b88efc86a0fa8e2026f2/classes/org/gradle/accessors/dm/LibrariesForLibsInPluginsBlock$PluginAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10.2/dependencies-accessors/669b662267e3af0654c9b88efc86a0fa8e2026f2/classes/org/gradle/accessors/dm/LibrariesForLibsInPluginsBlock$RoomLibraryAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10.2/dependencies-accessors/669b662267e3af0654c9b88efc86a0fa8e2026f2/classes/org/gradle/accessors/dm/LibrariesForLibsInPluginsBlock$VersionAccessors.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10.2/dependencies-accessors/669b662267e3af0654c9b88efc86a0fa8e2026f2/classes/org/gradle/accessors/dm/LibrariesForLibsInPluginsBlock.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10.2/dependencies-accessors/669b662267e3af0654c9b88efc86a0fa8e2026f2/metadata.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10.2/dependencies-accessors/669b662267e3af0654c9b88efc86a0fa8e2026f2/sources/org/gradle/accessors/dm/LibrariesForLibs.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10.2/dependencies-accessors/669b662267e3af0654c9b88efc86a0fa8e2026f2/sources/org/gradle/accessors/dm/LibrariesForLibsInPluginsBlock.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10.2/dependencies-accessors/gc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10.2/executionHistory/executionHistory.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10.2/executionHistory/executionHistory.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10.2/fileChanges/last-build.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10.2/fileHashes/fileHashes.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10.2/fileHashes/fileHashes.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10.2/fileHashes/resourceHashesCache.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.10.2/gc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/config.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/AndroidProjectSystem.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/AndroidProjectSystem.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/MafiaOnlineJetpackComposeCAPI.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/assetWizardSettings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/caches/deviceStreaming.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/deviceStreaming.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/deploymentTargetSelector.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deploymentTargetSelector.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/deviceManager.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/kotlinc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/material_theme_project_new.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/migrations.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.kotlin/errors/errors-1750750287102.log" beforeDir="false" afterPath="$PROJECT_DIR$/.kotlin/errors/errors-1750750287102.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.kotlin/errors/errors-1751706159732.log" beforeDir="false" afterPath="$PROJECT_DIR$/.kotlin/errors/errors-1751706159732.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.kotlin/errors/errors-1751807041195.log" beforeDir="false" afterPath="$PROJECT_DIR$/.kotlin/errors/errors-1751807041195.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.kotlin/errors/errors-1751889008708.log" beforeDir="false" afterPath="$PROJECT_DIR$/.kotlin/errors/errors-1751889008708.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.kotlin/errors/errors-1752481284809.log" beforeDir="false" afterPath="$PROJECT_DIR$/.kotlin/errors/errors-1752481284809.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.kotlin/errors/errors-1754031554855.log" beforeDir="false" afterPath="$PROJECT_DIR$/.kotlin/errors/errors-1754031554855.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.kotlin/errors/errors-1757924117710.log" beforeDir="false" afterPath="$PROJECT_DIR$/.kotlin/errors/errors-1757924117710.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/androidTest/java/com/example/mafiaonlinejetpackcomposecapi/ExampleInstrumentedTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/androidTest/java/com/leafcellteam/mafia/ExampleInstrumentedTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/MainActivity.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/achievementsSection/AchievementsScreen.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/achievementsSection/components/Achievement.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/leafcellteam/mafia/achievementsSection/components/Achievement.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/achievementsSection/components/EnhancedTopAchievementsScreenBar.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/leafcellteam/mafia/achievementsSection/components/EnhancedTopAchievementsScreenBar.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/achievementsSection/data/AchievementData.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/leafcellteam/mafia/achievementsSection/data/AchievementData.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/achievementsSection/viewModel/AchievementsViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/leafcellteam/mafia/achievementsSection/viewModel/AchievementsViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/creatingSection/CreateGame.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/leafcellteam/mafia/creatingSection/CreateGame.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/creatingSection/components/CustomButton.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/leafcellteam/mafia/creatingSection/components/CustomButton.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/creatingSection/components/Dialog.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/leafcellteam/mafia/creatingSection/components/Dialog.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/creatingSection/components/NumberOfPlayersMenu.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/leafcellteam/mafia/creatingSection/components/NumberOfPlayersMenu.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/creatingSection/components/PasswordInput.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/leafcellteam/mafia/creatingSection/components/PasswordInput.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/creatingSection/components/RolesChooser.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/leafcellteam/mafia/creatingSection/components/RolesChooser.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/creatingSection/components/RoomNameInput.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/leafcellteam/mafia/creatingSection/components/RoomNameInput.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/creatingSection/models/CreateGameEvent.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/leafcellteam/mafia/creatingSection/models/CreateGameEvent.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/creatingSection/models/CreateGameEventWithResult.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/leafcellteam/mafia/creatingSection/models/CreateGameEventWithResult.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/creatingSection/models/CreateGameParam.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/leafcellteam/mafia/creatingSection/models/CreateGameParam.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/creatingSection/models/CreateGameState.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/leafcellteam/mafia/creatingSection/models/CreateGameState.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/creatingSection/models/CreateGameViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/leafcellteam/mafia/creatingSection/models/CreateGameViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/creatingSection/models/RolesChooserParam.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/leafcellteam/mafia/creatingSection/models/RolesChooserParam.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/gameRoom/GameRoom.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/leafcellteam/mafia/gameRoom/GameRoom.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/gameRoom/components/BackRequestDialog.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/leafcellteam/mafia/gameRoom/components/BackRequestDialog.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/gameRoom/components/ChatMessageItem.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/gameRoom/components/EventItem.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/leafcellteam/mafia/gameRoom/components/EventItem.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/gameRoom/components/GameInfo.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/leafcellteam/mafia/gameRoom/components/GameInfo.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/gameRoom/components/dialogs/ConfirmVoteDialog.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/leafcellteam/mafia/gameRoom/components/dialogs/ConfirmVoteDialog.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/gameRoom/components/dialogs/CustomDialog.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/leafcellteam/mafia/gameRoom/components/dialogs/CustomDialog.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/gameRoom/components/dialogs/ExitOrObserveDialog.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/leafcellteam/mafia/gameRoom/components/dialogs/ExitOrObserveDialog.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/gameRoom/components/dialogs/base/BaseDialogCard.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/leafcellteam/mafia/gameRoom/components/dialogs/base/BaseDialogCard.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/gameRoom/components/dialogs/base/ChooseAbilityOrVoterDialog.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/leafcellteam/mafia/gameRoom/components/dialogs/base/ChooseAbilityOrVoterDialog.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/gameRoom/components/dialogs/base/DialogButton.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/leafcellteam/mafia/gameRoom/components/dialogs/base/DialogButton.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/gameRoom/components/dialogs/base/IconEmojiCircle.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/leafcellteam/mafia/gameRoom/components/dialogs/base/IconEmojiCircle.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/gameRoom/components/dialogs/base/IconRoleCircle.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/leafcellteam/mafia/gameRoom/components/dialogs/base/IconRoleCircle.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/gameRoom/components/playerCard/PlayerCard.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/leafcellteam/mafia/gameRoom/components/playerCard/PlayerCard.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/gameRoom/components/playerCard/parts/Avatar.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/leafcellteam/mafia/gameRoom/components/playerCard/parts/Avatar.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/gameRoom/components/playerCard/parts/Background.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/leafcellteam/mafia/gameRoom/components/playerCard/parts/Background.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/gameRoom/components/playerCard/parts/Content.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/leafcellteam/mafia/gameRoom/components/playerCard/parts/Content.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/gameRoom/components/playerCard/parts/Utils.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/leafcellteam/mafia/gameRoom/components/playerCard/parts/Utils.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/gameRoom/gameRoomSignalRClient/GameRoomServiceHub.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/gameRoom/gameViewModel/GameRoomViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/leafcellteam/mafia/gameRoom/gameViewModel/GameRoomViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/gameRoom/models/ChatMessageItemParams.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/gameRoom/models/VotePlayers.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/gameRoom/mvi/BooleanEvents.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/gameRoom/mvi/GameEvents.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/gameRoom/mvi/IntegerEvents.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/gameRoom/mvi/UnitEvents.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/historySection/HistoryScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/leafcellteam/mafia/historySection/HistoryScreen.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/historySection/components/AdaptivePlayersSection.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/leafcellteam/mafia/historySection/components/AdaptivePlayersSection.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/historySection/components/AnimatedBackroundEffect.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/leafcellteam/mafia/historySection/components/AnimatedBackroundEffect.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/historySection/components/EnhancedGameHistoryList.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/leafcellteam/mafia/historySection/components/EnhancedGameHistoryList.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/historySection/components/EnhancedPlayerRatingList.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/leafcellteam/mafia/historySection/components/EnhancedPlayerRatingList.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/historySection/components/EnhancedStatisticsSection.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/leafcellteam/mafia/historySection/components/EnhancedStatisticsSection.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/historySection/components/EnhancedTopAppBar.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/leafcellteam/mafia/historySection/components/EnhancedTopAppBar.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/historySection/components/GameHistoryCard.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/leafcellteam/mafia/historySection/components/GameHistoryCard.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/historySection/components/GameHistoryItem.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/leafcellteam/mafia/historySection/components/GameHistoryItem.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/historySection/components/GameHistoryList.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/leafcellteam/mafia/historySection/components/GameHistoryList.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/historySection/components/InfoChip.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/leafcellteam/mafia/historySection/components/InfoChip.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/historySection/components/LoadingIndicator.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/leafcellteam/mafia/historySection/components/LoadingIndicator.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/historySection/components/ModernTabRow.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/leafcellteam/mafia/historySection/components/ModernTabRow.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/historySection/components/MorePlayersIndicator.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/leafcellteam/mafia/historySection/components/MorePlayersIndicator.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/historySection/components/PlayerNameText.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/leafcellteam/mafia/historySection/components/PlayerNameText.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/historySection/components/PlayerRatingItem.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/leafcellteam/mafia/historySection/components/PlayerRatingItem.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/historySection/components/PlayerRatingList.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/leafcellteam/mafia/historySection/components/PlayerRatingList.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/historySection/components/RatingPlayerCard.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/leafcellteam/mafia/historySection/components/RatingPlayerCard.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/historySection/components/StatCard.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/leafcellteam/mafia/historySection/components/StatCard.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/historySection/components/StatItem.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/leafcellteam/mafia/historySection/components/StatItem.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/historySection/components/StatisticsSection.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/leafcellteam/mafia/historySection/components/StatisticsSection.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/historyService/historyModel/GameParticipantData.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/historyService/historyModel/HistoryApi.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/historyService/historyModel/HistoryData.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/historyService/historyModel/PlayerData.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/historyService/historyModel/RatingPlayerData.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/historyService/utils/HistoryApiService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/leafcellteam/mafia/historyService/utils/HistoryApiService.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/interseptor/Interseptor.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/joinRoom/RoomsScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/leafcellteam/mafia/joinRoom/RoomsScreen.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/joinRoom/components/ActionButton.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/leafcellteam/mafia/joinRoom/components/ActionButton.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/joinRoom/components/EnhancedPasswordDialog.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/leafcellteam/mafia/joinRoom/components/EnhancedPasswordDialog.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/joinRoom/components/EnhancedRoomItem.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/leafcellteam/mafia/joinRoom/components/EnhancedRoomItem.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/joinRoom/models/RoomData.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/joinRoom/models/RoomEvent.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/joinRoom/models/RoomState.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/joinRoom/models/RoomsScreenViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/leafcellteam/mafia/joinRoom/models/RoomsScreenViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/loginAsGuest/LoginAsGuestScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/leafcellteam/mafia/loginAsGuest/LoginAsGuestScreen.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/mainMenu/GameTitle.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/leafcellteam/mafia/mainMenu/GameTitle.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/mainMenu/MainMenu.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/mainMenu/MenuButton.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/leafcellteam/mafia/mainMenu/MenuButton.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/profileScreen/ProfileScreen.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/profileScreen/components/EditProfileDialog.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/leafcellteam/mafia/profileScreen/components/EditProfileDialog.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/register/ConfirmEmail.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/leafcellteam/mafia/register/ConfirmEmail.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/register/CreateCharacterScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/leafcellteam/mafia/register/CreateCharacterScreen.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/register/EnterEmail.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/leafcellteam/mafia/register/EnterEmail.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/register/LogIn.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/leafcellteam/mafia/register/LogIn.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/register/data/RAToken.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/register/registerMvi/RegisterEvent.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/register/registerMvi/RegisterState.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/leafcellteam/mafia/register/registerMvi/RegisterState.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/register/registerViewModel/RegisterViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/leafcellteam/mafia/register/registerViewModel/RegisterViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/retrofitService/retrofitModel/AuthCheckResponse.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/retrofitService/retrofitModel/CreateRoomRequest.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/retrofitService/retrofitModel/EmailVerify.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/retrofitService/retrofitModel/LinkerToCreateCharacter.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/retrofitService/retrofitModel/LoginAsGuestResponse.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/retrofitService/retrofitModel/LoginRequest.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/retrofitService/retrofitModel/MafiaApi.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/leafcellteam/mafia/retrofitService/retrofitModel/MafiaApi.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/retrofitService/retrofitModel/PlayerRegisterDataRequest.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/retrofitService/retrofitModel/ProfileData.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/retrofitService/retrofitModel/RefreshTokenRequest.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/retrofitService/retrofitModel/RequestLogInData.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/retrofitService/retrofitModel/Tokens.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/retrofitService/retrofitModel/UserDto.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/retrofitService/utils/MafiaApiService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/leafcellteam/mafia/retrofitService/utils/MafiaApiService.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/roles/RoleData.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/roles/Roles.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/serializableData/AchievementsScreen.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/serializableData/ConfirmRegisterScreen.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/serializableData/CreateCharacterScreen.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/serializableData/CreateGameScreen.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/serializableData/EnterEmailScreen.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/serializableData/GameRoomScreen.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/serializableData/HistoryScreen.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/serializableData/JoinGameScreen.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/serializableData/LogInScreen.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/serializableData/LoginAsGuestScreen.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/serializableData/MainMenuScreen.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/serializableData/ProfileScreen.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/serializableData/SettingsScreen.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/serializableData/StoreScreen.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/serializableData/WaitingRoomScreen.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/serializableData/fromScreen/FromScreen.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/serializableData/route_interface/Route.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/settingsMenuSection/SettingMenu.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/leafcellteam/mafia/settingsMenuSection/SettingMenu.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/sharedPreferences/TokenPreference.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/storeSection/StoreMenu.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/leafcellteam/mafia/storeSection/StoreMenu.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/transitionsOfNavigation/NavAnimations.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/leafcellteam/mafia/transitionsOfNavigation/NavAnimations.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/ui/theme/Color.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/leafcellteam/mafia/ui/theme/Color.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/ui/theme/Theme.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/leafcellteam/mafia/ui/theme/Theme.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/ui/theme/Type.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/leafcellteam/mafia/ui/theme/Type.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/uiDiagram/mafia-game-ui-detailed.svg" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/leafcellteam/mafia/uiDiagram/mafia-game-ui-detailed.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/waitingSection/WaitingRoom.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/leafcellteam/mafia/waitingSection/WaitingRoom.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/waitingSection/components/ConnectingToServerScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/leafcellteam/mafia/waitingSection/components/ConnectingToServerScreen.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/waitingSection/mvi/WaitingRoomEvent.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/waitingSection/mvi/WaitingRoomState.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/waitingSection/signalRServiceHub/SignalRServiceHub.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/leafcellteam/mafia/waitingSection/signalRServiceHub/SignalRServiceHub.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/waitingSection/waitingRoomBars/WaitingRoomBottomBar.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/leafcellteam/mafia/waitingSection/waitingRoomBars/WaitingRoomBottomBar.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/waitingSection/waitingRoomBars/WaitingRoomTopBar.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/leafcellteam/mafia/waitingSection/waitingRoomBars/WaitingRoomTopBar.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/waitingSection/waitingRoomModels/ChatMessage.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/waitingSection/waitingRoomModels/ChatMessageData.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/waitingSection/waitingRoomModels/ChatModel.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/waitingSection/waitingRoomModels/SystemMessage.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/waitingSection/waitingRoomModels/UserColor.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/waitingSection/waitingRoomModels/WaitingRoomDto.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/waitingSection/waitingRoomModels/WaitingRoomDtoMessage.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/waitingSection/waitingRoomModels/WaitingRoomParam.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/waitingSection/waitingRoomViewModel/WaitingRoomViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/leafcellteam/mafia/waitingSection/waitingRoomViewModel/WaitingRoomViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/barman.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/barman.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/baseline_help_outline_24.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/baseline_help_outline_24.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/baseline_system_update_alt_24.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/baseline_system_update_alt_24.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/baseline_transform_24.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/baseline_transform_24.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/bomber.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/bomber.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/civilian.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/civilian.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/detective.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/detective.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/doctor.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/doctor.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/don.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/don.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/help.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/help.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/informator.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/informator.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/journalist.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/journalist.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/locker2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/locker2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/lover.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/lover.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/mafia.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/mafia.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/mimic.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/mimic.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/moon.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/moon.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/sherif.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/sherif.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/sun.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/sun.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/timer.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/timer.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/visibile.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/visibile.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/visibility_off.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/visibility_off.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_launcher.webp" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_launcher.webp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_launcher_round.webp" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_launcher_round.webp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/ic_launcher.webp" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/ic_launcher.webp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/ic_launcher_round.webp" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/ic_launcher_round.webp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/ic_launcher.webp" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/ic_launcher.webp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/ic_launcher_round.webp" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/ic_launcher_round.webp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/ic_launcher.webp" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/ic_launcher.webp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.webp" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.webp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xxxhdpi/ic_launcher.webp" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xxxhdpi/ic_launcher.webp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.webp" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.webp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/test/java/com/example/mafiaonlinejetpackcomposecapi/ExampleUnitTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/test/java/com/leafcellteam/mafia/ExampleUnitTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dwerwer" beforeDir="false" afterPath="$PROJECT_DIR$/dwerwer" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dwq" beforeDir="false" afterPath="$PROJECT_DIR$/dwq" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/libs.versions.toml" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/libs.versions.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradlew.bat" beforeDir="false" afterPath="$PROJECT_DIR$/gradlew.bat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/local.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle.kts" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[LocalEmulator::path=/Users/abduvoris.a.a./.android/avd/Pixel_5.avd]" />
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$/app">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Mafia Online (Jetpack Compose +C# API)" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="resourceFile" />
+        <option value="Kotlin Interface" />
+        <option value="valueResourceFile" />
+        <option value="Kotlin Enum" />
+        <option value="Kotlin Class" />
+        <option value="Kotlin File" />
+        <option value="Kotlin Data Class" />
+        <option value="Kotlin Object" />
+      </list>
+    </option>
+  </component>
+  <component name="GenerateSignedApkSettings">
+    <option name="KEY_STORE_PATH" value="C:\Users\user\kye\key" />
+    <option name="KEY_ALIAS" value="key0" />
+    <option name="REMEMBER_PASSWORDS" value="true" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;azimxon-cyber&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/azimxon-cyber/client_mafia.git&quot;,
+    &quot;accountId&quot;: &quot;a27103eb-4e97-4528-a6cd-a5268c70f883&quot;
+  }
+}</component>
+  <component name="GradleScriptDefinitionsStorage" workingDir="$PROJECT_DIR$" gradleHome="C:\Users\User\.android\wrapper\dists\gradle-8.13-bin\5xuhj0ry160q40clulazy9h7d\gradle-8.13" javaHome="C:\Program Files\Android\Android Studio\jbr" gradleVersion="8.13">
+    <option name="jvmArguments">
+      <list>
+        <option value="-Didea.compose.hot-reload=true" />
+        <option value="-Didea.compose.hot-reload.version=2" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
+  <component name="ProjectId" id="2vlEk6e4AH7KAFRIeuVMPgLEMz6" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Android App.app.executor": "Run",
+    "BundleExportedModule": "Mafia_Online_(Jetpack_Compose_+C#_API).app",
+    "Compose Preview.RegisterPreview.executor": "Run",
+    "ExportBundle.BundlePathForMafia_Online_(Jetpack_Compose_+C#_API).app": "D:\\Android\\Keys",
+    "Gradle.Configure Daemon JVM Criteria.executor": "Run",
+    "Gradle.Download Sources.executor": "Run",
+    "GradleDaemonJvmCriteriaMigrationNotification.isNotificationDisabled": "true",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.readMode.enableVisualFormatting": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "ToolWindow.StudioBot.ShowToolbar": "false",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "com.android.tools.idea.streaming.zoom.toolbar.visible": "false",
+    "com.google.services.firebase.aqiPopupShown": "true",
+    "dart.analysis.tool.window.visible": "false",
+    "git-widget-placeholder": "feat-(cmp-migr)",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/abduvoris.a.a./AndroidStudioProjects/CurrentProject/MafiaOnlineJetpackComposeCAPI",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.17",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "templates.modelproviders.configurable",
+    "show.migrate.to.gradle.popup": "false"
+  },
+  "keyToStringList": {
+    "ExportApk.BuildVariants": [
+      "release"
+    ]
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Projects\Project #1\MafiaOnlineJetpackComposeCAPI\app\src\main\java\com\leafcellteam\mafia\manualTranslation" />
+      <recent name="C:\Users\User\Desktop\Azimhon folder\PROJECT #1\MafiaOnlineJetpackComposeCAPI\app\src\main\java\com\example\mafiaonlinejetpackcomposecapi\appLanguage\languages" />
+      <recent name="C:\Users\User\Desktop\Azimhon folder\PROJECT #1\MafiaOnlineJetpackComposeCAPI\app\src\main\java\com\example\mafiaonlinejetpackcomposecapi\appLanguage" />
+      <recent name="D:\Projects\Android\MafiaOnlineJetpackComposeCAPI\app\src\main\res\drawable" />
+      <recent name="C:\Users\pc\Desktop\MafiaOnlineJetpackComposeCAPI\app\src\main\java\com\example\mafiaonlinejetpackcomposecapi\historySection" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Projects\Android\MafiaOnlineJetpackComposeCAPI\app\src\main\java\com\example\mafiaonlinejetpackcomposecapi" />
+      <recent name="C:\Users\pc\Desktop\MafiaOnlineJetpackComposeCAPI\app\src\main\java\com\example\mafiaonlinejetpackcomposecapi\storeSection" />
+      <recent name="C:\Users\pc\Desktop\MafiaOnlineJetpackComposeCAPI\app\src\main\java\com\example\mafiaonlinejetpackcomposecapi\settingsMenuSection" />
+      <recent name="C:\Users\pc\Desktop\MafiaOnlineJetpackComposeCAPI\app\src\main\java\com\example\mafiaonlinejetpackcomposecapi\register" />
+      <recent name="D:\Projects\Android\MafiaOnlineJetpackComposeCAPI\app\src\main\java\com\example\mafiaonlinejetpackcomposecapi\achievementsSection\viewModel" />
+    </key>
+    <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
+      <recent name="com.example.mafiaonlinejetpackcomposecapi.retrofitService.retrofitModel" />
+      <recent name="com.example.mafiaonlinejetpackcomposecapi.waitingSection.mvi" />
+      <recent name="com.example.mafiaonlinejetpackcomposecapi.waitingSection.waitingRoomModels" />
+      <recent name="com.example.mafiaonlinejetpackcomposecapi.mainMenu_JoinRoomSection.joinRoomDto" />
+      <recent name="com.example.mafiaonlinejetpackcomposecapi.models.gameRoom.playerModels" />
+    </key>
+    <key name="K2MoveDeclarationsDialog.RECENT_PACKAGE_KEY">
+      <recent name="com.example.mafiaonlinejetpackcomposecapi.creatingSection.components" />
+      <recent name="com.example.mafiaonlinejetpackcomposecapi.mainMenu" />
+      <recent name="com.example.mafiaonlinejetpackcomposecapi.serializableData.route_interface" />
+      <recent name="com.example.mafiaonlinejetpackcomposecapi.serializableData.fromScreen" />
+      <recent name="com.example.mafiaonlinejetpackcomposecapi.serializableData" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Android App.app">
+    <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
+      <module name="Mafia_Online_(Jetpack_Compose_+C#_API).app" />
+      <option name="ANDROID_RUN_CONFIGURATION_SCHEMA_VERSION" value="1" />
+      <option name="DEPLOY" value="true" />
+      <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
+      <option name="DEPLOY_AS_INSTANT" value="false" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="PM_INSTALL_OPTIONS" value="" />
+      <option name="ALL_USERS" value="false" />
+      <option name="ALWAYS_INSTALL_WITH_PM" value="false" />
+      <option name="ALLOW_ASSUME_VERIFIED" value="false" />
+      <option name="CLEAR_APP_STORAGE" value="false" />
+      <option name="DYNAMIC_FEATURES_DISABLED_LIST" value="" />
+      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="RESTORE_ENABLED" value="false" />
+      <option name="RESTORE_FILE" value="" />
+      <option name="RESTORE_FRESH_INSTALL_ONLY" value="false" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="TARGET_SELECTION_MODE" value="DEVICE_AND_SNAPSHOT_COMBO_BOX" />
+      <option name="DEBUGGER_TYPE" value="Auto" />
+      <Auto>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
+      </Auto>
+      <Hybrid>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
+      </Hybrid>
+      <Java>
+        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
+      </Java>
+      <Native>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
+      </Native>
+      <Profilers>
+        <option name="ADVANCED_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Java/Kotlin Method Trace" />
+        <option name="STARTUP_NATIVE_MEMORY_PROFILING_ENABLED" value="false" />
+        <option name="NATIVE_MEMORY_SAMPLE_RATE_BYTES" value="2048" />
+      </Profilers>
+      <option name="DEEP_LINK" value="" />
+      <option name="ACTIVITY" value="" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <option name="SEARCH_ACTIVITY_IN_GLOBAL_SCOPE" value="false" />
+      <option name="SKIP_ACTIVITY_VALIDATION" value="false" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="AppleRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" IS_LOCATION_SIMULATION_SUPPORTED="false" IS_LOCATION_SIMULATION_ALLOWED="true" APPLICATION_LANGUAGE="IDELaunchSchemeLanguageUseSystemLanguage" APPLICATION_REGION="" DEVELOPMENT_TEAM="" MAKE_ACTIVE="TRUE" SHOULD_DEBUG_EXTENSIONS="false">
+      <embedded_app_extension_list />
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RegisterPreview" type="ComposePreviewRunConfiguration" singleton="false" temporary="true">
+      <module name="Mafia_Online_(Jetpack_Compose_+C#_API).app" />
+      <option name="ANDROID_RUN_CONFIGURATION_SCHEMA_VERSION" value="1" />
+      <option name="DEPLOY" value="true" />
+      <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
+      <option name="DEPLOY_AS_INSTANT" value="false" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="PM_INSTALL_OPTIONS" value="" />
+      <option name="ALL_USERS" value="false" />
+      <option name="ALWAYS_INSTALL_WITH_PM" value="false" />
+      <option name="ALLOW_ASSUME_VERIFIED" value="false" />
+      <option name="CLEAR_APP_STORAGE" value="false" />
+      <option name="DYNAMIC_FEATURES_DISABLED_LIST" value="" />
+      <option name="ACTIVITY_EXTRA_FLAGS" value="--es composable com.example.mafiaonlinejetpackcomposecapi.RegisterKt.RegisterPreview" />
+      <option name="MODE" value="specific_activity" />
+      <option name="RESTORE_ENABLED" value="false" />
+      <option name="RESTORE_FILE" value="" />
+      <option name="RESTORE_FRESH_INSTALL_ONLY" value="false" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="TARGET_SELECTION_MODE" value="DEVICE_AND_SNAPSHOT_COMBO_BOX" />
+      <option name="DEBUGGER_TYPE" value="Auto" />
+      <Auto>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
+      </Auto>
+      <Hybrid>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
+      </Hybrid>
+      <Java>
+        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
+      </Java>
+      <Native>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
+      </Native>
+      <Profilers>
+        <option name="ADVANCED_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Java/Kotlin Method Sample (legacy)" />
+        <option name="STARTUP_NATIVE_MEMORY_PROFILING_ENABLED" value="false" />
+        <option name="NATIVE_MEMORY_SAMPLE_RATE_BYTES" value="2048" />
+      </Profilers>
+      <option name="DEEP_LINK" value="" />
+      <option name="ACTIVITY" value="" />
+      <option name="ACTIVITY_CLASS" value="androidx.compose.ui.tooling.PreviewActivity" />
+      <option name="SEARCH_ACTIVITY_IN_GLOBAL_SCOPE" value="true" />
+      <option name="SKIP_ACTIVITY_VALIDATION" value="false" />
+      <compose-preview-run-configuration composable-fqn="com.example.mafiaonlinejetpackcomposecapi.RegisterKt.RegisterPreview" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Compose Preview.RegisterPreview" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ScriptDefinitionSettings" settings="[ScriptDefinitionSetting(definitionId=org.jetbrains.kotlin.mainKts.MainKtsScript, enabled=true), ScriptDefinitionSetting(definitionId=ideGradleScriptDefinitionId, enabled=true), ScriptDefinitionSetting(definitionId=ideGradleScriptDefinitionId, enabled=true), ScriptDefinitionSetting(definitionId=ideGradleScriptDefinitionId, enabled=true), ScriptDefinitionSetting(definitionId=ideBundledScriptDefinition, enabled=true)]" />
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration>C:\Users\User\AppData\Roaming\Subversion</configuration>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="652a5138-ee44-43e0-8719-51213d551682" name="Changes" comment="" />
+      <created>1744711401140</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1744711401140</updated>
+    </task>
+    <task id="LOCAL-00001" summary="Update">
+      <option name="closed" value="true" />
+      <created>1755511736460</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1755511736460</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Update">
+      <option name="closed" value="true" />
+      <created>1755511766930</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1755511766930</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Update">
+      <option name="closed" value="true" />
+      <created>1755513589823</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1755513589823</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Update">
+      <option name="closed" value="true" />
+      <created>1755513967758</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1755513967758</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Update">
+      <option name="closed" value="true" />
+      <created>1755514395800</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1755514395800</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Update">
+      <option name="closed" value="true" />
+      <created>1761494343914</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1761494343914</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="OPEN_GENERIC_TABS">
+      <map>
+        <entry key="b39e09f2-22ad-47a3-a92f-e0e2bb27eeae" value="TOOL_WINDOW" />
+      </map>
+    </option>
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+        <entry key="b39e09f2-22ad-47a3-a92f-e0e2bb27eeae">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Update" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update" />
+  </component>
+  <component name="play_dynamic_filters_status">
+    <option name="appIdToCheckInfo">
+      <map>
+        <entry key="com.example.mafiaonlinejetpackcomposecapi">
+          <value>
+            <CheckInfo lastCheckTimestamp="1764408534446" />
+          </value>
+        </entry>
+        <entry key="com.example.mafiaonlinejetpackcomposecapi.test">
+          <value>
+            <CheckInfo lastCheckTimestamp="1764408534447" />
+          </value>
+        </entry>
+        <entry key="com.leafcellteam.mafia">
+          <value>
+            <CheckInfo lastCheckTimestamp="1766255246059" />
+          </value>
+        </entry>
+        <entry key="com.leafcellteam.mafia.test">
+          <value>
+            <CheckInfo lastCheckTimestamp="1766255246059" />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
