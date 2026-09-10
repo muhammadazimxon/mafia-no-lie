@@ -7,15 +7,15 @@ plugins {
 }
 
 android {
-    namespace = "com.example.mafiaonlinejetpackcomposecapi"
-    compileSdk = 35
+    namespace = "com.leafcellteam.mafia"
+    compileSdk = 36
 
     defaultConfig {
-        applicationId = "com.example.mafiaonlinejetpackcomposecapi"
+        applicationId = "com.leafcellteam.mafia"
         minSdk = 24
         targetSdk = 35
-        versionCode = 1
-        versionName = "1.0"
+        versionCode = 4
+        versionName = "0.9"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -45,6 +45,12 @@ android {
 }
 
 dependencies {
+    implementation(project(":shared"))
+    implementation("com.google.android.play:app-update:2.1.0")
+    implementation("com.google.android.play:app-update-ktx:2.1.0")
+
+    implementation("androidx.datastore:datastore-preferences:1.1.1")
+    implementation("androidx.datastore:datastore-preferences:1.1.0")
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.9.4")
     implementation("com.google.accompanist:accompanist-navigation-animation:0.36.0")
     implementation(libs.jetbrains.kotlinx.coroutines.core) // :contentReference[oaicite:2]{index=2}
@@ -52,6 +58,7 @@ dependencies {
     implementation(libs.accompanist.flowlayout)
     implementation("io.reactivex.rxjava3:rxjava:3.1.11")
     implementation("io.reactivex.rxjava3:rxandroid:3.0.2")
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.1")
     implementation(libs.signalr)
     implementation(libs.retrofit)
     implementation(libs.converter.gson)

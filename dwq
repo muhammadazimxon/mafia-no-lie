@@ -3,7 +3,7 @@
 [1m--- a/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/register/LogIn.kt[m
 [1m+++ b/app/src/main/java/com/example/mafiaonlinejetpackcomposecapi/register/LogIn.kt[m
 [36m@@ -1,274 +1,3 @@[m
-[31m-//package com.example.mafiaonlinejetpackcomposecapi.register[m
+[31m-//package leafcellteam.mafiaonlinejetpackcomposecapi.register[m
 [31m-//[m
 [31m-//import android.util.Log[m
 [31m-//import androidx.compose.foundation.background[m
@@ -52,12 +52,12 @@
 [31m-//import androidx.compose.ui.unit.dp[m
 [31m-//import androidx.compose.ui.unit.sp[m
 [31m-//import androidx.lifecycle.viewmodel.compose.viewModel[m
-[31m-//import com.example.mafiaonlinejetpackcomposecapi.R[m
-[31m-//import com.example.mafiaonlinejetpackcomposecapi.creatingSection.components.MinimalDialog[m
-[31m-//import com.example.mafiaonlinejetpackcomposecapi.register.registerMvi.RegisterEvent[m
-[31m-//import com.example.mafiaonlinejetpackcomposecapi.register.registerViewModel.RegisterViewModel[m
-[31m-//import com.example.mafiaonlinejetpackcomposecapi.retrofitService.retrofitModel.MafiaApi[m
-[31m-//import com.example.mafiaonlinejetpackcomposecapi.sharedPreferences.TokenPreferences[m
+[31m-//import leafcellteam.mafiaonlinejetpackcomposecapi.R[m
+[31m-//import leafcellteam.mafiaonlinejetpackcomposecapi.creatingSection.components.MinimalDialog[m
+[31m-//import leafcellteam.mafiaonlinejetpackcomposecapi.register.registerMvi.RegisterEvent[m
+[31m-//import leafcellteam.mafiaonlinejetpackcomposecapi.register.registerViewModel.RegisterViewModel[m
+[31m-//import leafcellteam.mafiaonlinejetpackcomposecapi.retrofitService.retrofitModel.MafiaApi[m
+[31m-//import leafcellteam.mafiaonlinejetpackcomposecapi.sharedPreferences.TokenPreferences[m
 [31m-//[m
 [31m-//@Composable[m
 [31m-//fun LogIn([m
@@ -274,6 +274,6 @@
 [31m-//    LogIn({},{}, viewModel())[m
 [31m-//}[m
 [31m-[m
- package com.example.mafiaonlinejetpackcomposecapi.register[m
+ package leafcellteam.mafiaonlinejetpackcomposecapi.register[m
  [m
  import android.util.Log[m
