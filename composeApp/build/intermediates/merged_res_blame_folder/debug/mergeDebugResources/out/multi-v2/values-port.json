@@ -1,0 +1,19 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.leafcellteam.mafia.compose.composeApp-mergeDebugResources-60:/values-port/values-port.xml",
+            "map": [
+                {
+                    "source": "/Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/6ecf852db8699ffa343038a852b1f7e0/transformed/appcompat-1.7.0/res/values-port/values-port.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "55",
+                        "endOffsets": "106"
+                    }
+                }
+            ]
+        }
+    ]
+}

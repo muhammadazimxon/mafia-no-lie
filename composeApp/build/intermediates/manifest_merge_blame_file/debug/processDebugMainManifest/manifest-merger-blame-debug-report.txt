@@ -1,0 +1,402 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.leafcellteam.mafia.compose"
+4    android:versionCode="1"
+5    android:versionName="0.1-cmp" >
+6
+7    <uses-sdk
+7-->INJECTED
+8        android:minSdkVersion="24"
+8-->INJECTED
+9        android:targetSdkVersion="35" />
+9-->INJECTED
+10
+11    <uses-permission android:name="android.permission.INTERNET" />
+11-->/Users/abduvoris.a.a./AndroidStudioProjects/CurrentProject/MafiaOnlineJetpackComposeCAPI 2/composeApp/src/main/AndroidManifest.xml:3:5-67
+11-->/Users/abduvoris.a.a./AndroidStudioProjects/CurrentProject/MafiaOnlineJetpackComposeCAPI 2/composeApp/src/main/AndroidManifest.xml:3:22-64
+12    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+12-->/Users/abduvoris.a.a./AndroidStudioProjects/CurrentProject/MafiaOnlineJetpackComposeCAPI 2/composeApp/src/main/AndroidManifest.xml:4:5-79
+12-->/Users/abduvoris.a.a./AndroidStudioProjects/CurrentProject/MafiaOnlineJetpackComposeCAPI 2/composeApp/src/main/AndroidManifest.xml:4:22-76
+13
+14    <permission
+14-->[androidx.core:core:1.16.0] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/1320aa18fd18636e6f0313df259bdf45/transformed/core-1.16.0/AndroidManifest.xml:22:5-24:47
+15        android:name="com.leafcellteam.mafia.compose.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+15-->[androidx.core:core:1.16.0] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/1320aa18fd18636e6f0313df259bdf45/transformed/core-1.16.0/AndroidManifest.xml:23:9-81
+16        android:protectionLevel="signature" />
+16-->[androidx.core:core:1.16.0] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/1320aa18fd18636e6f0313df259bdf45/transformed/core-1.16.0/AndroidManifest.xml:24:9-44
+17
+18    <uses-permission android:name="com.leafcellteam.mafia.compose.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+18-->[androidx.core:core:1.16.0] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/1320aa18fd18636e6f0313df259bdf45/transformed/core-1.16.0/AndroidManifest.xml:26:5-97
+18-->[androidx.core:core:1.16.0] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/1320aa18fd18636e6f0313df259bdf45/transformed/core-1.16.0/AndroidManifest.xml:26:22-94
+19    <uses-permission android:name="android.permission.REORDER_TASKS" />
+19-->[androidx.test:core:1.6.1] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/9ceadcc7d26573a02b8a8128b6c52733/transformed/core-1.6.1/AndroidManifest.xml:24:5-72
+19-->[androidx.test:core:1.6.1] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/9ceadcc7d26573a02b8a8128b6c52733/transformed/core-1.6.1/AndroidManifest.xml:24:22-69
+20
+21    <queries>
+21-->[androidx.test:runner:1.6.1] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/460e84ae01ef0010f29a882664f8e3a6/transformed/runner-1.6.1/AndroidManifest.xml:24:5-28:15
+22        <package android:name="androidx.test.orchestrator" />
+22-->[androidx.test:runner:1.6.1] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/460e84ae01ef0010f29a882664f8e3a6/transformed/runner-1.6.1/AndroidManifest.xml:25:9-62
+22-->[androidx.test:runner:1.6.1] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/460e84ae01ef0010f29a882664f8e3a6/transformed/runner-1.6.1/AndroidManifest.xml:25:18-59
+23        <package android:name="androidx.test.services" />
+23-->[androidx.test:runner:1.6.1] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/460e84ae01ef0010f29a882664f8e3a6/transformed/runner-1.6.1/AndroidManifest.xml:26:9-58
+23-->[androidx.test:runner:1.6.1] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/460e84ae01ef0010f29a882664f8e3a6/transformed/runner-1.6.1/AndroidManifest.xml:26:18-55
+24        <package android:name="com.google.android.apps.common.testing.services" />
+24-->[androidx.test:runner:1.6.1] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/460e84ae01ef0010f29a882664f8e3a6/transformed/runner-1.6.1/AndroidManifest.xml:27:9-83
+24-->[androidx.test:runner:1.6.1] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/460e84ae01ef0010f29a882664f8e3a6/transformed/runner-1.6.1/AndroidManifest.xml:27:18-80
+25    </queries>
+26
+27    <application
+27-->/Users/abduvoris.a.a./AndroidStudioProjects/CurrentProject/MafiaOnlineJetpackComposeCAPI 2/composeApp/src/main/AndroidManifest.xml:6:5-23:19
+28        android:allowBackup="true"
+28-->/Users/abduvoris.a.a./AndroidStudioProjects/CurrentProject/MafiaOnlineJetpackComposeCAPI 2/composeApp/src/main/AndroidManifest.xml:7:9-35
+29        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+29-->[androidx.core:core:1.16.0] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/1320aa18fd18636e6f0313df259bdf45/transformed/core-1.16.0/AndroidManifest.xml:28:18-86
+30        android:debuggable="true"
+31        android:extractNativeLibs="false"
+31-->INJECTED
+32        android:icon="@mipmap/ic_launcher"
+32-->/Users/abduvoris.a.a./AndroidStudioProjects/CurrentProject/MafiaOnlineJetpackComposeCAPI 2/composeApp/src/main/AndroidManifest.xml:8:9-43
+33        android:label="@string/app_name"
+33-->/Users/abduvoris.a.a./AndroidStudioProjects/CurrentProject/MafiaOnlineJetpackComposeCAPI 2/composeApp/src/main/AndroidManifest.xml:9:9-41
+34        android:supportsRtl="true"
+34-->/Users/abduvoris.a.a./AndroidStudioProjects/CurrentProject/MafiaOnlineJetpackComposeCAPI 2/composeApp/src/main/AndroidManifest.xml:10:9-35
+35        android:theme="@style/Theme.MafiaCompose" >
+35-->/Users/abduvoris.a.a./AndroidStudioProjects/CurrentProject/MafiaOnlineJetpackComposeCAPI 2/composeApp/src/main/AndroidManifest.xml:11:9-50
+36        <activity
+36-->/Users/abduvoris.a.a./AndroidStudioProjects/CurrentProject/MafiaOnlineJetpackComposeCAPI 2/composeApp/src/main/AndroidManifest.xml:12:9-22:20
+37            android:name="com.leafcellteam.mafia.compose.MainActivity"
+37-->/Users/abduvoris.a.a./AndroidStudioProjects/CurrentProject/MafiaOnlineJetpackComposeCAPI 2/composeApp/src/main/AndroidManifest.xml:13:13-41
+38            android:exported="true"
+38-->/Users/abduvoris.a.a./AndroidStudioProjects/CurrentProject/MafiaOnlineJetpackComposeCAPI 2/composeApp/src/main/AndroidManifest.xml:14:13-36
+39            android:label="@string/app_name"
+39-->/Users/abduvoris.a.a./AndroidStudioProjects/CurrentProject/MafiaOnlineJetpackComposeCAPI 2/composeApp/src/main/AndroidManifest.xml:15:13-45
+40            android:screenOrientation="portrait"
+40-->/Users/abduvoris.a.a./AndroidStudioProjects/CurrentProject/MafiaOnlineJetpackComposeCAPI 2/composeApp/src/main/AndroidManifest.xml:16:13-49
+41            android:theme="@style/Theme.MafiaCompose" >
+41-->/Users/abduvoris.a.a./AndroidStudioProjects/CurrentProject/MafiaOnlineJetpackComposeCAPI 2/composeApp/src/main/AndroidManifest.xml:17:13-54
+42            <intent-filter>
+42-->/Users/abduvoris.a.a./AndroidStudioProjects/CurrentProject/MafiaOnlineJetpackComposeCAPI 2/composeApp/src/main/AndroidManifest.xml:18:13-21:29
+43                <action android:name="android.intent.action.MAIN" />
+43-->/Users/abduvoris.a.a./AndroidStudioProjects/CurrentProject/MafiaOnlineJetpackComposeCAPI 2/composeApp/src/main/AndroidManifest.xml:19:17-69
+43-->/Users/abduvoris.a.a./AndroidStudioProjects/CurrentProject/MafiaOnlineJetpackComposeCAPI 2/composeApp/src/main/AndroidManifest.xml:19:25-66
+44
+45                <category android:name="android.intent.category.LAUNCHER" />
+45-->/Users/abduvoris.a.a./AndroidStudioProjects/CurrentProject/MafiaOnlineJetpackComposeCAPI 2/composeApp/src/main/AndroidManifest.xml:20:17-77
+45-->/Users/abduvoris.a.a./AndroidStudioProjects/CurrentProject/MafiaOnlineJetpackComposeCAPI 2/composeApp/src/main/AndroidManifest.xml:20:27-74
+46            </intent-filter>
+47        </activity>
+48
+49        <provider
+49-->[org.jetbrains.compose.components:components-resources-android:1.12.0] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/57eaf981655cf42bde6da6854c94d215/transformed/library-release/AndroidManifest.xml:8:9-13:20
+50            android:name="org.jetbrains.compose.resources.AndroidContextProvider"
+50-->[org.jetbrains.compose.components:components-resources-android:1.12.0] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/57eaf981655cf42bde6da6854c94d215/transformed/library-release/AndroidManifest.xml:9:13-82
+51            android:authorities="com.leafcellteam.mafia.compose.resources.AndroidContextProvider"
+51-->[org.jetbrains.compose.components:components-resources-android:1.12.0] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/57eaf981655cf42bde6da6854c94d215/transformed/library-release/AndroidManifest.xml:10:13-84
+52            android:enabled="true"
+52-->[org.jetbrains.compose.components:components-resources-android:1.12.0] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/57eaf981655cf42bde6da6854c94d215/transformed/library-release/AndroidManifest.xml:11:13-35
+53            android:exported="false" >
+53-->[org.jetbrains.compose.components:components-resources-android:1.12.0] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/57eaf981655cf42bde6da6854c94d215/transformed/library-release/AndroidManifest.xml:12:13-37
+54        </provider>
+55
+56        <service
+56-->[com.google.firebase:firebase-perf-ktx:21.0.5] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/3a48c4b77d2f10e42ae388b7ce98b3bd/transformed/firebase-perf-ktx-21.0.5/AndroidManifest.xml:9:9-15:19
+57            android:name="com.google.firebase.components.ComponentDiscoveryService"
+57-->[com.google.firebase:firebase-perf-ktx:21.0.5] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/3a48c4b77d2f10e42ae388b7ce98b3bd/transformed/firebase-perf-ktx-21.0.5/AndroidManifest.xml:10:13-84
+58            android:directBootAware="true"
+58-->[com.google.firebase:firebase-common:21.0.0] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/45b7bf29ca01b03d7d1e1a7a488a855b/transformed/firebase-common-21.0.0/AndroidManifest.xml:32:13-43
+59            android:exported="false" >
+59-->[com.google.firebase:firebase-perf-ktx:21.0.5] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/3a48c4b77d2f10e42ae388b7ce98b3bd/transformed/firebase-perf-ktx-21.0.5/AndroidManifest.xml:11:13-37
+60            <meta-data
+60-->[com.google.firebase:firebase-perf-ktx:21.0.5] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/3a48c4b77d2f10e42ae388b7ce98b3bd/transformed/firebase-perf-ktx-21.0.5/AndroidManifest.xml:12:13-14:85
+61                android:name="com.google.firebase.components:com.google.firebase.perf.ktx.FirebasePerfLegacyRegistrar"
+61-->[com.google.firebase:firebase-perf-ktx:21.0.5] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/3a48c4b77d2f10e42ae388b7ce98b3bd/transformed/firebase-perf-ktx-21.0.5/AndroidManifest.xml:13:17-119
+62                android:value="com.google.firebase.components.ComponentRegistrar" />
+62-->[com.google.firebase:firebase-perf-ktx:21.0.5] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/3a48c4b77d2f10e42ae388b7ce98b3bd/transformed/firebase-perf-ktx-21.0.5/AndroidManifest.xml:14:17-82
+63            <meta-data
+63-->[com.google.firebase:firebase-perf:21.0.5] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/ae1262df7b91f018499078c0a7a5f617/transformed/firebase-perf-21.0.5/AndroidManifest.xml:14:13-16:85
+64                android:name="com.google.firebase.components:com.google.firebase.perf.FirebasePerfKtxRegistrar"
+64-->[com.google.firebase:firebase-perf:21.0.5] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/ae1262df7b91f018499078c0a7a5f617/transformed/firebase-perf-21.0.5/AndroidManifest.xml:15:17-112
+65                android:value="com.google.firebase.components.ComponentRegistrar" />
+65-->[com.google.firebase:firebase-perf:21.0.5] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/ae1262df7b91f018499078c0a7a5f617/transformed/firebase-perf-21.0.5/AndroidManifest.xml:16:17-82
+66            <meta-data
+66-->[com.google.firebase:firebase-perf:21.0.5] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/ae1262df7b91f018499078c0a7a5f617/transformed/firebase-perf-21.0.5/AndroidManifest.xml:17:13-19:85
+67                android:name="com.google.firebase.components:com.google.firebase.perf.FirebasePerfRegistrar"
+67-->[com.google.firebase:firebase-perf:21.0.5] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/ae1262df7b91f018499078c0a7a5f617/transformed/firebase-perf-21.0.5/AndroidManifest.xml:18:17-109
+68                android:value="com.google.firebase.components.ComponentRegistrar" />
+68-->[com.google.firebase:firebase-perf:21.0.5] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/ae1262df7b91f018499078c0a7a5f617/transformed/firebase-perf-21.0.5/AndroidManifest.xml:19:17-82
+69            <meta-data
+69-->[com.google.firebase:firebase-config:21.5.0] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/63afeec0280adf8234a7077d6be78276/transformed/firebase-config-21.5.0/AndroidManifest.xml:29:13-31:85
+70                android:name="com.google.firebase.components:com.google.firebase.remoteconfig.FirebaseRemoteConfigKtxRegistrar"
+70-->[com.google.firebase:firebase-config:21.5.0] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/63afeec0280adf8234a7077d6be78276/transformed/firebase-config-21.5.0/AndroidManifest.xml:30:17-128
+71                android:value="com.google.firebase.components.ComponentRegistrar" />
+71-->[com.google.firebase:firebase-config:21.5.0] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/63afeec0280adf8234a7077d6be78276/transformed/firebase-config-21.5.0/AndroidManifest.xml:31:17-82
+72            <meta-data
+72-->[com.google.firebase:firebase-config:21.5.0] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/63afeec0280adf8234a7077d6be78276/transformed/firebase-config-21.5.0/AndroidManifest.xml:32:13-34:85
+73                android:name="com.google.firebase.components:com.google.firebase.remoteconfig.RemoteConfigRegistrar"
+73-->[com.google.firebase:firebase-config:21.5.0] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/63afeec0280adf8234a7077d6be78276/transformed/firebase-config-21.5.0/AndroidManifest.xml:33:17-117
+74                android:value="com.google.firebase.components.ComponentRegistrar" />
+74-->[com.google.firebase:firebase-config:21.5.0] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/63afeec0280adf8234a7077d6be78276/transformed/firebase-config-21.5.0/AndroidManifest.xml:34:17-82
+75            <meta-data
+75-->[com.google.firebase:firebase-sessions:2.0.7] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/16301e37805fa01ee6c13c74c4edcb2a/transformed/firebase-sessions-2.0.7/AndroidManifest.xml:29:13-31:85
+76                android:name="com.google.firebase.components:com.google.firebase.sessions.FirebaseSessionsRegistrar"
+76-->[com.google.firebase:firebase-sessions:2.0.7] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/16301e37805fa01ee6c13c74c4edcb2a/transformed/firebase-sessions-2.0.7/AndroidManifest.xml:30:17-117
+77                android:value="com.google.firebase.components.ComponentRegistrar" />
+77-->[com.google.firebase:firebase-sessions:2.0.7] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/16301e37805fa01ee6c13c74c4edcb2a/transformed/firebase-sessions-2.0.7/AndroidManifest.xml:31:17-82
+78            <meta-data
+78-->[com.google.firebase:firebase-installations:18.0.0] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/d0f058169212cffb2cfdb043b532bdcc/transformed/firebase-installations-18.0.0/AndroidManifest.xml:15:13-17:85
+79                android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsKtxRegistrar"
+79-->[com.google.firebase:firebase-installations:18.0.0] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/d0f058169212cffb2cfdb043b532bdcc/transformed/firebase-installations-18.0.0/AndroidManifest.xml:16:17-130
+80                android:value="com.google.firebase.components.ComponentRegistrar" />
+80-->[com.google.firebase:firebase-installations:18.0.0] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/d0f058169212cffb2cfdb043b532bdcc/transformed/firebase-installations-18.0.0/AndroidManifest.xml:17:17-82
+81            <meta-data
+81-->[com.google.firebase:firebase-installations:18.0.0] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/d0f058169212cffb2cfdb043b532bdcc/transformed/firebase-installations-18.0.0/AndroidManifest.xml:18:13-20:85
+82                android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar"
+82-->[com.google.firebase:firebase-installations:18.0.0] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/d0f058169212cffb2cfdb043b532bdcc/transformed/firebase-installations-18.0.0/AndroidManifest.xml:19:17-127
+83                android:value="com.google.firebase.components.ComponentRegistrar" />
+83-->[com.google.firebase:firebase-installations:18.0.0] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/d0f058169212cffb2cfdb043b532bdcc/transformed/firebase-installations-18.0.0/AndroidManifest.xml:20:17-82
+84            <meta-data
+84-->[com.google.firebase:firebase-common-ktx:21.0.0] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/1e1e76a8a34b863f5ca3311c860ca915/transformed/firebase-common-ktx-21.0.0/AndroidManifest.xml:12:13-14:85
+85                android:name="com.google.firebase.components:com.google.firebase.ktx.FirebaseCommonLegacyRegistrar"
+85-->[com.google.firebase:firebase-common-ktx:21.0.0] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/1e1e76a8a34b863f5ca3311c860ca915/transformed/firebase-common-ktx-21.0.0/AndroidManifest.xml:13:17-116
+86                android:value="com.google.firebase.components.ComponentRegistrar" />
+86-->[com.google.firebase:firebase-common-ktx:21.0.0] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/1e1e76a8a34b863f5ca3311c860ca915/transformed/firebase-common-ktx-21.0.0/AndroidManifest.xml:14:17-82
+87            <meta-data
+87-->[com.google.firebase:firebase-common:21.0.0] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/45b7bf29ca01b03d7d1e1a7a488a855b/transformed/firebase-common-21.0.0/AndroidManifest.xml:35:13-37:85
+88                android:name="com.google.firebase.components:com.google.firebase.FirebaseCommonKtxRegistrar"
+88-->[com.google.firebase:firebase-common:21.0.0] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/45b7bf29ca01b03d7d1e1a7a488a855b/transformed/firebase-common-21.0.0/AndroidManifest.xml:36:17-109
+89                android:value="com.google.firebase.components.ComponentRegistrar" />
+89-->[com.google.firebase:firebase-common:21.0.0] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/45b7bf29ca01b03d7d1e1a7a488a855b/transformed/firebase-common-21.0.0/AndroidManifest.xml:37:17-82
+90            <meta-data
+90-->[com.google.firebase:firebase-abt:21.1.1] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/de9bf0d27acf43902035c4cb6209c737/transformed/firebase-abt-21.1.1/AndroidManifest.xml:12:13-14:85
+91                android:name="com.google.firebase.components:com.google.firebase.abt.component.AbtRegistrar"
+91-->[com.google.firebase:firebase-abt:21.1.1] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/de9bf0d27acf43902035c4cb6209c737/transformed/firebase-abt-21.1.1/AndroidManifest.xml:13:17-109
+92                android:value="com.google.firebase.components.ComponentRegistrar" />
+92-->[com.google.firebase:firebase-abt:21.1.1] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/de9bf0d27acf43902035c4cb6209c737/transformed/firebase-abt-21.1.1/AndroidManifest.xml:14:17-82
+93            <meta-data
+93-->[com.google.firebase:firebase-datatransport:19.0.0] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/48684079ef646f28e44bb94af6733079/transformed/firebase-datatransport-19.0.0/AndroidManifest.xml:25:13-27:85
+94                android:name="com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar"
+94-->[com.google.firebase:firebase-datatransport:19.0.0] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/48684079ef646f28e44bb94af6733079/transformed/firebase-datatransport-19.0.0/AndroidManifest.xml:26:17-115
+95                android:value="com.google.firebase.components.ComponentRegistrar" />
+95-->[com.google.firebase:firebase-datatransport:19.0.0] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/48684079ef646f28e44bb94af6733079/transformed/firebase-datatransport-19.0.0/AndroidManifest.xml:27:17-82
+96        </service>
+97        <service
+97-->[com.google.firebase:firebase-sessions:2.0.7] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/16301e37805fa01ee6c13c74c4edcb2a/transformed/firebase-sessions-2.0.7/AndroidManifest.xml:22:9-25:40
+98            android:name="com.google.firebase.sessions.SessionLifecycleService"
+98-->[com.google.firebase:firebase-sessions:2.0.7] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/16301e37805fa01ee6c13c74c4edcb2a/transformed/firebase-sessions-2.0.7/AndroidManifest.xml:23:13-80
+99            android:enabled="true"
+99-->[com.google.firebase:firebase-sessions:2.0.7] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/16301e37805fa01ee6c13c74c4edcb2a/transformed/firebase-sessions-2.0.7/AndroidManifest.xml:24:13-35
+100            android:exported="false" />
+100-->[com.google.firebase:firebase-sessions:2.0.7] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/16301e37805fa01ee6c13c74c4edcb2a/transformed/firebase-sessions-2.0.7/AndroidManifest.xml:25:13-37
+101
+102        <provider
+102-->[com.google.firebase:firebase-common:21.0.0] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/45b7bf29ca01b03d7d1e1a7a488a855b/transformed/firebase-common-21.0.0/AndroidManifest.xml:23:9-28:39
+103            android:name="com.google.firebase.provider.FirebaseInitProvider"
+103-->[com.google.firebase:firebase-common:21.0.0] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/45b7bf29ca01b03d7d1e1a7a488a855b/transformed/firebase-common-21.0.0/AndroidManifest.xml:24:13-77
+104            android:authorities="com.leafcellteam.mafia.compose.firebaseinitprovider"
+104-->[com.google.firebase:firebase-common:21.0.0] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/45b7bf29ca01b03d7d1e1a7a488a855b/transformed/firebase-common-21.0.0/AndroidManifest.xml:25:13-72
+105            android:directBootAware="true"
+105-->[com.google.firebase:firebase-common:21.0.0] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/45b7bf29ca01b03d7d1e1a7a488a855b/transformed/firebase-common-21.0.0/AndroidManifest.xml:26:13-43
+106            android:exported="false"
+106-->[com.google.firebase:firebase-common:21.0.0] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/45b7bf29ca01b03d7d1e1a7a488a855b/transformed/firebase-common-21.0.0/AndroidManifest.xml:27:13-37
+107            android:initOrder="100" />
+107-->[com.google.firebase:firebase-common:21.0.0] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/45b7bf29ca01b03d7d1e1a7a488a855b/transformed/firebase-common-21.0.0/AndroidManifest.xml:28:13-36
+108
+109        <activity
+109-->[androidx.compose.ui:ui-test-manifest:1.12.0] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/9a5a5781864715cea5443339705f0dca/transformed/ui-test-manifest-1.12.0/AndroidManifest.xml:23:9-26:79
+110            android:name="androidx.activity.ComponentActivity"
+110-->[androidx.compose.ui:ui-test-manifest:1.12.0] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/9a5a5781864715cea5443339705f0dca/transformed/ui-test-manifest-1.12.0/AndroidManifest.xml:24:13-63
+111            android:exported="true"
+111-->[androidx.compose.ui:ui-test-manifest:1.12.0] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/9a5a5781864715cea5443339705f0dca/transformed/ui-test-manifest-1.12.0/AndroidManifest.xml:25:13-36
+112            android:theme="@android:style/Theme.Material.Light.NoActionBar" />
+112-->[androidx.compose.ui:ui-test-manifest:1.12.0] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/9a5a5781864715cea5443339705f0dca/transformed/ui-test-manifest-1.12.0/AndroidManifest.xml:26:13-76
+113        <activity
+113-->[androidx.compose.ui:ui-tooling-android:1.12.0] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/02451f54a10814cf6f03be5a3e6f58f8/transformed/ui-tooling/AndroidManifest.xml:23:9-25:39
+114            android:name="androidx.compose.ui.tooling.PreviewActivity"
+114-->[androidx.compose.ui:ui-tooling-android:1.12.0] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/02451f54a10814cf6f03be5a3e6f58f8/transformed/ui-tooling/AndroidManifest.xml:24:13-71
+115            android:exported="true" />
+115-->[androidx.compose.ui:ui-tooling-android:1.12.0] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/02451f54a10814cf6f03be5a3e6f58f8/transformed/ui-tooling/AndroidManifest.xml:25:13-36
+116
+117        <provider
+117-->[androidx.emoji2:emoji2:1.4.0] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/ad2a11e308d4cc551954a1c056c21c58/transformed/emoji2-1.4.0/AndroidManifest.xml:24:9-32:20
+118            android:name="androidx.startup.InitializationProvider"
+118-->[androidx.emoji2:emoji2:1.4.0] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/ad2a11e308d4cc551954a1c056c21c58/transformed/emoji2-1.4.0/AndroidManifest.xml:25:13-67
+119            android:authorities="com.leafcellteam.mafia.compose.androidx-startup"
+119-->[androidx.emoji2:emoji2:1.4.0] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/ad2a11e308d4cc551954a1c056c21c58/transformed/emoji2-1.4.0/AndroidManifest.xml:26:13-68
+120            android:exported="false" >
+120-->[androidx.emoji2:emoji2:1.4.0] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/ad2a11e308d4cc551954a1c056c21c58/transformed/emoji2-1.4.0/AndroidManifest.xml:27:13-37
+121            <meta-data
+121-->[androidx.emoji2:emoji2:1.4.0] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/ad2a11e308d4cc551954a1c056c21c58/transformed/emoji2-1.4.0/AndroidManifest.xml:29:13-31:52
+122                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+122-->[androidx.emoji2:emoji2:1.4.0] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/ad2a11e308d4cc551954a1c056c21c58/transformed/emoji2-1.4.0/AndroidManifest.xml:30:17-75
+123                android:value="androidx.startup" />
+123-->[androidx.emoji2:emoji2:1.4.0] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/ad2a11e308d4cc551954a1c056c21c58/transformed/emoji2-1.4.0/AndroidManifest.xml:31:17-49
+124            <meta-data
+124-->[androidx.lifecycle:lifecycle-process:2.9.4] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/5280b8c3d1d6546ce181bd90f972912f/transformed/lifecycle-process-2.9.4/AndroidManifest.xml:29:13-31:52
+125                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+125-->[androidx.lifecycle:lifecycle-process:2.9.4] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/5280b8c3d1d6546ce181bd90f972912f/transformed/lifecycle-process-2.9.4/AndroidManifest.xml:30:17-78
+126                android:value="androidx.startup" />
+126-->[androidx.lifecycle:lifecycle-process:2.9.4] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/5280b8c3d1d6546ce181bd90f972912f/transformed/lifecycle-process-2.9.4/AndroidManifest.xml:31:17-49
+127            <meta-data
+127-->[com.squareup.okhttp3:okhttp-android:5.1.0] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/0f2da51304f6915845c185ff68fca11f/transformed/okhttp-release/AndroidManifest.xml:16:13-18:52
+128                android:name="okhttp3.internal.platform.PlatformInitializer"
+128-->[com.squareup.okhttp3:okhttp-android:5.1.0] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/0f2da51304f6915845c185ff68fca11f/transformed/okhttp-release/AndroidManifest.xml:17:17-77
+129                android:value="androidx.startup" />
+129-->[com.squareup.okhttp3:okhttp-android:5.1.0] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/0f2da51304f6915845c185ff68fca11f/transformed/okhttp-release/AndroidManifest.xml:18:17-49
+130            <meta-data
+130-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/5c37a179ae5d85eb921a26e50dc84f57/transformed/profileinstaller-1.4.0/AndroidManifest.xml:29:13-31:52
+131                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+131-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/5c37a179ae5d85eb921a26e50dc84f57/transformed/profileinstaller-1.4.0/AndroidManifest.xml:30:17-85
+132                android:value="androidx.startup" />
+132-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/5c37a179ae5d85eb921a26e50dc84f57/transformed/profileinstaller-1.4.0/AndroidManifest.xml:31:17-49
+133        </provider>
+134
+135        <uses-library
+135-->[androidx.window:window:1.5.0] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/9d299ab67925e06f64c70012ea321dbf/transformed/window-1.5.0/AndroidManifest.xml:23:9-25:40
+136            android:name="androidx.window.extensions"
+136-->[androidx.window:window:1.5.0] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/9d299ab67925e06f64c70012ea321dbf/transformed/window-1.5.0/AndroidManifest.xml:24:13-54
+137            android:required="false" />
+137-->[androidx.window:window:1.5.0] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/9d299ab67925e06f64c70012ea321dbf/transformed/window-1.5.0/AndroidManifest.xml:25:13-37
+138        <uses-library
+138-->[androidx.window:window:1.5.0] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/9d299ab67925e06f64c70012ea321dbf/transformed/window-1.5.0/AndroidManifest.xml:26:9-28:40
+139            android:name="androidx.window.sidecar"
+139-->[androidx.window:window:1.5.0] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/9d299ab67925e06f64c70012ea321dbf/transformed/window-1.5.0/AndroidManifest.xml:27:13-51
+140            android:required="false" />
+140-->[androidx.window:window:1.5.0] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/9d299ab67925e06f64c70012ea321dbf/transformed/window-1.5.0/AndroidManifest.xml:28:13-37
+141
+142        <activity
+142-->[androidx.test:core:1.6.1] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/9ceadcc7d26573a02b8a8128b6c52733/transformed/core-1.6.1/AndroidManifest.xml:27:9-34:20
+143            android:name="androidx.test.core.app.InstrumentationActivityInvoker$BootstrapActivity"
+143-->[androidx.test:core:1.6.1] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/9ceadcc7d26573a02b8a8128b6c52733/transformed/core-1.6.1/AndroidManifest.xml:28:13-99
+144            android:exported="true"
+144-->[androidx.test:core:1.6.1] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/9ceadcc7d26573a02b8a8128b6c52733/transformed/core-1.6.1/AndroidManifest.xml:29:13-36
+145            android:theme="@style/WhiteBackgroundTheme" >
+145-->[androidx.test:core:1.6.1] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/9ceadcc7d26573a02b8a8128b6c52733/transformed/core-1.6.1/AndroidManifest.xml:30:13-56
+146            <intent-filter android:priority="-100" >
+146-->[androidx.test:core:1.6.1] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/9ceadcc7d26573a02b8a8128b6c52733/transformed/core-1.6.1/AndroidManifest.xml:31:13-33:29
+146-->[androidx.test:core:1.6.1] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/9ceadcc7d26573a02b8a8128b6c52733/transformed/core-1.6.1/AndroidManifest.xml:31:28-51
+147                <category android:name="android.intent.category.LAUNCHER" />
+147-->/Users/abduvoris.a.a./AndroidStudioProjects/CurrentProject/MafiaOnlineJetpackComposeCAPI 2/composeApp/src/main/AndroidManifest.xml:20:17-77
+147-->/Users/abduvoris.a.a./AndroidStudioProjects/CurrentProject/MafiaOnlineJetpackComposeCAPI 2/composeApp/src/main/AndroidManifest.xml:20:27-74
+148            </intent-filter>
+149        </activity>
+150        <activity
+150-->[androidx.test:core:1.6.1] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/9ceadcc7d26573a02b8a8128b6c52733/transformed/core-1.6.1/AndroidManifest.xml:35:9-42:20
+151            android:name="androidx.test.core.app.InstrumentationActivityInvoker$EmptyActivity"
+151-->[androidx.test:core:1.6.1] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/9ceadcc7d26573a02b8a8128b6c52733/transformed/core-1.6.1/AndroidManifest.xml:36:13-95
+152            android:exported="true"
+152-->[androidx.test:core:1.6.1] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/9ceadcc7d26573a02b8a8128b6c52733/transformed/core-1.6.1/AndroidManifest.xml:37:13-36
+153            android:theme="@style/WhiteBackgroundTheme" >
+153-->[androidx.test:core:1.6.1] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/9ceadcc7d26573a02b8a8128b6c52733/transformed/core-1.6.1/AndroidManifest.xml:38:13-56
+154            <intent-filter android:priority="-100" >
+154-->[androidx.test:core:1.6.1] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/9ceadcc7d26573a02b8a8128b6c52733/transformed/core-1.6.1/AndroidManifest.xml:31:13-33:29
+154-->[androidx.test:core:1.6.1] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/9ceadcc7d26573a02b8a8128b6c52733/transformed/core-1.6.1/AndroidManifest.xml:31:28-51
+155                <category android:name="android.intent.category.LAUNCHER" />
+155-->/Users/abduvoris.a.a./AndroidStudioProjects/CurrentProject/MafiaOnlineJetpackComposeCAPI 2/composeApp/src/main/AndroidManifest.xml:20:17-77
+155-->/Users/abduvoris.a.a./AndroidStudioProjects/CurrentProject/MafiaOnlineJetpackComposeCAPI 2/composeApp/src/main/AndroidManifest.xml:20:27-74
+156            </intent-filter>
+157        </activity>
+158        <activity
+158-->[androidx.test:core:1.6.1] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/9ceadcc7d26573a02b8a8128b6c52733/transformed/core-1.6.1/AndroidManifest.xml:43:9-50:20
+159            android:name="androidx.test.core.app.InstrumentationActivityInvoker$EmptyFloatingActivity"
+159-->[androidx.test:core:1.6.1] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/9ceadcc7d26573a02b8a8128b6c52733/transformed/core-1.6.1/AndroidManifest.xml:44:13-103
+160            android:exported="true"
+160-->[androidx.test:core:1.6.1] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/9ceadcc7d26573a02b8a8128b6c52733/transformed/core-1.6.1/AndroidManifest.xml:45:13-36
+161            android:theme="@style/WhiteBackgroundDialogTheme" >
+161-->[androidx.test:core:1.6.1] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/9ceadcc7d26573a02b8a8128b6c52733/transformed/core-1.6.1/AndroidManifest.xml:46:13-62
+162            <intent-filter android:priority="-100" >
+162-->[androidx.test:core:1.6.1] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/9ceadcc7d26573a02b8a8128b6c52733/transformed/core-1.6.1/AndroidManifest.xml:31:13-33:29
+162-->[androidx.test:core:1.6.1] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/9ceadcc7d26573a02b8a8128b6c52733/transformed/core-1.6.1/AndroidManifest.xml:31:28-51
+163                <category android:name="android.intent.category.LAUNCHER" />
+163-->/Users/abduvoris.a.a./AndroidStudioProjects/CurrentProject/MafiaOnlineJetpackComposeCAPI 2/composeApp/src/main/AndroidManifest.xml:20:17-77
+163-->/Users/abduvoris.a.a./AndroidStudioProjects/CurrentProject/MafiaOnlineJetpackComposeCAPI 2/composeApp/src/main/AndroidManifest.xml:20:27-74
+164            </intent-filter>
+165        </activity>
+166
+167        <meta-data
+167-->[com.google.android.gms:play-services-basement:18.3.0] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/fe1db15bbf59528c5f1392236030f2f8/transformed/play-services-basement-18.3.0/AndroidManifest.xml:21:9-23:69
+168            android:name="com.google.android.gms.version"
+168-->[com.google.android.gms:play-services-basement:18.3.0] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/fe1db15bbf59528c5f1392236030f2f8/transformed/play-services-basement-18.3.0/AndroidManifest.xml:22:13-58
+169            android:value="@integer/google_play_services_version" />
+169-->[com.google.android.gms:play-services-basement:18.3.0] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/fe1db15bbf59528c5f1392236030f2f8/transformed/play-services-basement-18.3.0/AndroidManifest.xml:23:13-66
+170
+171        <service
+171-->[com.google.android.datatransport:transport-backend-cct:3.2.0] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/7d117cf02ba493d36b724db20ea1b748/transformed/transport-backend-cct-3.2.0/AndroidManifest.xml:26:9-32:19
+172            android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery"
+172-->[com.google.android.datatransport:transport-backend-cct:3.2.0] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/7d117cf02ba493d36b724db20ea1b748/transformed/transport-backend-cct-3.2.0/AndroidManifest.xml:27:13-103
+173            android:exported="false" >
+173-->[com.google.android.datatransport:transport-backend-cct:3.2.0] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/7d117cf02ba493d36b724db20ea1b748/transformed/transport-backend-cct-3.2.0/AndroidManifest.xml:28:13-37
+174            <meta-data
+174-->[com.google.android.datatransport:transport-backend-cct:3.2.0] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/7d117cf02ba493d36b724db20ea1b748/transformed/transport-backend-cct-3.2.0/AndroidManifest.xml:29:13-31:39
+175                android:name="backend:com.google.android.datatransport.cct.CctBackendFactory"
+175-->[com.google.android.datatransport:transport-backend-cct:3.2.0] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/7d117cf02ba493d36b724db20ea1b748/transformed/transport-backend-cct-3.2.0/AndroidManifest.xml:30:17-94
+176                android:value="cct" />
+176-->[com.google.android.datatransport:transport-backend-cct:3.2.0] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/7d117cf02ba493d36b724db20ea1b748/transformed/transport-backend-cct-3.2.0/AndroidManifest.xml:31:17-36
+177        </service>
+178
+179        <receiver
+179-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/5c37a179ae5d85eb921a26e50dc84f57/transformed/profileinstaller-1.4.0/AndroidManifest.xml:34:9-52:20
+180            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+180-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/5c37a179ae5d85eb921a26e50dc84f57/transformed/profileinstaller-1.4.0/AndroidManifest.xml:35:13-76
+181            android:directBootAware="false"
+181-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/5c37a179ae5d85eb921a26e50dc84f57/transformed/profileinstaller-1.4.0/AndroidManifest.xml:36:13-44
+182            android:enabled="true"
+182-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/5c37a179ae5d85eb921a26e50dc84f57/transformed/profileinstaller-1.4.0/AndroidManifest.xml:37:13-35
+183            android:exported="true"
+183-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/5c37a179ae5d85eb921a26e50dc84f57/transformed/profileinstaller-1.4.0/AndroidManifest.xml:38:13-36
+184            android:permission="android.permission.DUMP" >
+184-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/5c37a179ae5d85eb921a26e50dc84f57/transformed/profileinstaller-1.4.0/AndroidManifest.xml:39:13-57
+185            <intent-filter>
+185-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/5c37a179ae5d85eb921a26e50dc84f57/transformed/profileinstaller-1.4.0/AndroidManifest.xml:40:13-42:29
+186                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+186-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/5c37a179ae5d85eb921a26e50dc84f57/transformed/profileinstaller-1.4.0/AndroidManifest.xml:41:17-91
+186-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/5c37a179ae5d85eb921a26e50dc84f57/transformed/profileinstaller-1.4.0/AndroidManifest.xml:41:25-88
+187            </intent-filter>
+188            <intent-filter>
+188-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/5c37a179ae5d85eb921a26e50dc84f57/transformed/profileinstaller-1.4.0/AndroidManifest.xml:43:13-45:29
+189                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+189-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/5c37a179ae5d85eb921a26e50dc84f57/transformed/profileinstaller-1.4.0/AndroidManifest.xml:44:17-85
+189-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/5c37a179ae5d85eb921a26e50dc84f57/transformed/profileinstaller-1.4.0/AndroidManifest.xml:44:25-82
+190            </intent-filter>
+191            <intent-filter>
+191-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/5c37a179ae5d85eb921a26e50dc84f57/transformed/profileinstaller-1.4.0/AndroidManifest.xml:46:13-48:29
+192                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+192-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/5c37a179ae5d85eb921a26e50dc84f57/transformed/profileinstaller-1.4.0/AndroidManifest.xml:47:17-88
+192-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/5c37a179ae5d85eb921a26e50dc84f57/transformed/profileinstaller-1.4.0/AndroidManifest.xml:47:25-85
+193            </intent-filter>
+194            <intent-filter>
+194-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/5c37a179ae5d85eb921a26e50dc84f57/transformed/profileinstaller-1.4.0/AndroidManifest.xml:49:13-51:29
+195                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+195-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/5c37a179ae5d85eb921a26e50dc84f57/transformed/profileinstaller-1.4.0/AndroidManifest.xml:50:17-95
+195-->[androidx.profileinstaller:profileinstaller:1.4.0] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/5c37a179ae5d85eb921a26e50dc84f57/transformed/profileinstaller-1.4.0/AndroidManifest.xml:50:25-92
+196            </intent-filter>
+197        </receiver>
+198
+199        <service
+199-->[com.google.android.datatransport:transport-runtime:3.2.0] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/548d86042fbe6bb489cafc017eaf3c47/transformed/transport-runtime-3.2.0/AndroidManifest.xml:24:9-28:19
+200            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService"
+200-->[com.google.android.datatransport:transport-runtime:3.2.0] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/548d86042fbe6bb489cafc017eaf3c47/transformed/transport-runtime-3.2.0/AndroidManifest.xml:25:13-117
+201            android:exported="false"
+201-->[com.google.android.datatransport:transport-runtime:3.2.0] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/548d86042fbe6bb489cafc017eaf3c47/transformed/transport-runtime-3.2.0/AndroidManifest.xml:26:13-37
+202            android:permission="android.permission.BIND_JOB_SERVICE" >
+202-->[com.google.android.datatransport:transport-runtime:3.2.0] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/548d86042fbe6bb489cafc017eaf3c47/transformed/transport-runtime-3.2.0/AndroidManifest.xml:27:13-69
+203        </service>
+204
+205        <receiver
+205-->[com.google.android.datatransport:transport-runtime:3.2.0] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/548d86042fbe6bb489cafc017eaf3c47/transformed/transport-runtime-3.2.0/AndroidManifest.xml:30:9-32:40
+206            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"
+206-->[com.google.android.datatransport:transport-runtime:3.2.0] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/548d86042fbe6bb489cafc017eaf3c47/transformed/transport-runtime-3.2.0/AndroidManifest.xml:31:13-132
+207            android:exported="false" /> <!-- The activities will be merged into the manifest of the hosting app. -->
+207-->[com.google.android.datatransport:transport-runtime:3.2.0] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/548d86042fbe6bb489cafc017eaf3c47/transformed/transport-runtime-3.2.0/AndroidManifest.xml:32:13-37
+208        <activity
+208-->[com.google.android.play:core-common:2.0.3] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/ac84c59fa68a79320bd57772843f8634/transformed/core-common-2.0.3/AndroidManifest.xml:14:9-18:65
+209            android:name="com.google.android.play.core.common.PlayCoreDialogWrapperActivity"
+209-->[com.google.android.play:core-common:2.0.3] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/ac84c59fa68a79320bd57772843f8634/transformed/core-common-2.0.3/AndroidManifest.xml:15:13-93
+210            android:exported="false"
+210-->[com.google.android.play:core-common:2.0.3] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/ac84c59fa68a79320bd57772843f8634/transformed/core-common-2.0.3/AndroidManifest.xml:16:13-37
+211            android:stateNotNeeded="true"
+211-->[com.google.android.play:core-common:2.0.3] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/ac84c59fa68a79320bd57772843f8634/transformed/core-common-2.0.3/AndroidManifest.xml:17:13-42
+212            android:theme="@style/Theme.PlayCore.Transparent" />
+212-->[com.google.android.play:core-common:2.0.3] /Users/abduvoris.a.a./.gradle/caches/9.6.0/transforms/ac84c59fa68a79320bd57772843f8634/transformed/core-common-2.0.3/AndroidManifest.xml:18:13-62
+213    </application>
+214
+215</manifest>
